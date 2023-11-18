@@ -1,5 +1,1 @@
 # airwatch
-
-hi
-hello
-bonjour
