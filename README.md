@@ -7,8 +7,8 @@ TODO 1:
 - melengkapi index.js
 
 TODO 2:
-- Membuat tampilan Main page (src/scripts/view/pages/main.js)
+- Membuat tampilan Main page (src/scripts/views/pages/main.js)
 
 
 TODO 3:
-- Membuat tampilan About page (src/scripts/view/pages/about.js)
+- Membuat tampilan About page (src/scripts/views/pages/about.js)
