@@ -1,7 +1,8 @@
 # airwatch
 
-Week #1
-TODO 0:
+Week #1 Milestones
+
+TODO 0 [100%]:
 - ✓ Membuat Appshell
 - ✓ Melengkapi Appshell pada index.js
 
