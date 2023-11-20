@@ -1,14 +1,17 @@
 # airwatch
 
 Week #1
+TODO 0:
+- ✓ Membuat Appshell
+- ✓ Melengkapi Appshell pada index.js
+
 TODO 1:
-- membuat komponen app-bar dan footer
-- menampilkan komponen pada index.html
-- melengkapi index.js
+- Membuat komponen element appbar dan footer
+- Menampilkan komponen pada index.html
+- Melengkapi index.js sesuai komponen yang dibuat
 
 TODO 2:
-- Membuat tampilan Main page (src/scripts/views/pages/main.js)
-
+- Membuat tampilan Main page (main.js)
 
 TODO 3:
-- Membuat tampilan About page (src/scripts/views/pages/about.js)
+- Membuat tampilan About page (about.js)
