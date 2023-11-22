@@ -3,10 +3,12 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './views/app';
 
-// TODO 1 lengkapi sesuai tombol hamburger dan drawer pada appbar
+import './components/app-bar';
+import './components/app-footer';
+
 const app = new App({
-  button: document.querySelector(''),
-  drawer: document.querySelector(''),
+  button: document.querySelector('#menu-button'),
+  drawer: document.querySelector('.app-bar__navigation'),
   content: document.querySelector('main'),
 });
 
