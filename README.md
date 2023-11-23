@@ -7,9 +7,9 @@ TODO 0 [100%]:
 - ✓ Melengkapi Appshell pada index.js
 
 TODO 1:
-- Membuat komponen element appbar dan footer
-- Menampilkan komponen pada index.html
-- Melengkapi index.js sesuai komponen yang dibuat
+- ✓ Membuat komponen element appbar dan footer
+- ✓ Menampilkan komponen pada index.html
+- ✓ Melengkapi index.js sesuai komponen yang dibuat
 
 TODO 2:
 - Membuat tampilan Main page (main.js)

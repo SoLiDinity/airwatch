@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   text-decoration: none;
 }
@@ -10,7 +13,7 @@ html {
 }
 
 body {
-  min-width: 100vh;
+  /* min-width: 100vh; */
 }
 
 a,
@@ -24,7 +27,43 @@ textarea {
   align-items: center;
 }
 
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  padding: 8px;
+  background-color: #bf1722;
+  color: white;
+  z-index: 100;
+}
+
+.skip-nav:focus {
+  z-index: 95;
+  opacity: 100%;
+  pointer-events: all;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: min-content;
+  align-items: center;
+  box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.25);
+}
+
+main {
+  min-height: 100vh;
+}
 /* Main Page */
 
 
 /* About Page */
+
+
+footer {
+  /* background-color: rgba(101, 102, 192, 0.5); */
+  background-color: rgba(84, 201, 239, 0.5);
+  width: 100%;
+  padding: 1rem;
+  align-self: end;
+}
