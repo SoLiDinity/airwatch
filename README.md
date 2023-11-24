@@ -6,7 +6,7 @@
 - ✓ Membuat Appshell
 - ✓ Melengkapi Appshell pada index.js
 
-### TODO 1:
+### TODO 1 [100%]:
 - ✓ Membuat komponen element appbar dan footer
 - ✓ Menampilkan komponen pada index.html
 - ✓ Melengkapi index.js sesuai komponen yang dibuat
@@ -17,6 +17,7 @@
 ### TODO 3:
 - Membuat tampilan About page (about.js)
 
+<br><br><br>
 
 ## Week #2 Milestones
 
