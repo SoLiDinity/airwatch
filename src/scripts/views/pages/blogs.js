@@ -1,9 +1,7 @@
-// TODO 3 tampilan About Page
-
-const About = {
+const Blogs = {
   async render() {
     return `
-            <h1>Ini adalah About Page</h1>
+            <h1>Ini adalah Blog Page</h1>
           `;
   },
 
@@ -12,4 +10,4 @@ const About = {
   },
 };
 
-export default About;
+export default Blogs;
