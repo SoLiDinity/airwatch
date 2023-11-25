@@ -21,7 +21,7 @@
 
 ## Week #2 Milestones
 
-### TODO 4:
+### TODO 4 [90%]:
 - Membuat tampilan Maps page (maps.js)
 
 ### TODO 5:
