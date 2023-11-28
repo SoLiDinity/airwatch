@@ -57,7 +57,7 @@ const Maps = {
 
     const indonesiaStations = await DataSource.alllIndonesiaStationsData();
 
-    const aqiClass = ['good', 'moderate', 'unhealthy-groups', 'unhealthy', 'very-unhealthy', 'hazardous', 'index-nan'];
+    const aqiClass = ['good', 'moderate', 'unhealthy-groups', 'unhealthy', 'very-unhealthy', 'hazardous', 'good'];
     indonesiaStations.forEach((data) => {
       const indexIcon = L.divIcon({
         html: `
@@ -72,7 +72,7 @@ const Maps = {
         popupAnchor: [-3, 0],
       });
 
-      const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Data PM2.5 tidak ada'];
+      const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Tidak terdeteksi adanya cemaran PM2.5'];
       L.marker([data.lat, data.lon], { icon: indexIcon }).addTo(map).bindPopup(`
         <div class="popup">
           <div class="container">

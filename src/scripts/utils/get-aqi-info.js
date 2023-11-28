@@ -10,11 +10,9 @@ const getAqiInfo = (aqi, outputArrayValues) => {
       }
     }
 
-    // Jika nilai melebihi batas tertinggi, kembalikan nilai terakhir
     return outputArrayValues[thresholds.index.length];
   }
 
-  // Jika nilai adalah '-', kembalikan nilai terakhir
   return outputArrayValues[thresholds.index.length];
 };
 
