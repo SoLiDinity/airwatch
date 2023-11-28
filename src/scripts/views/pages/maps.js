@@ -3,6 +3,7 @@ import { GestureHandling } from 'leaflet-gesture-handling';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
 import DataSource from '../../data/data-source';
+import getAqiInfo from '../../utils/get-aqi-info';
 
 const Maps = {
   async render() {
@@ -46,8 +47,8 @@ const Maps = {
       gestureHandling: true,
     });
 
-    const mapLink = '<a href="http://www.esri.com/">Esri</a>';
-    const dataLink = '<a href="http://aqicn.corg/">AQICN</a>';
+    const mapLink = '<a href="https://www.esri.com/">Esri</a>';
+    const dataLink = '<a href="https://waqi.info/">WAQI</a>';
 
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: `&copy; ${mapLink} | data by &copy; ${dataLink}`,
@@ -56,34 +57,13 @@ const Maps = {
 
     const indonesiaStations = await DataSource.alllIndonesiaStationsData();
 
+    const aqiClass = ['good', 'moderate', 'unhealthy-groups', 'unhealthy', 'very-unhealthy', 'hazardous', 'index-nan'];
     indonesiaStations.forEach((data) => {
-      const getAirQualityStatusClass = (aqi) => {
-        if (aqi <= 50) {
-          return 'good';
-        }
-        if (aqi > 50 && aqi <= 100) {
-          return 'moderate';
-        }
-        if (aqi > 100 && aqi <= 150) {
-          return 'unhealthy-groups';
-        }
-        if (aqi > 150 && aqi <= 200) {
-          return 'unhealthy';
-        }
-        if (aqi > 200 && aqi <= 300) {
-          return 'very-unhealthy';
-        }
-        if (aqi > 300 && aqi <= 500) {
-          return 'hazardous';
-        }
-        return 'index-nan';
-      };
-
       const indexIcon = L.divIcon({
         html: `
           <div
             id="indexOnMapContainer"
-            class="${getAirQualityStatusClass(data.aqi)}"
+            class="${getAqiInfo(data.aqi, aqiClass)}"
           >${data.aqi}</div>
         `,
         className: 'indexOnMap',
@@ -92,34 +72,13 @@ const Maps = {
         popupAnchor: [-3, 0],
       });
 
-      const getAirQualityStatus = (aqi) => {
-        if (aqi <= 50) {
-          return 'Baik';
-        }
-        if (aqi > 50 && aqi <= 100) {
-          return 'Sedang';
-        }
-        if (aqi > 100 && aqi <= 150) {
-          return 'Tidak sehat untuk kelompok sensitif';
-        }
-        if (aqi > 150 && aqi <= 200) {
-          return 'Tidak sehat';
-        }
-        if (aqi > 200 && aqi <= 300) {
-          return 'Sangat tidak sehat';
-        }
-        if (aqi > 300 && aqi <= 500) {
-          return 'Berbahaya';
-        }
-        return 'Data tidak ada';
-      };
-
+      const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Data PM2.5 tidak ada'];
       L.marker([data.lat, data.lon], { icon: indexIcon }).addTo(map).bindPopup(`
         <div class="popup">
           <div class="container">
             <h3>${data.station.name}</h3>
             <p>Index Udara: ${data.aqi}</p>
-            <p>${getAirQualityStatus(data.aqi)}</p>
+            <p>${getAqiInfo(data.aqi, aqiStatus)}</p>
             <a href="/#/detail/${data.uid}">Selengkapnya</a>
           </div>
         </div>

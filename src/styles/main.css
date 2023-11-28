@@ -42,9 +42,6 @@ input,
 textarea {
   min-height: 44px;
   min-width: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .skip-link {
@@ -96,10 +93,6 @@ main {
 #map a{
   min-width: 0;
   min-height: 0;
-}
-
-.leaflet-top {
-  margin-top: 90px;
 }
 
 .leaflet-control-attribution {
@@ -201,6 +194,12 @@ main {
     background-color: lightgray;
 }
 
+
+
+/* Detail Page */
+.chart {
+  width: 300px;
+}
 
 
 
