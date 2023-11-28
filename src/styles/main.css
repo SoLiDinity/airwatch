@@ -197,6 +197,10 @@ main {
 
 
 /* Detail Page */
+#detailContainer {
+  margin: 1rem;
+}
+
 .chart {
   width: 300px;
 }

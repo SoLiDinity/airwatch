@@ -5,7 +5,7 @@ import { createBarChart, createLineChart } from '../../utils/chart-creator';
 const Detail = {
   async render() {
     return `
-        <div class="detail-container">
+        <div class="detail-container" id="detailContainer">
           <div class="detail-content"></div>
           <div class="chart">
             <canvas id="aqiChart" width="1" height="1"></canvas>
@@ -32,10 +32,11 @@ const Detail = {
     const aqiChartForecastElementId = 'aqiChartForecast';
     const iaqiData = station.iaqi;
 
+    const aqiColors = ['#38d020', '#E7BE27', '#F28330', '#E9474A', '#923BC5', '#7B2D51', 'lightgray'];
+    const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Data tidak ada'];
+
     if (stationName === 'Kementerian Lingkungan Hidup Dan Kehutanan') {
       const gaslabels = ['CO', 'NO2', 'O3', 'PM10', 'PM2.5', 'SO2'];
-      const aqiColors = ['#38d020', '#E7BE27', '#F28330', '#E9474A', '#923BC5', '#7B2D51', 'lightgray'];
-      const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Data tidak ada'];
       const values = Object.values(iaqiData).map((item) => item.v);
 
       console.log(values);
