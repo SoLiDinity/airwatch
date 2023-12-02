@@ -21,11 +21,11 @@
 
 ## Week #2 Milestones
 
-### TODO 4 [90%]:
-- Membuat tampilan Maps page (maps.js)
+### TODO 4 [100%]:
+- ✓ Membuat tampilan Maps page (maps.js)
 
-### TODO 5:
-- Membuat template untuk Detail Page (template-creator.js)
+### TODO 5 [85%]:
+- ✓ Membuat template untuk Detail Page (template-creator.js)
 - Membuat tampilan Detail page (details.js)
 
 ### TODO 6:
