@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
 import DataSource from '../../data/data-source';
 import getAqiInfo from '../../utils/get-aqi-info';
+import aqi from '../../globals/aqi-arrays';
 
 const Maps = {
   async render() {
@@ -57,13 +58,12 @@ const Maps = {
 
     const indonesiaStations = await DataSource.alllIndonesiaStationsData();
 
-    const aqiClass = ['good', 'moderate', 'unhealthy-groups', 'unhealthy', 'very-unhealthy', 'hazardous', 'good'];
     indonesiaStations.forEach((data) => {
       const indexIcon = L.divIcon({
         html: `
           <div
             id="indexOnMapContainer"
-            class="${getAqiInfo(data.aqi, aqiClass)}"
+            class="${getAqiInfo(data.aqi, aqi.class)}"
           >${data.aqi}</div>
         `,
         className: 'indexOnMap',
@@ -72,14 +72,18 @@ const Maps = {
         popupAnchor: [-3, 0],
       });
 
-      const aqiStatus = ['Baik', 'Sedang', 'Tidak sehat untuk kelompok sensitif', 'Tidak sehat', 'Sangat tidak sehat', 'Berbahaya', 'Tidak terdeteksi adanya cemaran PM2.5'];
       L.marker([data.lat, data.lon], { icon: indexIcon }).addTo(map).bindPopup(`
         <div class="popup">
+          <div class="index-color-bg ${getAqiInfo(data.aqi, aqi.classUrl)}">
+            <span>Index Udara</span>
+            <div class="aqi-container"><h1 class="${getAqiInfo(data.aqi, aqi.class)}">${data.aqi}</h1></div>
+            <div class="detail">
+              <h3>${data.station.name}</h3>
+              <span>Status: <strong style="color: ${getAqiInfo(data.aqi, aqi.colors)}">${getAqiInfo(data.aqi, aqi.status)}</strong></span>
+            </div>
+          </div>
           <div class="container">
-            <h3>${data.station.name}</h3>
-            <p>Index Udara: ${data.aqi}</p>
-            <p>${getAqiInfo(data.aqi, aqiStatus)}</p>
-            <a href="/#/detail/${data.uid}">Selengkapnya</a>
+            <a class="to-detail-page" href="/#/detail/${data.uid}"><span>Selengkapnya<i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
     `);
