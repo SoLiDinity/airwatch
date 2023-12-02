@@ -76,7 +76,111 @@ main {
 
 /* Main Page */
 
+.main{
+  background-color: #FBFCFF;
+}
+.main .hero {
+  background-color: #B1E7FF;
+  display: flex;
+  flex-wrap: wrap;
+  padding : 10vh 10vw
+}
+.main .hero p{
+  color : #412E8A;
+  padding-bottom : 2vh;
+  padding-right: 7vw;
+  font-size: larger;
+}
+.main .hero h2{
+  font-size: 64px;
+  padding-bottom: 10vh;
+}
+.main .hero p:nth-child(3){
+  font-style: normal;
+  color: black;
+  font-size: x-large;
+}
+.main .hero .image{
+  background-image: url("../public/AirWatchID/Group26.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 516px;
+  height: 444px;
+  flex: 1 1;
+}
 
+.main .fitur{
+  padding: 15vh 3vw;
+}
+.main .fitur h1{
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+.main .fitur .card-contain{
+  display: flex;
+  justify-content: space-between;
+}
+.main .fitur .card{
+  width: 390px;
+  height: 485px;
+  padding: 25px 16px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
+}
+.main .fitur .card .card-header{
+  text-align: center;
+}
+.main .fitur .card .card-header h1{
+  font-size: 40px;
+  color: #6566C0;
+  font-weight: 700;
+  margin-bottom: 65px;
+}
+.main .fitur .card img{
+  width: 225px;
+  height: 192px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.main .fitur .card .card-body{
+  text-align: justify;
+}
+
+.main .use{
+  margin: 10vh 0;
+  padding: 0 5vw;
+}
+.main .use h1{
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 20vh;
+}
+.main .use h1 span{
+  color: #6566C0;
+}
+.main .use .btn-container{
+  display: flex;
+  height: 50vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main .use .btn-container .btn{
+  display: flex;
+  align-items: center;
+  padding-left: 2vw;
+  width: 560px;
+  height: 58px;
+  border-radius: 13px;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
+}
+.main .use .btn-container .btn button{
+  margin-left: auto;
+  border: none;
+  padding: 0;
+  background-color: #fff;
+  color: #6566C0;
+}
 
 /* About Page */
 
