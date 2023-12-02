@@ -10,7 +10,7 @@ const About = {
           <h2>Tentang <br> AirWatchID</h2>
         </div>
 
-        <div class="image">
+        <div class="image2">
         </div>
       </div>
     <section class="reviews">
