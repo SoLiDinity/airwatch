@@ -2,11 +2,11 @@
 
 ## Week #1 Milestones
 
-### TODO 0 [100%]:
+### TODO 0 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a):
 - ✓ Membuat Appshell
 - ✓ Melengkapi Appshell pada index.js
 
-### TODO 1 [100%]:
+### TODO 1 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a):
 - ✓ Membuat komponen element appbar dan footer
 - ✓ Menampilkan komponen pada index.html
 - ✓ Melengkapi index.js sesuai komponen yang dibuat
@@ -21,7 +21,7 @@
 
 ## Week #2 Milestones
 
-### TODO 4 [100%]:
+### TODO 4 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a):
 - ✓ Membuat tampilan Maps page (maps.js)
 
 ### TODO 5 [85%]:
