@@ -101,7 +101,7 @@ main {
   font-size: x-large;
 }
 .main .hero .image{
-  background-image: url("../public/AirWatchID/Group26.png");
+  background-image: url("../public/AirWatchID/hero-img.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 516px;
