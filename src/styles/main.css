@@ -183,6 +183,96 @@ main {
 }
 
 /* About Page */
+.main .hero {
+  background-color: #B1E7FF;
+  display: flex;
+  flex-wrap: wrap;
+  padding : 10vh 10vw
+}
+.main .hero p{
+  color : #412E8A;
+  padding-bottom : 2vh;
+  padding-right: 7vw;
+  font-size: larger;
+}
+.main .hero h2{
+  font-size: 64px;
+  padding-bottom: 10vh;
+}
+.main .hero p:nth-child(3){
+  font-style: normal;
+  color: black;
+  font-size: x-large;
+}
+.main .hero .image2{
+  background-image: url("../public/AirWatchID/image2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 320px;
+  flex: 1 1;
+}
+.reviews .heading {
+  padding: 5rem 7% 1.4rem;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #0a0535;
+}
+
+.reviews .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.2%;
+}
+
+.reviews .box-container .center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  /* margin-left: 650px; */
+  align-items: flex-start;
+  padding: 1.2%;
+}
+
+.reviews .box-container .box {
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* Menambahkan bingkai dalam */
+}
+
+.reviews .box-container .box p {
+  line-height: 1.7;
+  font-size: 1.7rem;
+  color: var(--light-color);
+}
+
+.reviews .box-container .box .student {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.reviews .box-container .box .student img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.reviews .box-container .box .student h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+}
+
 
 
 
