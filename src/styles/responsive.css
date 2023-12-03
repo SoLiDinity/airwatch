@@ -68,4 +68,56 @@
 }
 
 @media (max-width: 500px) {
+  .main .hero {
+    flex-wrap: wrap-reverse;
+    text-align: center;
+  }
+  .main .hero .content-hero{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+  .main .hero .content-hero p:nth-child(1){
+    order: 2;
+    font-size: 16px;
+    padding-right: 0vw;
+  }
+  .main .hero .content-hero h2{
+    font-size: 40px;
+    padding-bottom: 1vh;
+    order: 1;
+  }
+  .main .hero p:nth-child(3){
+    font-size: large;
+    order: 3;
+    padding-right: 0vw;
+  }
+  .main .hero .image{
+    height: 43vh;
+  }
+
+  .main .fitur{
+    padding: 10vh 3vw 0vh;
+  }
+  .main .fitur h1{
+    font-size: 3em;
+    margin-bottom: 5vh;
+  }
+  .main .fitur .card-contain{
+    height: 220vh;
+  }
+  .main .fitur .card{
+    height: auto;
+    margin-bottom: 5vh;
+  }
+
+  .main .use h1{
+    font-size: 36px;
+    margin-bottom: 5vh;
+    margin-top: auto;
+  }
+  .main .use .btn-container{
+    height: 80vh;
+  }
 }
