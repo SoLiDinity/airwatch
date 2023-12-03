@@ -5,10 +5,10 @@ const Main = {
     return `
     <div class="main">
       <div class="hero" style="flex-grow: 1">
-        <div>
+        <div class="content-hero">
           <p>Aplikasi Pemantau Kualitas Udara Indonesia</p>
           <h2>AirWatchID</h2>
-          <p>Memantau kualitas udara secara cepat <br> dan tepat</p>
+          <p>Memantau kualitas udara secara cepat dan tepat</p>
         </div>
 
         <div class="image">
