@@ -34,13 +34,7 @@
 
 @media (max-width: 1020px) {
   #detailContainer {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .charts {
-    width: 100%;
-    flex-direction: row;
+    padding: 1rem 3rem;
   }
 
   .aqi-chart-card {
@@ -52,6 +46,10 @@
 @media (max-width: 813px) {
   .data-source {
     width: 100%;
+  }
+
+  #detailContainer {
+    padding: 1rem;
   }
 }
 

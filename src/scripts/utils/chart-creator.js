@@ -36,7 +36,7 @@ const progressBar = {
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.fillText(
-        `${getAqiInfo(datapoint, aqiStatus)} | ${datapoint}`,
+        `${getAqiInfo(datapoint, aqiStatus)} | ${datapoint || '-'}`,
         right,
         y.getPixelForValue(index) - fontSizeDataPoint - 7,
       );

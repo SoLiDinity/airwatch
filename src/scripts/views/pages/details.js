@@ -8,22 +8,25 @@ import aqi from '../../globals/aqi-arrays';
 const Detail = {
   async render() {
     return `
-        <div class="detail-container" id="detailContainer">
-        </div>
+        <div class="detail-container" id="detailContainer"></div>
       `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const station = await DataSource.stationDetail(url.id);
-    const aqiStatus = aqi.status;
 
     const detailContentElement = document.querySelector('.detail-content');
     const detailContainerElement = document.querySelector('#detailContainer');
 
-    detailContainerElement.innerHTML += createAQIDetailTemplate(station, aqiStatus);
-
-    // detailContainerElement.style.backgroundColor = 'green';
+    detailContainerElement.innerHTML += createAQIDetailTemplate(
+      station,
+      aqi.status,
+      aqi.classUrl,
+      aqi.colors,
+      aqi.info,
+      window.innerWidth,
+    );
 
     const stationName = station.attributions[0].name;
     const aqiChartElementId = 'aqiChart';
@@ -51,9 +54,9 @@ const Detail = {
         pm25: ['PM2.5'],
         pm10: ['PM10'],
       };
-      const pollutantName = station.dominentpol;
-      const gaslabels = gasLabelsMap[pollutantName];
-      const value = Object.values(iaqiData[pollutantName]);
+      const pollutantNames = ['pm25', 'pm10'];
+      const gaslabels = pollutantNames.flatMap((pollutant) => gasLabelsMap[pollutant] || []);
+      const value = pollutantNames.map((pollutant) => station.iaqi?.[pollutant]?.v);
 
       const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
       createBarChart(ctx, gaslabels, value);
