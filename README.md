@@ -11,10 +11,10 @@
 - ✓ Menampilkan komponen pada index.html
 - ✓ Melengkapi index.js sesuai komponen yang dibuat
 
-### TODO 2:
+### TODO 2 [90%]
 - Membuat tampilan Main page (main.js)
 
-### TODO 3:
+### TODO 3 [90%]
 - Membuat tampilan About page (about.js)
 
 <br><br><br>
@@ -24,7 +24,7 @@
 ### TODO 4 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat tampilan Maps page (maps.js)
 
-### TODO 5 [100%]:
+### TODO 5 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat template untuk Detail Page (template-creator.js)
 - ✓ Membuat tampilan Detail page (details.js)
 
