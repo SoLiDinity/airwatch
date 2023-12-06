@@ -24,15 +24,15 @@
 ### TODO 4 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat tampilan Maps page (maps.js)
 
-### TODO 5 [85%]:
+### TODO 5 [100%]:
 - ✓ Membuat template untuk Detail Page (template-creator.js)
-- Membuat tampilan Detail page (details.js)
+- ✓ Membuat tampilan Detail page (details.js)
 
 ### TODO 6:
 - Membuat template error message (template-creator.js)
 - Lengkapi pada Detail Page
 
-### TODO 7:
+### TODO 7 [75%]:
 - Membuat tampilan untuk Blog Page (blogs.js)
 - Membuat tampilan untuk artikel blog (blog-articles.js)
 - Mmebuat template untuk artikel blog page (template-creator.js)
