@@ -23,7 +23,7 @@ const createAQIDetailTemplate = (data, aqiStatus, aqiClassUrl, aqiColors, aqiInf
     <div class="charts">
     <div class="aqi-chart-card general-aqi-chart">
         <h3>Polutan Dominan</h3>
-        <canvas id="aqisChart" width="${screenWidth < 767 ? 1 : screenWidth <= 900 ? 2 : 3}" height="${screenWidth >= 1150 ? 1 : screenWidth > 900 ? 2 : 1}"></canvas>
+        <canvas id="aqisChart" width="${screenWidth < 700 ? 1 : screenWidth <= 900 ? 2 : 3}" height="${screenWidth >= 1150 ? 1 : screenWidth > 900 ? 2 : 1}"></canvas>
         <canvas id="aqiChart"></canvas>
     </div>
     <div class="aqi-chart-card forecast-aqi-chart">
