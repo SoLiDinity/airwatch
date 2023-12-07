@@ -698,8 +698,7 @@ main {
 
 /* Footer */
 footer {
-  /* background-color: rgba(101, 102, 192, 0.5); */
-  background-color: rgba(84, 201, 239, 0.5);
+  background-color: #54C9EF;
   width: 100%;
   padding: 1rem;
   align-self: end;

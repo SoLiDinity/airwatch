@@ -12,6 +12,7 @@ const DrawerInitiator = {
     drawerItems.forEach((item) => {
       item.addEventListener('click', (e) => {
         this._closeDrawer(e, drawer);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   },
