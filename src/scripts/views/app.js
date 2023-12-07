@@ -17,6 +17,17 @@ class App {
       drawer: this._drawer,
       content: this._content,
     });
+
+    const skipLink = document.querySelector('.skip-link');
+    skipLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      const id = skipLink.getAttribute('href');
+      const targetSection = document.querySelector(id);
+      if (targetSection) {
+        targetSection.setAttribute('tabindex', 0);
+        targetSection.focus();
+      }
+    });
   }
 
   async renderPage() {
