@@ -1,6 +1,6 @@
 # AirWatchID Development Milestones
 
-## Week #1 Milestones
+## Milestones #1
 
 ### TODO 0 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat Appshell
@@ -19,7 +19,7 @@
 
 <br><br><br>
 
-## Week #2 Milestones
+## Milestones #2
 
 ### TODO 4 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat tampilan Maps page (maps.js)
@@ -32,7 +32,23 @@
 - Membuat template error message (template-creator.js)
 - Lengkapi pada Detail Page
 
-### TODO 7 [75%]:
+### TODO 7 [85%]:
 - Membuat tampilan untuk Blog Page (blogs.js)
-- Membuat tampilan untuk artikel blog (blog-articles.js)
+- Membuat tampilan untuk artikel blog (blog-article.js)
 - Mmebuat template untuk artikel blog page (template-creator.js)
+
+<br><br><br>
+
+## Milestones #3
+
+### TODO 8 [50%]
+- ✓ Membuat App Manifest
+- Implementasikan Service Worker
+
+### TODO 9
+- Mmebuat Back-End untuk blog
+
+### TODO 10
+- Front-End Integrated testing (/w jest)
+- Front-End End to End testing (/w codecept)
+- Back-End testing (/w postman)

@@ -1,8 +1,7 @@
 import getAqiInfo from '../../utils/get-aqi-info';
 
-// eslint-disable-next-line default-param-last
 const createAQIDetailTemplate = (data, aqiStatus, aqiClassUrl, aqiColors, aqiInfo, screenWidth = 0) => `
-    <div class="detail-content ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiClassUrl)}">
+    <div class="detail-content shadow ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiClassUrl)}">
         <p class="aqi-label" style="color: white; font-weight: bold;">Index Kualitas Udara</p>
         <div class="aqi-index-detail" style="background-color: ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiColors)};">
             <h1>${data.aqi === '-' ? 0 : data.aqi}</h1>
@@ -21,12 +20,12 @@ const createAQIDetailTemplate = (data, aqiStatus, aqiClassUrl, aqiColors, aqiInf
         </div>
     </div>
     <div class="charts">
-    <div class="aqi-chart-card general-aqi-chart">
+    <div class="aqi-chart-card general-aqi-chart shadow">
         <h3>Polutan Dominan</h3>
         <canvas id="aqisChart" width="${screenWidth < 700 ? 1 : screenWidth <= 900 ? 2 : 3}" height="${screenWidth >= 1150 ? 1 : screenWidth > 900 ? 2 : 1}"></canvas>
         <canvas id="aqiChart"></canvas>
     </div>
-    <div class="aqi-chart-card forecast-aqi-chart">
+    <div class="aqi-chart-card forecast-aqi-chart shadow">
         <h3>Perkiraan Indeks Pencemaran</h3>
         <canvas id="aqiChartForecast" width="3" height="2"></canvas>
     </div>
@@ -42,11 +41,12 @@ const createBlogArticleTemplate = (articleData, currentBlogUrlToShare) => `
         <a class="share-link-button x-twitter" href="${currentBlogUrlToShare.tw}" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
     <img style="width: 100%;" src="${articleData.image_url}">
+    <span class="image-source">Sumber: ${articleData.image_url}</span>
     <article>
     <p class="overview">${articleData.overview}</p>
     ${articleData.content.sections.map((section) => `
         ${section.title ? `<br><h3>${section.title}</h3>` : ''}
-        ${section.image_url ? `<img style="width: 100%;" src="${section.image_url}">` : ''}
+        ${section.image_url ? `<img style="width: 100%;" src="${section.image_url}"><span class="image-source">Sumber: ${section.image_url}</span>` : ''}
         ${section.paragraph ? `<p>${section.paragraph}</p>` : ''}
         ${section.list ? `<div style="margin: .5rem 0">${section.list.map((item) => `<li>${item}</li>`).join('')}</div>` : ''}
     `).join('')}
@@ -68,8 +68,30 @@ const createErrorPage = () => `
   </article>
 `;
 
+const createBlogsListCardTemplate = (data, overviewWordsLimit) => {
+  const limitWords = (text, limit) => {
+    const words = text.split(' ');
+    const limitedText = words.slice(0, limit).join(' ');
+    return `${limitedText}... `;
+  };
+
+  return `
+    <div class="blog-card shadow">
+      <img src="${data.image_url}">
+      <div class="text">
+        <div class="title-overview">
+          <h5 class="title">${data.title}</h5>
+          <p class="overview">${limitWords(data.overview, overviewWordsLimit)}</p>
+        </div>
+        <a href="#/blog/${data.id}/">Selanjutnya<i class="fa-solid fa-arrow-right"></i></a>
+      <div>
+    </div>
+  `;
+};
+
 export {
   createAQIDetailTemplate,
   createBlogArticleTemplate,
   createErrorPage,
+  createBlogsListCardTemplate,
 };

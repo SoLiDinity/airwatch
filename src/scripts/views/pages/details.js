@@ -1,21 +1,27 @@
 import DataSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
-import { createAQIDetailTemplate, createErrorPage } from '../templates/template-creator';
+import { createAQIDetailTemplate, createBlogsListCardTemplate, createErrorPage } from '../templates/template-creator';
 import { createBarChart, createLineChart } from '../../utils/chart-creator';
-import getAqiInfo from '../../utils/get-aqi-info';
 import aqi from '../../globals/aqi-arrays';
+import datas from '../../data/data.json';
 
 const Detail = {
   async render() {
     return `
-        <div class="detail-container" id="detailContainer"></div>
+        <div class="detail-container" id="detailContainer">
+          <div class="detail-content-container"></div>
+          <div class="detail-recommended-articles-container">
+            <h2>Artikel Rekomendasi</h2>
+            <div class="detail-recommended-articles"></div>
+          </div>
+        </div>
       `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-
-    const detailContainerElement = document.querySelector('#detailContainer');
+    const detailContainerElement = document.querySelector('.detail-content-container');
+    const detailRecommendedArticles = document.querySelector('.detail-recommended-articles');
 
     try {
       const station = await DataSource.stationDetail(url.id);
@@ -51,7 +57,7 @@ const Detail = {
         aqiChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
-
+      
       if (
         stationName === 'BMKG | Badan Meteorologi, Klimatologi dan Geofisika'
       ) {
@@ -131,6 +137,11 @@ const Detail = {
       console.error('Terjadi kesalahan:', error);
       detailContainerElement.innerHTML = createErrorPage();
     }
+
+    const { articles } = datas;
+    articles.slice(0, 3).forEach((article) => {
+      detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
+    });
   },
 };
 
