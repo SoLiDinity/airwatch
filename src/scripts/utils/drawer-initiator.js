@@ -7,16 +7,24 @@ const DrawerInitiator = {
     content.addEventListener('click', (event) => {
       this._closeDrawer(event, drawer);
     });
+
+    const drawerItems = document.querySelectorAll('.nav_list_item');
+    drawerItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        this._closeDrawer(e, drawer);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   },
 
   _toggleDrawer(event, drawer) {
     event.stopPropagation();
-    drawer.classList.toggle('active');
+    drawer.classList.toggle('open');
   },
 
   _closeDrawer(event, drawer) {
     event.stopPropagation();
-    drawer.classList.remove('active');
+    drawer.classList.remove('open');
   },
 };
 
