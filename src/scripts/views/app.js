@@ -1,6 +1,7 @@
 import routes from '../routes/routes';
 import UrlParser from '../routes/url-parser';
 import DrawerInitiator from '../utils/drawer-initiator';
+// import { createErrorPage } from './templates/template-creator';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -35,6 +36,14 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
+
+    // try {
+    //   this._content.innerHTML = await page.render();
+    //   await page.afterRender();
+    // } catch (error) {
+    //   console.error('Terjadi kesalahan:', error);
+    //   this._content.innerHTML = createErrorPage();
+    // }
   }
 }
 
