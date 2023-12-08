@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 // TODO 3 tampilan About Page
 
 const About = {
@@ -5,7 +6,7 @@ const About = {
     return `
     <div class="main">
       <div class="hero" style="flex-grow: 1">
-        <div>
+        <div class="content-hero">
           <p>Aplikasi Pemantau Kualitas Udara Indonesia</p>
           <h2>Tentang <br> AirWatchID</h2>
         </div>
@@ -13,67 +14,101 @@ const About = {
         <div class="image2">
         </div>
       </div>
-    <section class="reviews">
-    <h1 class="heading">Tentang Kami</h1>
-            <div class="box-container">
-          <div class="box">
-            <div class="student">
-              <img
-              src="https://img.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg?size=626&ext=jpg&uid=R118614792&ga=GA1.1.791807358.1696633673&semt=sph" 
-                
-                alt="" />
-              <div>
-                <h4>Leonardo Denavito Jounanda Prishamora</h4>
-              </div>
-            </div>
-          </div>
-    
-          <div class="box">
-            <div class="student">
-              <img
-              src="https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg?size=626&ext=jpg&uid=R118614792&ga=GA1.1.791807358.1696633673&semt=sph"
-                alt="" />
+
+      <section class="reviews">
+      <h1 class="heading">Tentang Kami</h1>
+      
+              <div class="box-container">
+              <div class="box">
+              <div class="student">
+                <img src="../team/Leo.jpeg" alt="" />
                 <div>
-                  <h4>Novita Kristiana</h4>
-          </div>
-        </div>
-        </div>
-
-        <div class="box">
-            <div class="student">
-              <img
-                src="https://img.freepik.com/free-photo/portrait-handsome-young-man-with-crossed-arms_176420-15569.jpg?size=626&ext=jpg&uid=R118614792&ga=GA1.1.791807358.1696633673&semt=sph.jpg"
-                alt="" />
-              <div>
-                <h4>Muhammad Arif Rahman</h4>
+                  <h4>Leonardo Denavito Jounanda Prishamora</h4>
+                  <div class="logo-ref-team">
+                    <a href=' https://www.linkedin.com/in/leonardo-denavito/' target='_blank' rel='noreferrer'>
+                      <i class='fa-brands fa-linkedin fs-1'></i>
+                    </a>
+                    <a href='https://github.com/SoLiDinity' target='_blank' rel='noreferrer'>
+                      <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
+            
+      
+            <div class="box">
+              <div class="student">
+                <img
+                src="../team/Novita.jpg" alt="" />
+                  <div>
+                    <h4>Novita Kristiana</h4>
+                    <div class="logo-ref-team">
+                    <a href='https://www.linkedin.com/in/novita-kristiana-9b0679298/' target='_blank' rel='noreferrer'>
+                      <i class='fa-brands fa-linkedin fs-1'></i>
+                    </a>
+                    <a href='https://github.com/KrsNovita2717' target='_blank' rel='noreferrer'>
+                      <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
           <div class="box">
-            <div class="student">
-              <img
-                src="https://img.freepik.com/free-photo/portrait-young-asia-lady-with-positive-expression-arms-crossed-smile-broadly-dressed-casual-clothing-looking-camera-pink-background_7861-3201.jpg?size=626&ext=jpg&uid=R118614792&ga=GA1.1.791807358.1696633673&semt=sph"
-                alt="" />
-              <div>
-                <h4>Andi Nabila Fadiya</h4>
+              <div class="student">
+                <img
+                  src="../team/Arif.jpg" alt="" />
+                <div>
+                  <h4>Muhammad Arif Rahman</h4>
+                <div class="logo-ref-team">
+                  <a href='https://www.linkedin.com/in/muhammad-arif-rahman-8422552a3/' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-linkedin fs-1'></i>
+                  </a>
+                  <a href='https://github.com/MuhammadArifRahman' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        
-          <div class="center">
-          <div class="box">
-            <div class="student">
-              <img
-                src="https://img.freepik.com/free-photo/portrait-young-handsome-smiling-businessman-holding-laptop-hands-typing-browsing-web-pages-isolated-white-background_1150-63247.jpg?size=626&ext=jpg&uid=R118614792&ga=GA1.1.791807358.1696633673&semt=sph"
-                alt="" />
-              <div>
-                <h4>Chary Yedija Adcharisto Sembel</h4>
+  
+            <div class="box">
+              <div class="student">
+                <img
+                  src="../team/Bella.jpg" alt="" />
+                <div>
+                  <h4>Andi Nabila Fadiya</h4>
+                  <div class="logo-ref-team">
+                  <a href='https://www.linkedin.com/in/andi-nabila-fadiya-41b317232/' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-linkedin fs-1'></i>
+                  </a>
+                  <a href='https://github.com/andinabilafdy' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+          
+            <div class="box">
+              <div class="student">
+                <img
+                  src="../team/Chary.jpg" alt="" />
+                <div>
+                  <h4>Chary Yedija Adcharisto Sembel</h4>
+                  <div class="logo-ref-team">
+                  <a href='https://www.linkedin.com/in/chary-sembel-18364a29a/' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-linkedin fs-1'></i>
+                  </a>
+                  <a href='https://github.com/Adkrsto' target='_blank' rel='noreferrer'>
+                    <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          `;
+            `;
   },
 
   async afterRender() {
