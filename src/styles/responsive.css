@@ -151,9 +151,13 @@
     margin-bottom: 5vh;
     margin-top: auto;
   }
+
   .main .use .btn-container {
     height: 80vh;
   }
+  
+  .error-page {
+    flex-flow: column-reverse;
 
   .blog-card .text{
     width: 100%;

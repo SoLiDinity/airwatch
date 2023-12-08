@@ -45,7 +45,7 @@ class AppFooter extends HTMLElement {
         
         .footer__top-logo {
           width: 90%;
-          display: inline-block;
+          display: grid;
         }
 
         .footer__top-logo img {
@@ -69,19 +69,31 @@ class AppFooter extends HTMLElement {
           border: none;
           margin: 0 20px;
         }  
+
         @media screen and (min-width: 650px) {
+          .footer__top-logo {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 100%;
+            justify-items: center;
+          }
+        }    
+
+        @media screen and (min-width: 900px) {
           .footer__top {
             grid-template-columns: repeat(3, auto);
-            gap: 30px;
-            margin-bottom: 0;
+          }
+
+          .footer__top-logo {
+            grid-column-end: 1;
+            justify-items: flex-start;
           }
         }    
       </style>
       <div class="footer__top">
         <div class="footer__top-logo">
           <picture>
-            <img src='./images/logos/Logo-long.png' 
-                alt="AirwatchID Logo">
+            <img src='./images/logos/Logo-long.png' alt="AirwatchID Logo">
           </picture>
           <p>help@airwatchid.com</p>
           <p>+62 811 1234 5678</p>

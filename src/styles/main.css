@@ -3,6 +3,9 @@
 /* Root */
 
 :root {
+  --primary: #54C9EF;
+  --secondary: #6566C0;
+
   --good: #38d020;
   --moderate: #e7be27;
   --unhealthy-groups: #f28330;
@@ -79,8 +82,7 @@ header {
 }
 
 main {
-  width: 100%;
-  min-height: 100vh;
+  min-height: min-content;
 }
 
 /* Main Page */
@@ -878,14 +880,36 @@ main {
   word-break: break-all;
 }
 
+/* Error Page */
+
+.error-page {
+  width: 100%;
+  display: flex;
+  padding: 2em;
+  align-items: center;
+  text-align: center;
+}
+
+.error-page__info {
+  line-height: 2;
+}
+
+.error-page__info h1 {
+  color: var(--primary);
+  font-size: xxx-large;
+}
+
+.error-page__hero img {
+  max-width: 60%;
+}
+
 /* Footer */
 footer {
-  background-color: #54c9ef;
+  background-color: var(--primary);
   width: 100%;
   padding: 1rem;
   align-self: end;
 }
-
 
 /* Lainnya */
 #customAlert {

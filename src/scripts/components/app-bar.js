@@ -72,7 +72,7 @@ class AppBar extends HTMLElement {
         }
 
         .app-bar__navigation ul li.active a {
-          background-color: #6566C0;
+          background-color: var(--secondary);
           color: white;
           font-weight: 700;
           border-radius: 10px
@@ -110,12 +110,12 @@ class AppBar extends HTMLElement {
           }
 
           .app-bar__navigation ul li a:hover {
-            color: #6566C0;
+            color: var(--secondary);
             text-decoration: underline;
           }
 
           .app-bar__navigation ul li.active a {
-            color: #6566C0;
+            color: var(--secondary);
             background-color: transparent;
             text-decoration: underline;
             border-radius: 5px;

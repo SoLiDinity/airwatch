@@ -53,6 +53,21 @@ const createBlogArticleTemplate = (articleData, currentBlogUrlToShare) => `
     </article>
 `;
 
+const createErrorPage = () => `
+  <article class="error-page">
+    <section class="error-page__info">
+        <h1>Oops!<i class="fa-solid fa-gear fa-spin"></i></h1>
+        <h2>Something went wrong.</h2>
+        <p>We're sorry, but an error occurred while fetching data.</p>
+    </section>
+    <section class="error-page__hero">
+        <picture>
+            <img src='./images/heros/error-page-hero.png' alt="Error Logo">
+        </picture>
+    </section>
+  </article>
+`;
+
 const createBlogsListCardTemplate = (data, overviewWordsLimit) => {
   const limitWords = (text, limit) => {
     const words = text.split(' ');
@@ -77,5 +92,6 @@ const createBlogsListCardTemplate = (data, overviewWordsLimit) => {
 export {
   createAQIDetailTemplate,
   createBlogArticleTemplate,
+  createErrorPage,
   createBlogsListCardTemplate,
 };
