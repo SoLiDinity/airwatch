@@ -43,6 +43,24 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .blog-article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-content,
+  .blog-article .recommended-articles {
+    width: 100%;
+  }
+
+  .recommended-articles-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+}
+
 @media (max-width: 813px) {
   .data-source {
     width: 100%;
@@ -63,6 +81,24 @@
     height: fit-content;
     justify-content: start;
   }
+
+  .recommended-articles-container {
+    grid-template-columns: 1fr;
+  }
+
+  .article-content img {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 660px) {
+  .blog-card{
+    width: 100%
+  }
+
+  .blog-card .text {
+    grid-template-rows: 4fr 1fr;
+  }
 }
 
 @media (max-width: 500px) {
@@ -70,52 +106,57 @@
     flex-wrap: wrap-reverse;
     text-align: center;
   }
-  .main .hero .content-hero{
+  .main .hero .content-hero {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
   }
-  .main .hero .content-hero p:nth-child(1){
+  .main .hero .content-hero p:nth-child(1) {
     order: 2;
     font-size: 16px;
     padding-right: 0vw;
   }
-  .main .hero .content-hero h2{
+  .main .hero .content-hero h2 {
     font-size: 40px;
     padding-bottom: 1vh;
     order: 1;
   }
-  .main .hero p:nth-child(3){
+  .main .hero p:nth-child(3) {
     font-size: large;
     order: 3;
     padding-right: 0vw;
   }
-  .main .hero .image{
+  .main .hero .image {
     height: 43vh;
   }
 
-  .main .fitur{
+  .main .fitur {
     padding: 10vh 3vw 0vh;
   }
-  .main .fitur h1{
+  .main .fitur h1 {
     font-size: 3em;
     margin-bottom: 5vh;
   }
-  .main .fitur .card-contain{
+  .main .fitur .card-contain {
     height: 220vh;
   }
-  .main .fitur .card{
+  .main .fitur .card {
     height: auto;
     margin-bottom: 5vh;
   }
 
-  .main .use h1{
+  .main .use h1 {
     font-size: 36px;
     margin-bottom: 5vh;
     margin-top: auto;
   }
-  .main .use .btn-container{
+  .main .use .btn-container {
     height: 80vh;
+  }
+
+  .blog-card .text{
+    width: 100%;
+    grid-template-rows: 7fr 1fr;
   }
 }

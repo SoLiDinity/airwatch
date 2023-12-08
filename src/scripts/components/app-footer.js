@@ -18,7 +18,7 @@ class AppFooter extends HTMLElement {
           grid-template-rows: auto 1fr auto;
           gap: 20px;
           padding: 20px;
-          color: #666;
+          color: white;
         }
         
         .footer__top {
@@ -34,14 +34,13 @@ class AppFooter extends HTMLElement {
 
         .footer__top ul li {
           list-style-type: none;
-          margin: 1em 0;
+          margin: .5rem 0;
         }
 
         .footer__top ul li a {
           text-decoration: none;
-          color: black;
+          color: white;
           width: 100%;
-          color: #666;
         }
         
         .footer__top-logo {
@@ -61,13 +60,13 @@ class AppFooter extends HTMLElement {
 
         .footer__bottom {
           grid-column-start: auto;
-          color: #666;
           text-align: center;
         }
         
         hr {
           height: 2px;
           background-color: white;
+          border: none;
           margin: 0 20px;
         }  
         @media screen and (min-width: 650px) {

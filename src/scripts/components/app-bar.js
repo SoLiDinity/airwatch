@@ -75,6 +75,7 @@ class AppBar extends HTMLElement {
           background-color: #6566C0;
           color: white;
           font-weight: 700;
+          border-radius: 10px
         }
 
         @media screen and (min-width: 650px) {
@@ -117,6 +118,7 @@ class AppBar extends HTMLElement {
             color: #6566C0;
             background-color: transparent;
             text-decoration: underline;
+            border-radius: 5px;
           }
         }
       </style>
