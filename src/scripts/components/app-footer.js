@@ -1,6 +1,13 @@
 class AppFooter extends HTMLElement {
   connectedCallback() {
     this.render();
+
+    const navItems = this.querySelectorAll('.nav_list_item');
+    navItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   }
 
   render() {
@@ -10,148 +17,119 @@ class AppFooter extends HTMLElement {
           display: grid;
           grid-template-rows: auto 1fr auto;
           gap: 20px;
-          align-items: end;
-          line-height: 20px;
-          margin: 20px;
+          padding: 20px;
+          color: white;
         }
         
-        .footer__info {
+        .footer__top {
           display: grid;
           margin: 20px;
-          grid-template-rows: repeat(2, auto);
+          grid-template-rows: repeat(3, auto);
           gap: 20px;
         }
-        
-        .footer__info-subscribe p{
-          text-align: left;
+
+        .footer__top h3{
+          color: white;
         }
-        
-        .footer__info-subscribe p a {
-          color: #666;
-          text-decoration: underline;
-          display: inline;
-        }
-        
-        .footer__info-input {
-          display: inline;
-        }
-        
-        .footer__info-input input {
-          padding: 8px;
-          margin-bottom: 10px;
-          border-radius: 13px;
-          width: 100%;
-          min-height: 44px;
-        }
-        
-        .button-subscribe {
-          background-color: #6566C0;
-          border-radius: 13px;
-          padding: 10px;
-          color: #fff;
-          border: none;
-          cursor: pointer;
-          justify-content: center;
-          transition: background-color 0.3s;
-        }
-        
-        .button-subscribe:hover {
-          background-color: #47507d;
-        }
-        
-        .footer__info p {
-          margin-top: 10px;
-          line-height: 24px;
-        }
-        
-        .footer__info-social_media ul {
+
+        .footer__top ul li {
           list-style-type: none;
-          display: inline;
+          margin: .5rem 0;
         }
-        
-        .footer__info-social_media li {
-          margin: 0 10px;
-        }
-        
-        .footer__info-social_media li a {
-          display: flex;
-          align-items: center;
+
+        .footer__top ul li a {
           text-decoration: none;
-          color: black;
-          font-weight: 500;
-          font-size: 16px;
-          justify-content: left;
+          color: white;
+          width: 100%;
         }
         
-        .footer__info-social_media li i {
-          margin-right: 5px;
-          font-weight: 600;
-          font-size: 20px;
+        .footer__top-logo {
+          width: 90%;
+          display: inline-block;
         }
-        
-        .footer__info-social_media li a:hover {
-          text-decoration: underline;
-          color: #6566C0;
+
+        .footer__top-logo img {
+          max-width: 100%;
+          height: 44px;
+          object-fit: contain;
         }
-        
+
+        .footer__top-logo p {
+          margin: 1em 0;
+        }
+
         .footer__bottom {
           grid-column-start: auto;
-          color: #666;
           text-align: center;
         }
         
         hr {
-          border: 0;
-          height: 1px;
-          background-color: black;
+          height: 2px;
+          background-color: white;
+          border: none;
           margin: 0 20px;
         }  
         @media screen and (min-width: 650px) {
-          .footer__info {
-            grid-template-columns: repeat(2, auto);
-            margin-bottom: 0;
-          }
-              
-          .footer__info-subscribe {
-            margin-right: 20px;
-          }
-
-          .footer__info-subscribe p a {
-            color: #666;
-            text-decoration: underline;
-            display: inline;
-          }
-          
-          .footer__info-input {
-            display: flex;
-          }
-          
-          .footer__info-input input {
-            margin-right: 10px;
-            width: 50%;
+          .footer__top {
+            grid-template-columns: repeat(3, auto);
+            gap: 30px;
             margin-bottom: 0;
           }
         }    
       </style>
-      <div class="footer__info">
-        <div class="footer__info-subscribe">
-          <p>Gabung info harian dari</p>
-          <div class="footer__info-input">
-              <input type="email" name="email" id="email" placeholder="Masukan Email Kamu">
-              <button type="submit" class="button-subscribe">Berlangganan</button>
-          </div>
-          <p>
-            Dengan berlangganan, Anda setuju dengan
-            <span><a href="#">Kebijakan Privasi</a></span>
-            kami dan memberikan izin untuk menerima pembaruan dari perusahaan kami.
-          </p>
+      <div class="footer__top">
+        <div class="footer__top-logo">
+          <picture>
+            <img src='./images/logos/Logo-long.png' 
+                alt="AirwatchID Logo">
+          </picture>
+          <p>help@airwatchid.com</p>
+          <p>+62 811 1234 5678</p>
+          <p>AirWatchID, Indonesia</p>
         </div>
-        <div class="footer__info-social_media">
-          <h3>Follow Us</h3>
-          <ul>
-            <li><a href="#"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-            <li><a href="#"><i class="fa-brands fa-x-twitter"></i>Twitter X</a></li>      
+        <div class="footer__top-teams">
+          <h3>
+            <i class="fa-solid fa-people-group"></i>
+            Our Teams
+          </h3>
+          <ul class="team-list">
+            <li class="team-list_item">
+              <a href="https://www.linkedin.com/in/leonardo-denavito/">
+                Leonardo Denavito Jounanda Prishamora
+              </a>
+            </li>
+            <li class="team-list_item">
+              <a href="https://www.linkedin.com/in/andi-nabila-fadiya-41b317232/">
+                Andi Nabila Fadiya
+              </a>
+            </li>
+            <li class="team-list_item">
+              <a href="https://www.linkedin.com/in/novita-kristiana-9b0679298/">
+                Novita Kristiana
+              </a>
+            </li>
+            <li class="team-list_item">
+              <a href="https://www.linkedin.com/in/muhammad-arif-rahman-8422552a3/">
+                Muhammad Arif Rahman
+              </a>
+            </li>
+            <li class="team-list_item">
+              <a href="https://www.linkedin.com/in/chary-sembel-18364a29a/">
+                Chary Yedija Adcharisto Sembel
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__top-navigation">
+          <h3>
+            <i class="fa-solid fa-location-arrow"></i>
+            Navigasi
+          </h3>
+          <ul class="nav_list">
+            <li class="nav_list_item"><a href="#/">Home</a></li>
+            <li class="nav_list_item"><a href="#/maps">Maps</a></li>
+            <li class="nav_list_item"><a href="#/about">About</a></li>
+            <li class="nav_list_item"><a href="#/blog">Blog</a></li>
           </ul>
         </div>
       </div>

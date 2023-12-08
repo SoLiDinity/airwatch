@@ -74,7 +74,7 @@ const Maps = {
 
       L.marker([data.lat, data.lon], { icon: indexIcon }).addTo(map).bindPopup(`
         <div class="popup">
-          <div class="index-color-bg ${getAqiInfo(data.aqi, aqi.classUrl)}">
+          <div class="index-color-bg ${getAqiInfo(data.aqi, aqi.classUrl)} bg-img">
             <span>Index Udara</span>
             <div class="aqi-container"><h1 class="${getAqiInfo(data.aqi, aqi.class)}">${data.aqi}</h1></div>
             <div class="detail">

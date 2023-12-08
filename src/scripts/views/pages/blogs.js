@@ -1,14 +1,25 @@
 // TODO 7
+import data from '../../data/data.json';
+import { createBlogsListCardTemplate } from '../templates/template-creator';
 
 const Blogs = {
   async render() {
     return `
-            <h1>Ini adalah Blog Page</h1>
+        <div class="blog-list-container" style="margin: 1rem;">
+          <div class="blog-container"></div>
+        </div>
           `;
   },
 
   async afterRender() {
-    // after render mainpage
+    const blogData = data.articles;
+    console.log(blogData);
+
+    const blogContainerElement = await document.querySelector('.blog-container');
+
+    blogData.forEach((blog) => {
+      blogContainerElement.innerHTML += createBlogsListCardTemplate(blog, 30);
+    });
   },
 };
 

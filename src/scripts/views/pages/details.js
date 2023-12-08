@@ -1,14 +1,19 @@
 import DataSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
-import { createAQIDetailTemplate } from '../templates/template-creator';
+import { createAQIDetailTemplate, createBlogsListCardTemplate } from '../templates/template-creator';
 import { createBarChart, createLineChart } from '../../utils/chart-creator';
-import getAqiInfo from '../../utils/get-aqi-info';
 import aqi from '../../globals/aqi-arrays';
+import datas from '../../data/data.json';
 
 const Detail = {
   async render() {
     return `
         <div class="detail-container" id="detailContainer">
+          <div class="detail-content-container"></div>
+          <div class="detail-recommended-articles-container">
+            <h2>Artikel Rekomendasi</h2>
+            <div class="detail-recommended-articles"></div>
+          </div>
         </div>
       `;
   },
@@ -16,14 +21,18 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const station = await DataSource.stationDetail(url.id);
-    const aqiStatus = aqi.status;
 
-    const detailContentElement = document.querySelector('.detail-content');
-    const detailContainerElement = document.querySelector('#detailContainer');
+    const detailContainerElement = document.querySelector('.detail-content-container');
+    const detailRecommendedArticles = document.querySelector('.detail-recommended-articles');
 
-    detailContainerElement.innerHTML += createAQIDetailTemplate(station, aqiStatus);
-
-    // detailContainerElement.style.backgroundColor = 'green';
+    detailContainerElement.innerHTML += createAQIDetailTemplate(
+      station,
+      aqi.status,
+      aqi.classUrl,
+      aqi.colors,
+      aqi.info,
+      window.innerWidth,
+    );
 
     const stationName = station.attributions[0].name;
     const aqiChartElementId = 'aqiChart';
@@ -51,9 +60,9 @@ const Detail = {
         pm25: ['PM2.5'],
         pm10: ['PM10'],
       };
-      const pollutantName = station.dominentpol;
-      const gaslabels = gasLabelsMap[pollutantName];
-      const value = Object.values(iaqiData[pollutantName]);
+      const pollutantNames = ['pm25', 'pm10'];
+      const gaslabels = pollutantNames.flatMap((pollutant) => gasLabelsMap[pollutant] || []);
+      const value = pollutantNames.map((pollutant) => station.iaqi?.[pollutant]?.v);
 
       const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
       createBarChart(ctx, gaslabels, value);
@@ -87,8 +96,7 @@ const Detail = {
       aqisChartCanvas.remove();
     }
 
-    if (
-      stationName === 'Balai Besar Standardisasi dan Pelayanan Jasa Pencegahan Pencemaran Industri (BBSPJPPI)'
+    if (stationName === 'Balai Besar Standardisasi dan Pelayanan Jasa Pencegahan Pencemaran Industri (BBSPJPPI)'
       || stationName === 'Citizen Science project sensor.community') {
       const gaslabels = ['PM2.5', 'PM10'];
       const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map((item) => item.v);
@@ -102,6 +110,11 @@ const Detail = {
       aqisChartCanvas.remove();
       aqiChartForecastCanvas.remove();
     }
+
+    const { articles } = datas;
+    articles.slice(0, 3).forEach((article) => {
+      detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
+    });
   },
 };
 
