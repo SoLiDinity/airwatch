@@ -75,21 +75,16 @@
 }
 
 @media (max-width: 813px) {
-
   .reviews .box-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .data-source {
     width: 100%;
   }
-<<<<<<< HEAD
- 
-=======
 
   #detailContainer {
     padding: 1rem;
   }
->>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
 }
 
 @media (max-width: 700px) {
@@ -130,6 +125,12 @@
   }
 }
 
+@media (max-width: 540px) {
+  .reviews .box-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 500px) {
 
   .main .hero {
@@ -152,12 +153,7 @@
     padding-bottom: 1vh;
     order: 1;
   }
-<<<<<<< HEAD
-
-  .main .hero p:nth-child(3){
-=======
   .main .hero p:nth-child(3) {
->>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
     font-size: large;
     order: 3;
     padding-right: 0vw;
@@ -166,15 +162,7 @@
     height: 43vh;
   }
 
-<<<<<<< HEAD
-  .reviews .box-container .box .student img {
-    height: 15vh;
-  }
-
-  .main .fitur{
-=======
   .main .fitur {
->>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
     padding: 10vh 3vw 0vh;
   }
   .main .fitur h1 {
@@ -203,16 +191,15 @@
     flex-flow: column-reverse;
   }
 
-<<<<<<< HEAD
   .main .hero .image2 {
     max-width: 100%;
     height: 240px;
     min-width: 300px;
-=======
+  }
+
   .blog-card .text{
     width: 100%;
     grid-template-rows: 7fr 1fr;
->>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
   }
 
   .detail-recommended-articles .blog-card .text {

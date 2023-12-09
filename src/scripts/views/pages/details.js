@@ -133,15 +133,19 @@ const Detail = {
         aqisChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
+
+      const { articles } = datas;
+      articles.slice(0, 3).forEach((article) => {
+        detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
+      });
     } catch (error) {
       console.error('Terjadi kesalahan:', error);
       detailContainerElement.innerHTML = createErrorPage();
-    }
 
-    const { articles } = datas;
-    articles.slice(0, 3).forEach((article) => {
-      detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
-    });
+      const recommendedArticlesContainerElement = document.querySelector('.detail-recommended-articles-container');
+      recommendedArticlesContainerElement
+        .parentNode.removeChild(recommendedArticlesContainerElement);
+    }
   },
 };
 

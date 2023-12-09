@@ -19,7 +19,7 @@ const About = {
       <h1 class="heading">Tentang Kami</h1>
       
               <div class="box-container">
-              <div class="box">
+              <div class="box shadow">
               <div class="student">
                 <img src="../team/Leo.jpeg" alt="" />
                 <div>
@@ -37,7 +37,7 @@ const About = {
             </div>
             
       
-            <div class="box">
+            <div class="box shadow">
               <div class="student">
                 <img
                 src="../team/Novita.jpg" alt="" />
@@ -55,7 +55,7 @@ const About = {
               </div>
             </div>
   
-          <div class="box">
+          <div class="box shadow">
               <div class="student">
                 <img
                   src="../team/Arif.jpg" alt="" />
@@ -73,7 +73,7 @@ const About = {
             </div>
           </div>
   
-            <div class="box">
+            <div class="box shadow">
               <div class="student">
                 <img
                   src="../team/Bella.jpg" alt="" />
@@ -91,7 +91,7 @@ const About = {
             </div>
           </div>
           
-            <div class="box">
+            <div class="box shadow">
               <div class="student">
                 <img
                   src="../team/Chary.jpg" alt="" />

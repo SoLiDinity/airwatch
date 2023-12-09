@@ -222,6 +222,11 @@ main {
   padding-bottom: 10vh;
   
 }
+
+.reviews {
+  padding-bottom: 5rem;
+}
+
 .reviews .heading {
   padding: 5rem 7% 1.4rem;
   font-size: 3rem;
@@ -236,7 +241,7 @@ main {
   gap: 2rem;
   align-items: flex-start;
   justify-content: center;
-  padding: 1.2%;
+  padding: 0 1rem 1rem;
   max-width: 1200px; 
   margin: 0 auto; 
 }
@@ -251,17 +256,16 @@ main {
   border-radius: 0.5rem;
   background-color: var(--white);
   padding: 2rem;
-  box-shadow: 6px 8px 10px 0 rgb(44, 143, 189);
 }
 
 .reviews .box-container .box .student {
-  margin-top: 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.5rem;
   color: var(--black);
   font-size: clamp(17px, 1vw, 15px);
-  padding-bottom: 10vh;
   max-width: 100%;
 }
 
@@ -272,15 +276,21 @@ main {
   border-radius: 50%;
 }
 
+.reviews .box-container .box .student h4 {
+  text-align: center;
+}
+
 .box {
   display: flex;
   flex-direction: column; 
   align-items: center; 
 }
 
-<<<<<<< HEAD
 .logo-ref-team {
-  margin-top: 10px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .fa-brands {
@@ -291,8 +301,6 @@ main {
 
 
 
-=======
->>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
 /* Maps Page */
 
 #map {
@@ -867,8 +875,8 @@ main {
   align-items: center;
   background-color: lightgray;
   aspect-ratio: 1/1;
-  min-width: 44px;
-  min-height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
@@ -936,7 +944,7 @@ footer {
 
 /* Lainnya */
 #customAlert {
-  width: 200px;
+  width: fit-content;
   position: fixed;
   top: -100px;
   right: 50%;
@@ -949,5 +957,5 @@ footer {
   border-radius: 50px;
   transition: 0.3s;
   z-index: 999;
-  font-size: clamp(14px, 1vw, 800px);
+  font-size: clamp(12px, 1vw, 800px);
 }

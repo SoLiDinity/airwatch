@@ -1,4 +1,5 @@
 import getAqiInfo from '../../utils/get-aqi-info';
+import limitWords from '../../utils/limit-words';
 
 const createAQIDetailTemplate = (data, aqiStatus, aqiClassUrl, aqiColors, aqiInfo, screenWidth = 0) => `
     <div class="detail-content shadow ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiClassUrl)}">
@@ -62,20 +63,13 @@ const createErrorPage = () => `
     </section>
     <section class="error-page__hero">
         <picture>
-            <img src='./images/heros/error-page-hero.png' alt="Error Logo">
+            <img src='./images/heros/error.png' alt="Error Logo" style="width: 200px">
         </picture>
     </section>
   </article>
 `;
 
-const createBlogsListCardTemplate = (data, overviewWordsLimit) => {
-  const limitWords = (text, limit) => {
-    const words = text.split(' ');
-    const limitedText = words.slice(0, limit).join(' ');
-    return `${limitedText}... `;
-  };
-
-  return `
+const createBlogsListCardTemplate = (data, overviewWordsLimit = null) => `
     <div class="blog-card shadow">
       <img src="${data.image_url}">
       <div class="text">
@@ -87,7 +81,6 @@ const createBlogsListCardTemplate = (data, overviewWordsLimit) => {
       <div>
     </div>
   `;
-};
 
 export {
   createAQIDetailTemplate,
