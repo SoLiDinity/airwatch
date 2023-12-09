@@ -14,8 +14,8 @@
 ### TODO 2 [90%]
 - Membuat tampilan Main page (main.js)
 
-### TODO 3 [90%]
-- Membuat tampilan About page (about.js)
+### TODO 3 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
+- ✓ Membuat tampilan About page (about.js)
 
 <br><br><br>
 
