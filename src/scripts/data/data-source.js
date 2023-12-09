@@ -9,13 +9,14 @@ class DataSource {
 
       const excludedCountries = ['malaysia', 'thailand', 'singapore', 'brunei'];
       const excludedCities = ['miri', 'kuala lumpur', 'bukit bintang', 'klcc', 'ipoh', 'perai'];
-      const isAlphanumeric = (str) => /^[a-zA-Z0-9\s$%,-]+$/i.test(str);
+      const isAlphanumeric = str => /^[a-zA-Z0-9\s$%,-]+$/i.test(str);
 
-      const indonesiaStations = responseJson.data.filter((data) => {
+      const indonesiaStations = responseJson.data.filter(data => {
         const stationNameLower = data.station.name.toLowerCase();
-        const isExcluded = excludedCountries.some((country) => stationNameLower.includes(country))
-          || excludedCities.some((city) => stationNameLower.includes(city))
-          || !isAlphanumeric(stationNameLower);
+        const isExcluded =
+          excludedCountries.some(country => stationNameLower.includes(country)) ||
+          excludedCities.some(city => stationNameLower.includes(city)) ||
+          !isAlphanumeric(stationNameLower);
 
         return !isExcluded;
       });

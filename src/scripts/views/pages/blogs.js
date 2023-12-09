@@ -15,7 +15,7 @@ const Blogs = {
     const blogData = data.articles;
     const blogContainerElement = await document.querySelector('.blog-container');
 
-    blogData.forEach((blog) => {
+    blogData.forEach(blog => {
       blogContainerElement.innerHTML += createBlogsListCardTemplate(blog, 30);
     });
   },

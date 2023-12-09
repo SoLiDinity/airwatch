@@ -26,7 +26,7 @@ const About = {
     const teamData = datas.team;
     const boxContainerElement = document.querySelector('.box-container');
 
-    teamData.forEach((person) => {
+    teamData.forEach(person => {
       boxContainerElement.innerHTML += createProfileCardTemplate(person);
     });
   },

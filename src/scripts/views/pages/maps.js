@@ -63,7 +63,7 @@ const Maps = {
         },
       ).addTo(map);
 
-      indonesiaStations.forEach((data) => {
+      indonesiaStations.forEach(data => {
         const indexIcon = L.divIcon({
           html: `
             <div
@@ -82,20 +82,20 @@ const Maps = {
             <div class="index-color-bg ${getAqiInfo(data.aqi, aqi.classUrl)} bg-img">
               <span>Index Udara</span>
               <div class="aqi-container"><h1 class="${getAqiInfo(data.aqi, aqi.class)}">${
-  data.aqi
-}</h1></div>
+                data.aqi
+              }</h1></div>
               <div class="detail">
                 <h3>${data.station.name}</h3>
                 <span>Status: <strong style="color: ${getAqiInfo(
-    data.aqi,
-    aqi.colors,
-  )}">${getAqiInfo(data.aqi, aqi.status)}</strong></span>
+                  data.aqi,
+                  aqi.colors,
+                )}">${getAqiInfo(data.aqi, aqi.status)}</strong></span>
               </div>
             </div>
             <div class="container">
               <a class="to-detail-page" href="/#/detail/${
-  data.uid
-}"><span>Selengkapnya<i class="fa-solid fa-arrow-right"></i></span></a>
+                data.uid
+              }"><span>Selengkapnya<i class="fa-solid fa-arrow-right"></i></span></a>
             </div>
           </div>
       `);

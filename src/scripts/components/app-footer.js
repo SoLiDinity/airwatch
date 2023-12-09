@@ -3,7 +3,7 @@ class AppFooter extends HTMLElement {
     this.render();
 
     const navItems = this.querySelectorAll('.nav_list_item');
-    navItems.forEach((item) => {
+    navItems.forEach(item => {
       item.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });

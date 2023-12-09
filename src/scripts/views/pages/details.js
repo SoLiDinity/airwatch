@@ -46,7 +46,7 @@ const Detail = {
 
       if (stationName === 'Kementerian Lingkungan Hidup Dan Kehutanan') {
         const gaslabels = ['CO', 'NO2', 'O3', 'PM10', 'PM2.5', 'SO2'];
-        const values = Object.values(iaqiData).map((item) => item.v);
+        const values = Object.values(iaqiData).map(item => item.v);
 
         const ctx = document.getElementById(`${aqisChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, values);
@@ -65,29 +65,29 @@ const Detail = {
           pm10: ['PM10'],
         };
         const pollutantNames = ['pm25', 'pm10'];
-        const gaslabels = pollutantNames.flatMap((pollutant) => gasLabelsMap[pollutant] || []);
-        const value = pollutantNames.map((pollutant) => station.iaqi?.[pollutant]?.v);
+        const gaslabels = pollutantNames.flatMap(pollutant => gasLabelsMap[pollutant] || []);
+        const value = pollutantNames.map(pollutant => station.iaqi?.[pollutant]?.v);
 
         const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, value);
 
         if (aqiDailyForecast) {
-          const labels = aqiDailyForecast.o3.map((entry) => entry.day);
+          const labels = aqiDailyForecast.o3.map(entry => entry.day);
 
           const datasets = [
             {
               label: 'O3',
-              data: aqiDailyForecast.o3.map((entry) => entry.avg),
+              data: aqiDailyForecast.o3.map(entry => entry.avg),
               backgroundColor: '#071952',
             },
             {
               label: 'PM10',
-              data: aqiDailyForecast.pm10.map((entry) => entry.avg),
+              data: aqiDailyForecast.pm10.map(entry => entry.avg),
               backgroundColor: '#088395',
             },
             {
               label: 'PM2.5',
-              data: aqiDailyForecast.pm25.map((entry) => entry.avg),
+              data: aqiDailyForecast.pm25.map(entry => entry.avg),
               backgroundColor: '#35A29F',
             },
           ];
@@ -101,12 +101,12 @@ const Detail = {
       }
 
       if (
-        stationName
-          === 'Balai Besar Standardisasi dan Pelayanan Jasa Pencegahan Pencemaran Industri (BBSPJPPI)'
-        || stationName === 'Citizen Science project sensor.community'
+        stationName ===
+          'Balai Besar Standardisasi dan Pelayanan Jasa Pencegahan Pencemaran Industri (BBSPJPPI)' ||
+        stationName === 'Citizen Science project sensor.community'
       ) {
         const gaslabels = ['PM2.5', 'PM10'];
-        const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map((item) => item.v);
+        const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map(item => item.v);
 
         const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, values);
@@ -119,7 +119,7 @@ const Detail = {
       }
 
       const { articles } = datas;
-      articles.slice(0, 3).forEach((article) => {
+      articles.slice(0, 3).forEach(article => {
         detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
       });
     } catch (error) {

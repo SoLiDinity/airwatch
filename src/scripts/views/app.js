@@ -20,7 +20,7 @@ class App {
     });
 
     const skipLink = document.querySelector('.skip-link');
-    skipLink.addEventListener('click', (event) => {
+    skipLink.addEventListener('click', event => {
       event.preventDefault();
       const id = skipLink.getAttribute('href');
       const targetSection = document.querySelector(id);

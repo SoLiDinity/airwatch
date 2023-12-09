@@ -1,5 +1,5 @@
 const OPTIONS = {
-  method: (fetchmethod) => ({ method: fetchmethod }),
+  method: fetchmethod => ({ method: fetchmethod }),
   headers: {},
   body: JSON.stringify({}),
 };

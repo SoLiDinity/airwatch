@@ -24,7 +24,7 @@ const BlogsArticle = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const articleContentElement = document.querySelector('.article-content');
     const otherArticlesContainerElement = document.querySelector('.recommended-articles-container');
-    const articleData = datas.articles.find((data) => data.id === url.id);
+    const articleData = datas.articles.find(data => data.id === url.id);
 
     const currentBlogUrlUri = encodeURIComponent(window.location.href);
     const currentBlogTitleUri = encodeURIComponent(`${articleData.title} | Baca artikelnya di:`);
@@ -56,14 +56,14 @@ const BlogsArticle = {
     articleContentElement.innerHTML += createBlogArticleTemplate(articleData, shareCurrentBlogUrl);
 
     const copyToClipBoardButtonElement = document.querySelector('#copyToClipboard');
-    copyToClipBoardButtonElement.addEventListener('click', (e) => {
+    copyToClipBoardButtonElement.addEventListener('click', e => {
       e.preventDefault();
 
       copyToClipboard();
     });
 
-    const otherArticles = datas.articles.filter((data) => data.id !== url.id);
-    otherArticles.slice(0, 4).forEach((article) => {
+    const otherArticles = datas.articles.filter(data => data.id !== url.id);
+    otherArticles.slice(0, 4).forEach(article => {
       otherArticlesContainerElement.innerHTML += createBlogsListCardTemplate(article, 10);
     });
   },
