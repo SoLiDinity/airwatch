@@ -52,6 +52,25 @@ const createAQIDetailTemplate = (
     </div>
 `;
 
+const createProfileCardTemplate = (teamData) => `
+  <div class="box shadow">
+    <div class="student">
+      <img
+        src="${teamData.image_path}" alt="" />
+      <div>
+        <h4>${teamData.name}</h4>
+        <div class="logo-ref-team">
+        <a href='${teamData.linkedin}' target='_blank' rel='noreferrer'>
+          <i class='fa-brands fa-linkedin fs-1'></i>
+        </a>
+        <a href='${teamData.github}' target='_blank' rel='noreferrer'>
+          <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
+        </a>
+      </div>
+    </div>
+  </div>
+`;
+
 const createBlogArticleTemplate = (articleData, currentBlogUrlToShare) => `
     <h1>${articleData.title}</h1>
     <div class="share-links">
@@ -126,6 +145,7 @@ const createBlogsListCardTemplate = (data, overviewWordsLimit = null) => `
 
 export {
   createAQIDetailTemplate,
+  createProfileCardTemplate,
   createBlogArticleTemplate,
   createErrorPage,
   createBlogsListCardTemplate,
