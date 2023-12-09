@@ -6,7 +6,8 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist --port 9155",
-    "lint": "eslint ./src/"
+    "lint": "eslint ./src/",
+    "format": "prettier --write ./src"
   },
   "author": "",
   "license": "ISC",

@@ -7,11 +7,11 @@ const aqiStatus = aqi.status;
 
 const progressBar = {
   id: 'progressBar',
-  beforeDatasetDraw(chart, args, pluginsOptions) {
+  beforeDatasetDraw(chart) {
     const {
-      ctx, data, chartArea: {
-        top, bottom, left, right, width, height,
-      },
+      ctx,
+      data,
+      chartArea: { left, right, width },
       scales: { x, y },
     } = chart;
 
@@ -24,11 +24,7 @@ const progressBar = {
       ctx.fillStyle = 'black';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
-      ctx.fillText(
-        data.labels[index],
-        left,
-        y.getPixelForValue(index) - fontSizeLabel - 7,
-      );
+      ctx.fillText(data.labels[index], left, y.getPixelForValue(index) - fontSizeLabel - 7);
 
       const fontSizeDataPoint = fontSizeLabel;
       ctx.font = `${fontSizeDataPoint}px sans-serif`;
@@ -43,7 +39,7 @@ const progressBar = {
 
       ctx.beginPath();
       ctx.fillStyle = 'rgba(0, 0, 0, 0.075)';
-      ctx.fillRect(left, y.getPixelForValue(index) - (barHeight / 2), width, barHeight);
+      ctx.fillRect(left, y.getPixelForValue(index) - barHeight / 2, width, barHeight);
     });
   },
 };
@@ -94,7 +90,9 @@ const createBarChart = (ctx, labels, values) => new Chart(ctx, {
       },
       tooltip: {
         callbacks: {
-          label: (context) => `Status: ${getAqiInfo(values[context.dataIndex], aqiStatus)} (${values[context.dataIndex]})`,
+          label: (context) => `Status: ${getAqiInfo(values[context.dataIndex], aqiStatus)} (${
+            values[context.dataIndex]
+          })`,
         },
       },
     },
@@ -118,7 +116,4 @@ const createLineChart = (ctx, labels, datasets, maxY) => new Chart(ctx, {
   },
 });
 
-export {
-  createBarChart,
-  createLineChart,
-};
+export { createBarChart, createLineChart };

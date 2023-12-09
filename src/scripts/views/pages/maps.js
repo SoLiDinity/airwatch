@@ -55,10 +55,13 @@ const Maps = {
       const mapLink = '<a href="https://www.esri.com/">Esri</a>';
       const dataLink = '<a href="https://waqi.info/">WAQI</a>';
 
-      L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: `&copy; ${mapLink} | data by &copy; ${dataLink}`,
-        maxZoom: 18,
-      }).addTo(map);
+      L.tileLayer(
+        'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: `&copy; ${mapLink} | data by &copy; ${dataLink}`,
+          maxZoom: 18,
+        },
+      ).addTo(map);
 
       indonesiaStations.forEach((data) => {
         const indexIcon = L.divIcon({
@@ -78,14 +81,21 @@ const Maps = {
           <div class="popup">
             <div class="index-color-bg ${getAqiInfo(data.aqi, aqi.classUrl)} bg-img">
               <span>Index Udara</span>
-              <div class="aqi-container"><h1 class="${getAqiInfo(data.aqi, aqi.class)}">${data.aqi}</h1></div>
+              <div class="aqi-container"><h1 class="${getAqiInfo(data.aqi, aqi.class)}">${
+  data.aqi
+}</h1></div>
               <div class="detail">
                 <h3>${data.station.name}</h3>
-                <span>Status: <strong style="color: ${getAqiInfo(data.aqi, aqi.colors)}">${getAqiInfo(data.aqi, aqi.status)}</strong></span>
+                <span>Status: <strong style="color: ${getAqiInfo(
+    data.aqi,
+    aqi.colors,
+  )}">${getAqiInfo(data.aqi, aqi.status)}</strong></span>
               </div>
             </div>
             <div class="container">
-              <a class="to-detail-page" href="/#/detail/${data.uid}"><span>Selengkapnya<i class="fa-solid fa-arrow-right"></i></span></a>
+              <a class="to-detail-page" href="/#/detail/${
+  data.uid
+}"><span>Selengkapnya<i class="fa-solid fa-arrow-right"></i></span></a>
             </div>
           </div>
       `);

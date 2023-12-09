@@ -1,6 +1,9 @@
 import UrlParser from '../../routes/url-parser';
 import datas from '../../data/data.json';
-import { createBlogArticleTemplate, createBlogsListCardTemplate } from '../templates/template-creator';
+import {
+  createBlogArticleTemplate,
+  createBlogsListCardTemplate,
+} from '../templates/template-creator';
 import CustomAlert from '../../utils/custom-alert-initiator';
 // TODO 7
 
@@ -44,7 +47,8 @@ const BlogsArticle = {
       document.body.removeChild(textarea);
 
       CustomAlert.init({
-        message: '<i class="fa-solid fa-circle-info" style="margin-right: .35rem;"></i>Tautan telah disalin',
+        message:
+          '<i class="fa-solid fa-circle-info" style="margin-right: .35rem;"></i>Tautan telah disalin',
         backgroundColor: '#0094FF',
       });
     };

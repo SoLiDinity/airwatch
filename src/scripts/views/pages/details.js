@@ -1,6 +1,10 @@
 import DataSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
-import { createAQIDetailTemplate, createBlogsListCardTemplate, createErrorPage } from '../templates/template-creator';
+import {
+  createAQIDetailTemplate,
+  createBlogsListCardTemplate,
+  createErrorPage,
+} from '../templates/template-creator';
 import { createBarChart, createLineChart } from '../../utils/chart-creator';
 import aqi from '../../globals/aqi-arrays';
 import datas from '../../data/data.json';
@@ -44,39 +48,27 @@ const Detail = {
         const gaslabels = ['CO', 'NO2', 'O3', 'PM10', 'PM2.5', 'SO2'];
         const values = Object.values(iaqiData).map((item) => item.v);
 
-        const ctx = document
-          .getElementById(`${aqisChartElementId}`)
-          .getContext('2d');
+        const ctx = document.getElementById(`${aqisChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, values);
 
         const aqiChartCanvas = document.getElementById('aqiChart');
-        const aqiChartForecastCanvas = document.querySelector(
-          '.forecast-aqi-chart',
-        );
+        const aqiChartForecastCanvas = document.querySelector('.forecast-aqi-chart');
 
         aqiChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
 
-      if (
-        stationName === 'BMKG | Badan Meteorologi, Klimatologi dan Geofisika'
-      ) {
+      if (stationName === 'BMKG | Badan Meteorologi, Klimatologi dan Geofisika') {
         const aqiDailyForecast = station.forecast.daily;
         const gasLabelsMap = {
           pm25: ['PM2.5'],
           pm10: ['PM10'],
         };
         const pollutantNames = ['pm25', 'pm10'];
-        const gaslabels = pollutantNames.flatMap(
-          (pollutant) => gasLabelsMap[pollutant] || [],
-        );
-        const value = pollutantNames.map(
-          (pollutant) => station.iaqi?.[pollutant]?.v,
-        );
+        const gaslabels = pollutantNames.flatMap((pollutant) => gasLabelsMap[pollutant] || []);
+        const value = pollutantNames.map((pollutant) => station.iaqi?.[pollutant]?.v);
 
-        const ctx = document
-          .getElementById(`${aqiChartElementId}`)
-          .getContext('2d');
+        const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, value);
 
         if (aqiDailyForecast) {
@@ -100,9 +92,7 @@ const Detail = {
             },
           ];
 
-          const fctx = document
-            .getElementById(`${aqiChartForecastElementId}`)
-            .getContext('2d');
+          const fctx = document.getElementById(`${aqiChartForecastElementId}`).getContext('2d');
           createLineChart(fctx, labels, datasets, 500);
         }
 
@@ -116,19 +106,13 @@ const Detail = {
         || stationName === 'Citizen Science project sensor.community'
       ) {
         const gaslabels = ['PM2.5', 'PM10'];
-        const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map(
-          (item) => item.v,
-        );
+        const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map((item) => item.v);
 
-        const ctx = document
-          .getElementById(`${aqiChartElementId}`)
-          .getContext('2d');
+        const ctx = document.getElementById(`${aqiChartElementId}`).getContext('2d');
         createBarChart(ctx, gaslabels, values);
 
         const aqisChartCanvas = document.getElementById('aqisChart');
-        const aqiChartForecastCanvas = document.querySelector(
-          '.forecast-aqi-chart',
-        );
+        const aqiChartForecastCanvas = document.querySelector('.forecast-aqi-chart');
 
         aqisChartCanvas.remove();
         aqiChartForecastCanvas.remove();
@@ -142,9 +126,12 @@ const Detail = {
       console.error('Terjadi kesalahan:', error);
       detailContainerElement.innerHTML = createErrorPage();
 
-      const recommendedArticlesContainerElement = document.querySelector('.detail-recommended-articles-container');
-      recommendedArticlesContainerElement
-        .parentNode.removeChild(recommendedArticlesContainerElement);
+      const recommendedArticlesContainerElement = document.querySelector(
+        '.detail-recommended-articles-container',
+      );
+      recommendedArticlesContainerElement.parentNode.removeChild(
+        recommendedArticlesContainerElement,
+      );
     }
   },
 };
