@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.1",
+    "dotenv": "^16.3.1",
     "leaflet": "^1.9.4",
     "leaflet-gesture-handling": "^1.2.2"
   }
