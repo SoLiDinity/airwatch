@@ -52,6 +52,7 @@ const createBlogArticleTemplate = (articleData, currentBlogUrlToShare) => `
         ${section.list ? `<div style="margin: .5rem 0">${section.list.map((item) => `<li>${item}</li>`).join('')}</div>` : ''}
     `).join('')}
     </article>
+    <div class="divider"></div>
 `;
 
 const createErrorPage = () => `
