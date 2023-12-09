@@ -57,7 +57,7 @@ const Detail = {
         aqiChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
-      
+
       if (
         stationName === 'BMKG | Badan Meteorologi, Klimatologi dan Geofisika'
       ) {

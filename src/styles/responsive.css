@@ -89,6 +89,15 @@
   .article-content img {
     min-height: 150px;
   }
+
+  .detail-recommended-articles .blog-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .detail-recommended-articles .blog-card .text {
+    grid-template-rows: 3fr 1fr;
+  }
 }
 
 @media (max-width: 660px) {
@@ -158,9 +167,14 @@
   
   .error-page {
     flex-flow: column-reverse;
+  }
 
   .blog-card .text{
     width: 100%;
     grid-template-rows: 7fr 1fr;
+  }
+
+  .detail-recommended-articles .blog-card .text {
+    grid-template-rows: 5fr 1fr;
   }
 }

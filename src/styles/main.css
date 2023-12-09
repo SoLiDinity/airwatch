@@ -662,8 +662,9 @@ main {
 .detail-recommended-articles {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 1.5rem;
   padding: 1rem 0;
 }
@@ -677,6 +678,21 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.detail-recommended-articles .blog-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.detail-recommended-articles .blog-card img{
+  width: 100%;
+  min-height: 100%;
+}
+
+.detail-recommended-articles .blog-card .text {
+  grid-template-rows: 5fr 1fr;
 }
 
 
@@ -884,9 +900,7 @@ main {
 
 .error-page {
   width: 100%;
-  display: flex;
   padding: 2em;
-  align-items: center;
   text-align: center;
 }
 

@@ -13,8 +13,6 @@ const Blogs = {
 
   async afterRender() {
     const blogData = data.articles;
-    console.log(blogData);
-
     const blogContainerElement = await document.querySelector('.blog-container');
 
     blogData.forEach((blog) => {
