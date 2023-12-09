@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./api/server.js",
-    "start-dev": "nodemon ./api/server.js",
+    "start": "node ./api/index.js",
+    "start-dev": "nodemon ./api/index.js",
     "lint": "eslint ./api"
   },
   "keywords": [],
