@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/*.js": {
-      "runtime": "@now/node"
+      "runtime": "@now/node@1.0.0"
     }
   }
 }
