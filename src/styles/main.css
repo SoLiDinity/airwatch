@@ -45,10 +45,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  /* min-width: 100vh; */
-}
-
 a,
 button,
 input,
@@ -206,7 +202,9 @@ main {
   padding-right: 7vw;
   font-size: larger;
 }
-.main .hero h2 {
+
+.main .hero h2{
+  font-size: clamp(52px, 5vw, 900px);
   font-size: 64px;
   padding-bottom: 10vh;
 }
@@ -219,9 +217,10 @@ main {
   background-image: url('../public/AirWatchID/image2.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 400px;
-  height: 320px;
+  size: clamp(100px, 7vw, 800px);
   flex: 1 1;
+  padding-bottom: 10vh;
+  
 }
 .reviews .heading {
   padding: 5rem 7% 1.4rem;
@@ -233,35 +232,26 @@ main {
 
 .reviews .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1rem;
-  justify-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
+  gap: 2rem;
   align-items: flex-start;
+  justify-content: center;
   padding: 1.2%;
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
-.reviews .box-container .center {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1rem;
-  justify-content: center;
-  /* margin-left: 650px; */
-  align-items: flex-start;
-  padding: 1.2%;
+.reviews .box {
+  width: 100%; 
+  height: 300px; 
+  justify-content: space-around;
 }
 
 .reviews .box-container .box {
   border-radius: 0.5rem;
   background-color: var(--white);
   padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* Menambahkan bingkai dalam */
-}
-
-.reviews .box-container .box p {
-  line-height: 1.7;
-  font-size: 1.7rem;
-  color: var(--light-color);
+  box-shadow: 6px 8px 10px 0 rgb(44, 143, 189);
 }
 
 .reviews .box-container .box .student {
@@ -269,21 +259,40 @@ main {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  color: var(--black);
+  font-size: clamp(17px, 1vw, 15px);
+  padding-bottom: 10vh;
+  max-width: 100%;
 }
 
 .reviews .box-container .box .student img {
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.reviews .box-container .box .student h3 {
-  font-size: 2rem;
-  color: var(--black);
-  margin-bottom: 0.3rem;
+.box {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
 }
 
+<<<<<<< HEAD
+.logo-ref-team {
+  margin-top: 10px; 
+}
+
+.fa-brands {
+  font-size: 29px;
+  color: rgb(0, 140, 255);
+  margin: 10px 15px; /* Atur jarak antar logo */
+}
+
+
+
+=======
+>>>>>>> 21ee1ef8a2c175e4d81d922ca13547d13296e7d5
 /* Maps Page */
 
 #map {

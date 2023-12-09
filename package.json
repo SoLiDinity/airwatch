@@ -31,7 +31,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "chart.js": "^4.4.0",
+    "chart.js": "^4.4.1",
     "leaflet": "^1.9.4",
     "leaflet-gesture-handling": "^1.2.2"
   }
