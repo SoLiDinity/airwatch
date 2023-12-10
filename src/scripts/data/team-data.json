@@ -2,31 +2,31 @@
   "team": [
     {
       "name": "Leonardo Denavito Jounanda Prishamora",
-      "image_path": "../team/Leo.jpeg",
+      "image_path": "./images/team/Leo.jpeg",
       "linkedin_url": "https://www.linkedin.com/in/leonardo-denavito/",
       "github_url": "https://github.com/SoLiDinity"
     },
     {
       "name": "Novita Kristiana",
-      "image_path": "../team/Novita.jpg",
+      "image_path": "./images/team/Novita.jpg",
       "linkedin_url": "https://www.linkedin.com/in/novita-kristiana-9b0679298/",
       "github_url": "https://github.com/KrsNovita2717"
     },
     {
       "name": "Muhammad Arif Rahman",
-      "image_path": "../team/Arif.jpg",
+      "image_path": "./images/team/Arif.jpg",
       "linkedin_url": "https://www.linkedin.com/in/muhammad-arif-rahman-8422552a3/",
       "github_url": "https://github.com/MuhammadArifRahman"
     },
     {
       "name": "Andi Nabila Fadiya",
-      "image_path": "../team/Bella.jpg",
+      "image_path": "./images/team/Bella.jpg",
       "linkedin_url": "https://www.linkedin.com/in/andi-nabila-fadiya-41b317232/",
       "github_url": "https://github.com/andinabilafdy"
     },
     {
       "name": "Chary Yedija Adcharisto Sembel",
-      "image_path": "../team/Chary.jpg",
+      "image_path": "./images/team/Chary.jpg",
       "linkedin_url": "https://www.linkedin.com/in/chary-sembel-18364a29a/",
       "github_url": "https://github.com/Adkrsto"
     }

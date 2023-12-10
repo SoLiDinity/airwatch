@@ -14,6 +14,7 @@ const app = new App({
 
 window.addEventListener('hashchange', () => {
   app.renderPage();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 window.addEventListener('load', () => {

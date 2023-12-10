@@ -11,7 +11,8 @@ const About = {
           <h2>Tentang <br> AirWatchID</h2>
         </div>
 
-        <div class="image2">
+        <div class="image-hero">
+            <img src="./images/heros/about-hero.png" alt="" />
         </div>
       </div>
 

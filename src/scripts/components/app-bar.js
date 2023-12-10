@@ -1,6 +1,8 @@
 class AppBar extends HTMLElement {
   connectedCallback() {
     this.render();
+    this.setActiveNavigation();
+
     window.addEventListener('hashchange', () => {
       this.setActiveNavigation();
     });
@@ -75,7 +77,7 @@ class AppBar extends HTMLElement {
           background-color: var(--secondary);
           color: white;
           font-weight: 700;
-          border-radius: 10px
+          border-radius: 10px;
         }
 
         @media screen and (min-width: 650px) {
@@ -151,7 +153,7 @@ class AppBar extends HTMLElement {
     let currentPath = window.location.hash || '#/';
     const navItems = this.querySelectorAll('.nav_list_item');
 
-    navItems.forEach(item => {
+    navItems.forEach((item) => {
       const link = item.querySelector('a');
       const href = link.getAttribute('href');
 
@@ -169,6 +171,8 @@ class AppBar extends HTMLElement {
         item.classList.remove('active');
       }
     });
+
+    localStorage.setItem('activeNavigation', currentPath);
   }
 }
 
