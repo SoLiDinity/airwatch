@@ -87,7 +87,35 @@ const getAllArticlesHandler = async (req, res) => {
   });
 };
 
+const getArticleByIdHandler = async (req, res, articleId) => {
+  const articlesCollection = await connectToDatabase();
+  const articles = await articlesCollection.find({}).toArray();
+
+  const foundArticle = articles.find((article) => article.id === articleId);
+
+  if (foundArticle) {
+    res.status(200).json({
+      status: 'success',
+      data: {
+        article: {
+          id: foundArticle.id,
+          title: foundArticle.title,
+          image_url: foundArticle.image_url,
+          overview: foundArticle.overview,
+          content: foundArticle.content,
+        },
+      },
+    });
+  } else {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Article not found',
+    });
+  }
+};
+
 module.exports = {
   addArticleHandler,
   getAllArticlesHandler,
+  getArticleByIdHandler,
 };
