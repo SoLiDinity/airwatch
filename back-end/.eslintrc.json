@@ -9,6 +9,7 @@
     "ecmaVersion": "latest"
   },
   "rules": {
+    "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0,
     "camelcase": 0,
     "no-console": 0,

@@ -2,9 +2,9 @@
   "name": "bac-end-test",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./api/server.js",
+    "start": "node ./api/index.js",
     "start-dev": "nodemon ./api/server-dev.js",
     "lint": "eslint ./api"
   },
