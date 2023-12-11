@@ -1,57 +1,103 @@
-import DataSource from "../../data/data-source";
-import aqi from "../../globals/aqi-arrays";
-import { creatAverageAqiIdn, createTableRankAqi } from "../templates/template-creator";
+import DataSource from '../../data/data-source';
+import aqi from '../../globals/aqi-arrays';
+import {
+  creatAverageAqiIdn,
+  createBlogsListCardTemplate,
+  createTableRankAqi,
+} from '../templates/template-creator';
+import datas from '../../data/data.json';
 
 const Main = {
   async render() {
     return `
-      <div class="main">
-        <div class="hero" style="flex-grow: 1">
-          <div class="content-hero">
-              <p>Aplikasi Pemantau Kualitas Udara Indonesia</p>
-              <h2>AirWatchID</h2>
-              <p>Memantau kualitas udara secara cepat dan tepat</p>
-          </div>
+    <div class="main">
+      <div class="hero" style="flex-grow: 1">
+        <div class="content-hero">
+          <p>Aplikasi Pemantau Kualitas Udara Indonesia</p>
+          <h2>AirWatchID</h2>
+          <p>Memantau kualitas udara secara cepat dan tepat</p>
+        </div>
 
-          <div class="image-hero">
-              <img src="./images/heros/main-hero.png" alt="" />
+        <div class="image-hero">
+          <img src="./images/heros/main-hero.png" alt="" />
+        </div>
+      </div>
+
+      <section class="summary">
+        <h1 class="section-title">Ringkasan Kualitas Udara Indonesia</h1>
+        <div class="summary-section">
+          <div class="card" id="average-aqi">
+          </div>
+          <div class="map-section shadow">
+            <div class="map-section__image">
+              <img src="https://img.freepik.com/free-photo/from-pins-map_23-2147793520.jpg" alt="Ilustrasi peta">
+            </div>
+            <div class="inner">
+              <p>Peta Kualitas Udara</p>
+              <a href="#/maps">Lihat Peta</a>
+            </div>
           </div>
         </div>
 
-        <section class="summary">
-          <div class="summary-card">
-            <article class="summarry-content">
-                <div class="card" id="average-aqi">
-                </div>
-            </article>
-            <aside class="summary-side-content">
-              <div class="map-section shadow">
-                  <div class="map-section__image">
-                      <img src="https://img.freepik.com/free-photo/from-pins-map_23-2147793520.jpg" alt="Ilustrasi peta">
-                  </div>
-                  <div class="inner">
-                      <p>Peta Kualitas Udara</p>
-                      <a href="#/maps">Lihat Peta</a>
-                  </div>
-              </div>
-
-              <div class="rank-section">
-                <div class="topAqi-section shadow">
-                  <h1>10 Daerah Paling Banyak Terpolusi Indonesia</h1>
-                  <div class="table" id="top-aqi-rank">
-                    </div>
-                </div>
-
-                <div class="bottomAqi-section shadow">
-                  <h1>10 Daerah Paling Sedikit Terpolusi Indonesia</h1>
-                  <div class="table" id="bottom-aqi-rank">
-                  </div>
-                </div>
-              </div>
-            </aside>
+        <div class="rank-section">
+          <div class="topAqi-section shadow">
+            <h1>10 Daerah Paling Banyak Terpolusi Indonesia</h1>
+            <div class="table" id="top-aqi-rank">
+            </div>
           </div>
-        <section>
+
+          <div class="bottomAqi-section shadow">
+            <h1>10 Daerah Paling Sedikit Terpolusi Indonesia</h1>
+            <div class="table" id="bottom-aqi-rank">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="fun-fact">
+        <h1 class="section-title">Tahukah kamu?</h1>
+        <div class="card-contain">
+          <div class="card">
+            <div class="card-header">
+              <p>Bagaimana dampak risiko lingkungan terhadap beban penyakit global?</p>
+            </div>
+            <div class="card-body">
+              <div class="line"></div>
+              <p><span>12%</span> Dari beban penyakit global disebabkan oleh risiko lingkungan, dengan polusi udara menempati peringkat pertama.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <p>Berapa banyak nyawa yang hilang akibat dampak polusi udara?</p>
+            </div>
+            <div class="card-body">
+              <div class="line"></div>
+              <p><span>7 Juta</span> Kematian setiap tahun sebagai akibat dari paparan terhadap partikel halus dalam udara yang tercemar.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <p>Berapa banyak individu yang terpapar udara tidak sehat?</p>
+            </div>
+            <div class="card-body">
+              <div class="line"></div>
+              <p><span>91%</span> Dari populasi global tinggal di wilayah di mana kualitas udara melebihi batas panduan WHO.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fun-fact__footer">
+          <p>Sumber: <a href="https://www.who.int/">Organisasi Kesehatan Dunia (WHO)</a></p>
+        </div>
       </div>
+
+      <div class="articles">
+        <h1 class="section-title">Baca Juga</h1>
+        <div class="main-recommended-articles"></div>
+        </div>
+      </div>
+    </div>
     `;
   },
 
@@ -132,21 +178,14 @@ const Main = {
   //       </div>
   //     </div>
   //   </div>
-    
+
   //   `;
   // },
 
-
   async afterRender() {
     // after render mainpage
-    const {
-      topAqi,
-      bottomAqi,
-      averageAqi,
-      latestUpdate,
-      hoursDifference,
-      minutesDifference,
-    } = await DataSource.summaryIdnAqi();
+    const { topAqi, bottomAqi, averageAqi, latestUpdate, hoursDifference, minutesDifference } =
+      await DataSource.summaryIdnAqi();
 
     const topAqiTable = createTableRankAqi(topAqi, aqi.colors);
     const bottomAqiTable = createTableRankAqi(bottomAqi, aqi.colors);
@@ -165,6 +204,16 @@ const Main = {
     document.getElementById('top-aqi-rank').innerHTML = topAqiTable;
     document.getElementById('bottom-aqi-rank').innerHTML = bottomAqiTable;
     document.getElementById('average-aqi').innerHTML = averageAqiCard;
+
+    const recomendedArticles = document.querySelector('.main-recommended-articles');
+    const { articles } = datas;
+
+    const shuffledArticles = articles.sort(() => Math.random() - 0.5);
+    const randomArticles = shuffledArticles.slice(0, 3);
+
+    randomArticles.forEach(article => {
+      recomendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
+    });
   },
 };
 

@@ -72,6 +72,47 @@
     grid-template-columns: 1fr 1fr;
     place-items: center;
   }
+
+  .hero .image-hero img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 950px) {
+    .main .hero {
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+
+  .main .hero .content-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+  .main .hero .content-hero p:nth-child(1) {
+    order: 2;
+    font-size: 16px;
+    padding-right: 0vw;
+  }
+  .main .hero .content-hero h2 {
+    font-size: 40px;
+    padding-bottom: 1vh;
+    order: 1;
+  }
+
+  .main .hero p:nth-child(3) {
+    font-size: large;
+    order: 3;
+    padding-right: 0vw;
+  }
+
+  .main .hero img {
+    height: 50vw;
+    min-height: 200px;
+    max-height: 350px;
+    max-width: none;
+  }
 }
 
 @media (max-width: 950px) {
@@ -123,19 +164,13 @@
     padding: 1rem;
   }
 
-  .summary-card {
-    grid-template-columns: none;
-  }
-
-  .rank-section {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1em;
-  }
-
   .topAqi-section,
   .bottomAqi-section {
     padding: 1em;
+  }
+
+  .main .fun-fact .card-contain {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -166,17 +201,60 @@
     grid-template-rows: 3fr 1fr;
   }
 
-  .summary-card {
-    grid-template-columns: auto;
-    grid-template-rows: repeat(2, auto);
+  .summary-section {
+    grid-template-columns: none;
+  }
+
+  .main .summary {
+    margin: auto 0.5em;
+  }
+
+  .main .main-recommended-articles {
+    margin: 1em;
   }
 }
 
 @media (max-width: 660px) {
+  .main .hero {
+    flex-wrap: wrap-reverse;
+    text-align: center;
+  }
+
+  .main .section-title {
+    font-size: 32px;
+  }
+
+  .main .hero .content-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+  .main .hero .content-hero p:nth-child(1) {
+    order: 2;
+    font-size: 16px;
+    padding-right: 0vw;
+  }
+  .main .hero .content-hero h2 {
+    font-size: 40px;
+    padding-bottom: 1vh;
+    order: 1;
+  }
+
+  .main .hero p:nth-child(3) {
+    font-size: large;
+    order: 3;
+    padding-right: 0vw;
+  }
+
+  .main .hero img {
+    height: 43vh;
+  }
+
   .rank-section {
     grid-template-columns: none;
   }
-  
+
   .blog-card {
     width: 100%;
   }
@@ -190,9 +268,20 @@
   .reviews .box-container {
     grid-template-columns: 1fr;
   }
+
+  .main .fun-fact .card-contain {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .main .articles {
+    margin: 20px;
+  }
 }
 
 @media (max-width: 500px) {
+  .main .main-recommended-articles {
+    margin: 0;
+  }
 
   .main .fitur {
     padding: 10vh 3vw 0vh;
@@ -230,5 +319,9 @@
 
   .detail-recommended-articles .blog-card .text {
     grid-template-rows: 5fr 1fr;
+  }
+
+  .summary-card {
+    grid-template-columns: none;
   }
 }

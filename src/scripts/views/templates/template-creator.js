@@ -126,14 +126,14 @@ const createErrorPage = () => `
     </section>
     <section class="error-page__hero">
         <picture>
-            <img src='./images/heros/error.png' alt="Error Logo" style="width: 200px">
+            <img src='./images/heros/error-hero.png' alt="Error Logo" style="width: 200px">
         </picture>
     </section>
   </article>
 `;
 
 const createBlogsListCardTemplate = (data, overviewWordsLimit = null) => `
-  <div class="blog-card shadow">
+  <div class="blog-card shadow" data-aos="zoom-in">
     <img src="${data.image_url}">
     <div class="text">
       <div class="title-overview">
@@ -145,10 +145,65 @@ const createBlogsListCardTemplate = (data, overviewWordsLimit = null) => `
   </div>
 `;
 
+const createTableRankAqi = (dataList, aqiColors) => `
+  <table>
+    <thead>
+      <th>No</th>
+      <th>Nama Daerah</th>
+      <th>AQI</th>
+    </thead>
+    <tbody>
+      ${dataList.map((data, index) => {
+        const cityName = data.city.name.replace(/, Indonesia$/, '');
+    
+        return `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${cityName}</td>
+              <td>
+                <span style="color: ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiColors)}; font-weight: bold;">
+                  ${data.aqi}
+                </span>
+              </td>
+            </tr>
+          `;
+      }).join('')}
+    </tbody>
+  </table>
+`;
+
+const creatAverageAqiIdn = (data, latestUpdate, hoursDifference, minutesDifference, aqiStatus, aqiClassUrl, aqiColors, aqiInfo) => `
+    <div class="summary-content shadow ${getAqiInfo((data === '-' ? 0 : data), aqiClassUrl)}">
+        <p class="aqi-label" style="color: white; font-weight: bold;">Indeks Kualitas Udara Rata-Rata Indonesia</p>
+        <div class="aqi-index-detail" style="background-color: ${getAqiInfo((data === '-' ? 0 : data), aqiColors)};">
+            <h1>${data === '-' ? 0 : data}</h1>
+        </div>
+        <div class="aqi-detail-container">
+            <h1>Rata-Rata di Indonesia</h1>
+            <p>Status: <span style="color: ${getAqiInfo((data === '-' ? 0 : data), aqiColors)}; font-weight: bold;">${getAqiInfo(data, aqiStatus)}</span></p>
+            <div class="current-aqi-info">
+              <h3>💡 Info Kualitas Udara</h3>
+              <p>${getAqiInfo((data === '-' ? 0 : data), aqiInfo)}</p>
+            </div>
+            <div class="attributions">
+                <p class="data-source">Data by: <a href="https://www.bmkg.go.id/" target="_blank">$BMKG | Badan Meteorologi, Klimatologi dan Geofisika</a></p>
+                <p class="data-source">Provided by: <a href="https://waqi.info/" target="_blank">World Air Quality Index Project</a></p>
+                <p class="latest-update">
+                  Latest Update:
+                  ${hoursDifference !== 0 ? `${hoursDifference} jam ${minutesDifference} menit yang lalu` : `${minutesDifference} menit yang lalu`}
+                  (${latestUpdate.toString()} WIB)
+              </p>
+            </div>
+        </div>
+    </div>
+`;
+
 export {
   createAQIDetailTemplate,
   createProfileCardTemplate,
   createBlogArticleTemplate,
   createErrorPage,
   createBlogsListCardTemplate,
+  createTableRankAqi,
+  creatAverageAqiIdn,
 };
