@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
-const data = require('./data/data.json');
+require('dotenv/config');
 
-const uri = 'mongodb+srv://airwatch-admin:dcd-c523-ps066@airwatchid-cluster.mm2cm9g.mongodb.net/AirwatchID-Articles';
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectToDatabase() {

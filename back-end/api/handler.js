@@ -64,7 +64,13 @@ const getAllArticlesHandler = async (req, res) => {
   const articles = await articles_db;
   res.json({
     status: 'success',
-    data: { articles },
+    data: {
+      articles: articles.map((article) => ({
+        id: article.id,
+        title: article.title,
+        overview: article.overview,
+      })),
+    },
   });
 };
 
