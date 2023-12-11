@@ -51,7 +51,7 @@ const Maps = {
         gestureHandling: true,
       });
 
-      const indonesiaStations = await DataSource.alllIndonesiaStationsData();
+      const indonesiaStations = await DataSource.allIndonesiaStationsData();
       const mapLink = '<a href="https://www.esri.com/">Esri</a>';
       const dataLink = '<a href="https://waqi.info/">WAQI</a>';
 

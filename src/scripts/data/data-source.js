@@ -2,13 +2,13 @@ import API_ENDPOPINTS from '../globals/api-endpoints';
 import OPTIONS from '../globals/fetch-options';
 
 class DataSource {
-  static async alllIndonesiaStationsData() {
+  static async allIndonesiaStationsData() {
     try {
       const response = await fetch(API_ENDPOPINTS.ALL_INDONESIA_STATIONS, OPTIONS.method('GET'));
       const responseJson = await response.json();
 
       const excludedCountries = ['malaysia', 'thailand', 'singapore', 'brunei'];
-      const excludedCities = ['miri', 'kuala lumpur', 'bukit bintang', 'klcc', 'ipoh', 'perai'];
+      const excludedCities = ['miri', 'kuala lumpur', 'bukit bintang', 'klcc', 'ipoh', 'perai', 'M702 AQMS-MDP IT Store Station'];
       const isAlphanumeric = str => /^[a-zA-Z0-9\s$%,-]+$/i.test(str);
       const indonesiaStations = responseJson.data.filter(data => {
         const stationNameLower = data.station.name.toLowerCase();
@@ -40,15 +40,14 @@ class DataSource {
   }
 
   static async summaryIdnAqi() {
-    const allIndonesiaAqi = await this.alllIndonesiaStationsData();
+    const allIndonesiaAqi = await this.allIndonesiaStationsData();
     let latestUpdate;
     const filteredAqiData = await Promise.all(
       allIndonesiaAqi.map(async (station) => {
         const stationDetailData = await this.stationDetail(station.uid);
         latestUpdate = stationDetailData.time.s;
-        if (
-          stationDetailData.attributions[0].url === 'http://www.bmkg.go.id/'
-          && stationDetailData.aqi !== null
+        if ( stationDetailData.attributions[0].url === 'http://www.bmkg.go.id/' 
+        && stationDetailData.aqi !== null
         ) {
           if (stationDetailData.time.s > latestUpdate) {
             latestUpdate = stationDetailData.time.s;

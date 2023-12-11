@@ -20,6 +20,9 @@
   --very-unhealthy-dark: #6e1c9e;
   --hazardous-dark: #551633;
 
+  --good-50: #38d0207b;
+  --unhealthy-50: #e9474a82;
+
   --default-nav: #6566c0;
 
   --good-bg-img: url(https://static.vecteezy.com/system/resources/thumbnails/005/732/474/small/forest-morning-landscape-with-lake-vector.jpg);
@@ -159,6 +162,15 @@ main {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.city-detail-link {
+  color: black;
+}
+
+.city-detail-link:hover,
+.city-detail-link:active {
+  color: rgb(0, 140, 255);
+}
+
 .map-section {
   overflow: hidden;
   position: relative;
@@ -203,12 +215,23 @@ main {
   margin: 20px;
 }
 
+.topAqi-section, .bottomAqi-section {
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.topAqi-section h1, .bottomAqi-section h1{
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
 .topAqi-section h1 {
-  color: var(--unhealthy);
+  background-color: var(--unhealthy);
 }
 
 .bottomAqi-section h1 {
-  color: var(--good);
+  background-color: var(--good);
 }
 
 .rank-section table {
@@ -473,12 +496,22 @@ main {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  gap: 1rem;
+}
+
+.logo-ref-team a {
+  background-color: #1877f2;
+  aspect-ratio: 1/1;
+  display: flex;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .fa-brands {
-  font-size: 36px;
-  color: rgb(0, 140, 255);
-  background-color: white;
+  font-size: 32px;
+  color: white;
   border-radius: 50%;
   margin: 10px 15px; /* Atur jarak antar logo */
 }

@@ -103,7 +103,8 @@ const Detail = {
       if (
         stationName ===
           'Balai Besar Standardisasi dan Pelayanan Jasa Pencegahan Pencemaran Industri (BBSPJPPI)' ||
-        stationName === 'Citizen Science project sensor.community'
+        stationName === 'Citizen Science project sensor.community' ||
+        stationName === 'AirNet - aiqcn.org - waqi.info'
       ) {
         const gaslabels = ['PM2.5', 'PM10'];
         const values = Object.values([iaqiData.pm25, iaqiData.pm10]).map(item => item.v);

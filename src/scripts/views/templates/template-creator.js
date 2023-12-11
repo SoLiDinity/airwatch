@@ -159,7 +159,9 @@ const createTableRankAqi = (dataList, aqiColors) => `
         return `
             <tr>
               <td>${index + 1}</td>
-              <td>${cityName}</td>
+              <td><a class="city-detail-link" href="/#/detail/${
+                data.idx
+              }">${cityName}</a></td>
               <td>
                 <span style="color: ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiColors)}; font-weight: bold;">
                   ${data.aqi}
@@ -186,7 +188,7 @@ const creatAverageAqiIdn = (data, latestUpdate, hoursDifference, minutesDifferen
               <p>${getAqiInfo((data === '-' ? 0 : data), aqiInfo)}</p>
             </div>
             <div class="attributions">
-                <p class="data-source">Data by: <a href="https://www.bmkg.go.id/" target="_blank">$BMKG | Badan Meteorologi, Klimatologi dan Geofisika</a></p>
+                <p class="data-source">Data by: <a href="https://www.bmkg.go.id/" target="_blank">BMKG | Badan Meteorologi, Klimatologi dan Geofisika</a></p>
                 <p class="data-source">Provided by: <a href="https://waqi.info/" target="_blank">World Air Quality Index Project</a></p>
                 <p class="latest-update">
                   Latest Update:
