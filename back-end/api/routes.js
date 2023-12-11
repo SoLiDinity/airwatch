@@ -14,4 +14,7 @@ router.get('/articles', (req, res) => {
   getAllArticlesHandler(req, res);
 });
 
+router.get('/articles/:articleId', (req, res) => {
+});
+
 module.exports = router;
