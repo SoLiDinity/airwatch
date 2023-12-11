@@ -44,6 +44,11 @@ html {
   scroll-behavior: smooth;
 }
 
+h1,h2,h3,h4,h5 {
+  line-height: 125%;
+  margin-bottom: .25rem;
+}
+
 a,
 button,
 input,
@@ -314,7 +319,7 @@ main {
 
 .reviews .box {
   width: 100%;
-  height: 300px;
+  height: 400px;
   justify-content: space-around;
   border: 3px solid rgb(238, 238, 238);
 }
@@ -330,10 +335,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   color: var(--black);
   font-size: clamp(17px, 1vw, 15px);
   max-width: 100%;
+}
+
+.student .details {
+  display: flex;
+  flex-direction: column;
 }
 
 .reviews .box-container .box .student img {
@@ -341,17 +351,30 @@ main {
   width: 6rem;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid rgb(0, 140, 255);
+  border: 5px solid white;
+  outline: 5px solid rgb(0, 140, 255);
 }
 
-.reviews .box-container .box .student h4 {
+.reviews .box-container .box .student h3 {
   text-align: center;
+  line-height: 100%;
+}
+
+.reviews .box-container .box .student .role {
+  text-align: center;
+  max-width: 90%;
+  align-self: center;
+  font-size: 12px;
+  font-style: italic;
+  margin: .5rem 0;
+  color: rgb(123, 123, 123);
 }
 
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(45deg, rgb(233, 233, 233), white, rgb(225, 225, 225));
 }
 
 .logo-ref-team {
@@ -362,8 +385,10 @@ main {
 }
 
 .fa-brands {
-  font-size: 29px;
+  font-size: 36px;
   color: rgb(0, 140, 255);
+  background-color: white;
+  border-radius: 50%;
   margin: 10px 15px; /* Atur jarak antar logo */
 }
 
