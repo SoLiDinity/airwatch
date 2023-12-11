@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 const { nanoid } = require('nanoid');
-const articles_db = require('./articles');
+const { connectToDatabase } = require('./connection');
 
-const addArticleHandler = (req, res) => {
+const addArticleHandler = async (req, res) => {
   const {
     title,
     image_url,
@@ -48,20 +49,32 @@ const addArticleHandler = (req, res) => {
     content,
   };
 
-  articles_db.push(newArticle);
+  const articlesCollection = await connectToDatabase();
 
-  const isSuccess = articles_db.filter((article) => article.id === id).length > 0
-    && hasInvalidFields === false;
+  try {
+    const result = await articlesCollection.insertOne(newArticle);
 
-  return res.status(isSuccess ? 201 : 500).json({
-    status: isSuccess ? 'success' : 'fail',
-    message: isSuccess ? 'Artikel berhasil ditambahkan' : 'Artikel gagal ditambahkan',
-    data: isSuccess ? { articleId: id } : null,
-  });
+    const isSuccess = result.acknowledged && result.insertedId;
+
+    return res.status(isSuccess ? 201 : 500).json({
+      status: isSuccess ? 'success' : 'fail',
+      message: isSuccess ? 'Artikel berhasil ditambahkan' : 'Artikel gagal ditambahkan',
+      data: isSuccess ? { articleId: id } : null,
+    });
+  } catch (error) {
+    console.error('Error adding article to the database:', error);
+    return res.status(500).json({
+      status: 'fail',
+      message: 'Internal server error',
+      data: null,
+    });
+  }
 };
 
 const getAllArticlesHandler = async (req, res) => {
-  const articles = await articles_db;
+  const articlesCollection = await connectToDatabase();
+  const articles = await articlesCollection.find({}).toArray();
+
   res.json({
     status: 'success',
     data: {
