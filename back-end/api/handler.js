@@ -1,5 +1,5 @@
 const { nanoid } = require('nanoid');
-const articles = require('./articles');
+const articles_db = require('./articles');
 
 const addArticleHandler = (req, res) => {
   const {
@@ -48,9 +48,9 @@ const addArticleHandler = (req, res) => {
     content,
   };
 
-  articles.push(newArticle);
+  articles_db.push(newArticle);
 
-  const isSuccess = articles.filter((article) => article.id === id).length > 0
+  const isSuccess = articles_db.filter((article) => article.id === id).length > 0
     && hasInvalidFields === false;
 
   return res.status(isSuccess ? 201 : 500).json({
@@ -60,15 +60,11 @@ const addArticleHandler = (req, res) => {
   });
 };
 
-const getAllArticlesHandler = (req, res) => {
+const getAllArticlesHandler = async (req, res) => {
+  const articles = await articles_db;
   res.json({
     status: 'success',
-    data: {
-      articles: articles.map((article) => ({
-        id: article.id,
-        title: article.title,
-      })),
-    },
+    data: { articles },
   });
 };
 
