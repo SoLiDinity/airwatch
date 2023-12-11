@@ -72,6 +72,10 @@
     grid-template-columns: 1fr 1fr;
     place-items: center;
   }
+
+  .hero .image-hero img {
+    max-width: 250px;
+}
 }
 
 @media (max-width: 813px) {
@@ -86,19 +90,13 @@
     padding: 1rem;
   }
 
-  .summary-card {
-    grid-template-columns: none;
-  }
-
-  .rank-section {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1em;
-  }
-
   .topAqi-section,
   .bottomAqi-section {
     padding: 1em;
+  }
+
+  .main .fun-fact .card-contain {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -129,9 +127,16 @@
     grid-template-rows: 3fr 1fr;
   }
 
-  .summary-card {
-    grid-template-columns: auto;
-    grid-template-rows: repeat(2, auto);
+  .summary-section {
+    grid-template-columns: none;
+  }
+
+  .main .summary {
+    margin: auto 0.5em;
+  }
+
+  .main .main-recommended-articles {
+    margin: 1em;
   }
 }
 
@@ -140,6 +145,11 @@
     flex-wrap: wrap-reverse;
     text-align: center;
   }
+
+  .main .section-title {
+    font-size: 32px;
+  }
+
   .main .hero .content-hero {
     display: flex;
     flex-wrap: wrap;
@@ -170,7 +180,7 @@
   .rank-section {
     grid-template-columns: none;
   }
-  
+
   .blog-card {
     width: 100%;
   }
@@ -184,9 +194,20 @@
   .reviews .box-container {
     grid-template-columns: 1fr;
   }
+
+  .main .fun-fact .card-contain {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .main .articles {
+    margin: 20px;
+  }
 }
 
 @media (max-width: 500px) {
+  .main .main-recommended-articles {
+    margin: 0;
+  }
 
   .main .fitur {
     padding: 10vh 3vw 0vh;
@@ -224,5 +245,9 @@
 
   .detail-recommended-articles .blog-card .text {
     grid-template-rows: 5fr 1fr;
+  }
+
+  .summary-card {
+    grid-template-columns: none;
   }
 }

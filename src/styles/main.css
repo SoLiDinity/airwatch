@@ -85,9 +85,10 @@ main {
   background-color: var(--primary);
   display: flex;
   flex-wrap: nowrap;
-  padding: 10vh 10vw;
-  justify-content: space-evenly;
+  padding: 3em;
+  justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .hero p {
@@ -99,7 +100,6 @@ main {
 
 .hero h2 {
   font-size: clamp(52px, 5vw, 900px);
-  font-size: 64px;
   color: white;
 }
 
@@ -113,28 +113,45 @@ main {
   width: 100%;
 }
 
+.main .section-title {
+  font-size: 32px;
+  margin: 1em;
+  text-align: center;
+}
+
 .main .hero p:nth-child(3) {
   font-style: normal;
   color: black;
-  font-size: x-large;
+  font-size: smaller;
+}
+
+.main .summary,
+.main .summary-section,
+.main .rank-section,
+.main .fun-fact .card-contain {
+  margin: auto;
+  display: grid;
+  gap: 2em;
 }
 
 .main .summary {
+  grid-template-rows: repeat(2, auto);
   max-width: 1200px;
   padding: 20px;
-  margin: auto;
+  margin: 3em auto;
 }
 
-.summary-card {
-  display: grid;
+.summary-section {
   grid-template-columns: 2fr 1fr;
-  gap: 3em;
 }
 
-.summary-side-content {
-  display: grid;
-  grid-template-rows: repeat(3, auto);
-  gap: 2em;
+.map-section {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.rank-section {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .map-section {
@@ -155,6 +172,7 @@ main {
 
 .map-section__image img {
   width: 100%;
+  height: 100%;
 }
 
 .inner {
@@ -213,15 +231,88 @@ main {
   font-weight: bold;
 }
 
+.main .fun-fact {
+  padding: 10vh 10vw;
+  background-color: var(--primary);
+  margin-bottom: 3em;
+}
 
-/* .main .fitur {
+.main .fun-fact .section-title {
+  color: white;
+}
+
+.main .fun-fact .card-contain {
+  display: grid;
+  gap: 3em;
+  grid-template-columns: repeat(3, 1fr);
+}
+.main .fun-fact .card {
+  padding: 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+.fun-fact .card .card-header p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.main .fun-fact .card .card-body {
+  text-align: justify;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.main .fun-fact .card .card-body .line {
+  border-left: 4px solid var(--secondary);
+  padding-right: 16px;
+  margin-bottom: 41px;
+  margin-top: 6px;
+}
+
+.main .fun-fact .card .card-body p {
+  font-size: 14px;
+  margin-bottom: 36px;
+  line-height: 1.43;
+}
+.main .fun-fact .card .card-body span {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--secondary);
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+
+.main .fun-fact__footer p {
+  margin-top: 2em;
+  text-align: center;
+  color: white;
+}
+
+.main .fun-fact__footer p a {
+  color: white;
+}
+
+.main .articles {
+  margin-bottom: 3em;
+}
+
+.main .main-recommended-articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto 3em;
+}
+
+.main .fitur {
   padding: 15vh 3vw;
 }
-.main .fitur h1 {
-  font-size: 64px;
-  text-align: center;
-  margin-bottom: 10vh;
-}
+
 .main .fitur .card-contain {
   display: flex;
   justify-content: space-between;
@@ -285,7 +376,7 @@ main {
   padding: 0;
   background-color: #fff;
   color: #6566c0;
-} */
+}
 
 /* About Page */
 
