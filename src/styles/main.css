@@ -114,8 +114,8 @@ main {
 }
 
 .main .section-title {
-  font-size: 48px;
-  margin: auto 10vw;
+  font-size: 32px;
+  margin: 1em;
   text-align: center;
 }
 
@@ -125,10 +125,11 @@ main {
   font-size: smaller;
 }
 
+.main .summary,
 .main .summary-section,
 .main .rank-section,
 .main .fun-fact .card-contain {
-  margin: auto 2em;
+  margin: auto;
   display: grid;
   gap: 2em;
 }
@@ -137,8 +138,7 @@ main {
   grid-template-rows: repeat(2, auto);
   max-width: 1200px;
   padding: 20px;
-  margin: auto;
-  margin-bottom: 3em;
+  margin: 3em auto;
 }
 
 .summary-section {
