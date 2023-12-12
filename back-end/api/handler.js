@@ -81,6 +81,7 @@ const getAllArticlesHandler = async (req, res) => {
       articles: articles.map((article) => ({
         id: article.id,
         title: article.title,
+        image_url: article.image_url,
         overview: article.overview,
       })),
     },
