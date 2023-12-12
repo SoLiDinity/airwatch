@@ -1,5 +1,5 @@
 import DataSource from '../../data/data-source';
-import { createBlogsListCardTemplate } from '../templates/template-creator';
+import { createBlogsListCardTemplate, createErrorPage } from '../templates/template-creator';
 
 const Blogs = {
   async render() {
@@ -11,16 +11,23 @@ const Blogs = {
   },
 
   async afterRender() {
-    const data = await DataSource.allBlogsArticles();
-    const blogArticlesData = data.articles;
+    try {
+      const data = await DataSource.allBlogsArticles();
+      const blogArticlesData = data.articles;
 
-    console.log(blogArticlesData);
+      console.log(blogArticlesData);
 
-    const blogContainerElement = document.querySelector('.blog-container');
+      const blogContainerElement = document.querySelector('.blog-container');
 
-    blogArticlesData.forEach(blog => {
-      blogContainerElement.innerHTML += createBlogsListCardTemplate(blog, 30);
-    });
+      blogArticlesData.forEach(blog => {
+        blogContainerElement.innerHTML += createBlogsListCardTemplate(blog, 30);
+      });
+    } catch (error) {
+      const blogContainerElement = document.querySelector('.blog-container');
+
+      blogContainerElement.innerHTML = createErrorPage();
+
+    }
   },
 };
 

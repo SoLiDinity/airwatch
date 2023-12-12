@@ -55,9 +55,11 @@ class DataSource {
 
       return responseJson.data;
     } catch (error) {
-      setTimeout(() => {
-        Loader.finishLoader();
-      }, 500);
+      if (loader) {
+        setTimeout(() => {
+          Loader.finishLoader();
+        }, 500);
+      }
 
       return `Gagal: ${error.message}`;
     }
@@ -135,6 +137,12 @@ class DataSource {
 
       return responseJson.data;
     } catch (error) {
+      if (loader) {
+        setTimeout(() => {
+          Loader.finishLoader();
+        }, 500);
+      }
+
       return `Gagal: ${error.message}`;
     }
   }

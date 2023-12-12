@@ -3,6 +3,7 @@ import aqi from '../../globals/aqi-arrays';
 import {
   creatAverageAqiIdn,
   createBlogsListCardTemplate,
+  createErrorPage,
   createTableRankAqi,
 } from '../templates/template-creator';
 import datas from '../../data/data.json';
@@ -98,6 +99,7 @@ const Main = {
         </div>
       </div>
     </div>
+    <div class="main-page-error"></div>
     `;
   },
 
@@ -183,38 +185,46 @@ const Main = {
   // },
 
   async afterRender() {
-    // after render mainpage
-    const { topAqi, bottomAqi, averageAqi, latestUpdate, hoursDifference, minutesDifference } =
-      await DataSource.summaryIdnAqi();
+    try {
+      const { topAqi, bottomAqi, averageAqi, latestUpdate, hoursDifference, minutesDifference } =
+        await DataSource.summaryIdnAqi();
 
-    const topAqiTable = createTableRankAqi(topAqi, aqi.colors);
-    const bottomAqiTable = createTableRankAqi(bottomAqi, aqi.colors);
-    const averageAqiCard = creatAverageAqiIdn(
-      averageAqi,
-      latestUpdate,
-      hoursDifference,
-      minutesDifference,
-      aqi.status,
-      aqi.classUrl,
-      aqi.colors,
-      aqi.info,
-      window.innerWidth,
-    );
+      const topAqiTable = createTableRankAqi(topAqi, aqi.colors);
+      const bottomAqiTable = createTableRankAqi(bottomAqi, aqi.colors);
+      const averageAqiCard = creatAverageAqiIdn(
+        averageAqi,
+        latestUpdate,
+        hoursDifference,
+        minutesDifference,
+        aqi.status,
+        aqi.classUrl,
+        aqi.colors,
+        aqi.info,
+        window.innerWidth,
+      );
 
-    document.getElementById('top-aqi-rank').innerHTML = topAqiTable;
-    document.getElementById('bottom-aqi-rank').innerHTML = bottomAqiTable;
-    document.getElementById('average-aqi').innerHTML = averageAqiCard;
+      document.getElementById('top-aqi-rank').innerHTML = topAqiTable;
+      document.getElementById('bottom-aqi-rank').innerHTML = bottomAqiTable;
+      document.getElementById('average-aqi').innerHTML = averageAqiCard;
 
-    const recomendedArticles = document.querySelector('.main-recommended-articles');
-    
-    const articles = (await DataSource.allBlogsArticles(false)).articles;
+      const recomendedArticles = document.querySelector('.main-recommended-articles');
 
-    const shuffledArticles = articles.sort(() => Math.random() - 0.5);
-    const randomArticles = shuffledArticles.slice(0, 3);
+      const articles = (await DataSource.allBlogsArticles(false)).articles;
 
-    randomArticles.forEach(article => {
-      recomendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
-    });
+      const shuffledArticles = articles.sort(() => Math.random() - 0.5);
+      const randomArticles = shuffledArticles.slice(0, 3);
+
+      randomArticles.forEach(article => {
+        recomendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
+      });
+    } catch (error) {
+      const errorContainer = document.querySelector('.main-page-error');
+      const mainContainer = document.querySelector('.main');
+
+      mainContainer.innerHTML = '';
+
+      errorContainer.innerHTML += createErrorPage();
+    }
   },
 };
 
