@@ -1,5 +1,6 @@
 import API_ENDPOPINTS from '../globals/api-endpoints';
 import OPTIONS from '../globals/fetch-options';
+import CustomAlert from '../utils/custom-alert-initiator';
 import Loader from '../utils/loader-performer';
 
 class DataSource {
@@ -33,6 +34,11 @@ class DataSource {
       setTimeout(() => {
         Loader.finishLoader();
       }, 500);
+
+      CustomAlert.init({
+        backgroundColor: 'red',
+        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+      });
       
       return `Gagal: ${error.message}`;
     }
@@ -60,6 +66,11 @@ class DataSource {
           Loader.finishLoader();
         }, 500);
       }
+
+      CustomAlert.init({
+        backgroundColor: 'red',
+        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+      });
 
       return `Gagal: ${error.message}`;
     }
@@ -143,6 +154,11 @@ class DataSource {
         }, 500);
       }
 
+      CustomAlert.init({
+        backgroundColor: 'red',
+        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+      });
+
       return `Gagal: ${error.message}`;
     }
   }
@@ -163,6 +179,11 @@ class DataSource {
       setTimeout(() => {
         Loader.finishLoader();
       }, 500);
+
+      CustomAlert.init({
+        backgroundColor: 'red',
+        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+      });
 
       return `Gagal: ${error.message}`;
     }

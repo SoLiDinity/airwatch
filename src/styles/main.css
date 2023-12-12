@@ -1176,6 +1176,9 @@ footer {
   transition: 0.3s;
   z-index: 999;
   font-size: clamp(12px, 1vw, 800px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #loader {
