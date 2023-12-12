@@ -5,7 +5,7 @@ title: Add Article
 
 # Add Article
 
-This endpoint allows you to add a new article to the database.
+Endpoint ini berguna untuk menambahkan artikel ke database. 
 
 ## Endpoint
 
@@ -18,16 +18,16 @@ This endpoint allows you to add a new article to the database.
 
 ```json
 {
-  "title": "Article Title",
-  "image_url": "URL to Image",
-  "overview": "Article Overview",
+  "title": "string",
+  "image_url": "string",
+  "overview": "string",
   "content": {
     "sections": [
       {
-        "title": "Section Title",
-        "image_url": "URL to Image",
-        "paragraph": "Section Paragraph",
-        "list": ["Item 1", "Item 2"]
+        "title": "string",
+        "image_url": "string",
+        "paragraph": "string",
+        "list": ["string", "string"]
       }
       // ... other sections
     ]
@@ -46,7 +46,7 @@ Status Code: `201 (Created)`
   "status": "success",
   "message": "Artikel berhasil ditambahkan",
   "data": {
-    "articleId": "7OKwugIoxRysyG6P"
+    "articleId": "Ab1C23De4F5O6p_"
   }
 }
 ```

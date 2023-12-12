@@ -3,34 +3,23 @@ sidebar_position: 1
 title: Introduction
 ---
 
-# Tutorial Intro
+# AirWatchID Blog API
 
-Let's discover **Docusaurus in less than 5 minutes**.
+API AirWatchID Blog berfungsi sebagai backend untuk Blog AirWatchID, menyediakan pengembang dan pencipta konten dengan serangkaian endpoint yang kuat untuk mengelola artikel blog dan konten terkait.
 
-## Getting Started
+## Base URL
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**:
-
-```shell
-npx @docusaurus/init@latest init my-website classic
+Anda dapat mengakses endpoint melalui URL berikut:  
+```
+https://airwatch-back-end.vercel.app/
 ```
 
-## Start your site
+## Features
 
-Run the development server:
+1. Manajemen Artikel: Mudah membuat, memperbarui, dan menghapus artikel blog menggunakan endpoint API yang khusus.
 
-```shell
-cd my-website
+2. Pengambilan Konten: Dapatkan informasi terperinci tentang artikel individual, termasuk judul, ringkasan, dan isi artikel.
 
-npx docusaurus start
-```
+3. Daftar Artikel: Dapatkan daftar semua artikel blog, memungkinkan navigasi yang mudah tentang konten blog.
 
-Your site starts at `http://localhost:3000`.
-
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and display your changes.
+API AirWatchID Blog memberikan akses yang kuat untuk mengotomatiskan proses manajemen konten blog, memberikan pengalaman yang lebih baik untuk pengembang dan pengguna platform AirWatchID.

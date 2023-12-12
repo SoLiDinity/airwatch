@@ -5,7 +5,7 @@ title: Get All Articles
 
 # Get All Articles
 
-This endpoint retrieves list of all articles from the database.
+Endpoint ini berguna untuk mengambil seluruh data artikel dalam database.
 
 ## Endpoint
 
