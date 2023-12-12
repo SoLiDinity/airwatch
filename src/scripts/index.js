@@ -5,6 +5,7 @@ import App from './views/app';
 
 import './components/app-bar';
 import './components/app-footer';
+import './components/load-spinner';
 
 const app = new App({
   button: document.querySelector('#menu-button'),

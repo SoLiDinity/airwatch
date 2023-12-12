@@ -206,7 +206,8 @@ const Main = {
     document.getElementById('average-aqi').innerHTML = averageAqiCard;
 
     const recomendedArticles = document.querySelector('.main-recommended-articles');
-    const { articles } = datas;
+    
+    const articles = (await DataSource.allBlogsArticles(false)).articles;
 
     const shuffledArticles = articles.sort(() => Math.random() - 0.5);
     const randomArticles = shuffledArticles.slice(0, 3);

@@ -1,11 +1,10 @@
 import UrlParser from '../../routes/url-parser';
-import datas from '../../data/data.json';
 import {
   createBlogArticleTemplate,
   createBlogsListCardTemplate,
 } from '../templates/template-creator';
 import CustomAlert from '../../utils/custom-alert-initiator';
-// TODO 7
+import DataSource from '../../data/data-source';
 
 const BlogsArticle = {
   async render() {
@@ -24,7 +23,10 @@ const BlogsArticle = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const articleContentElement = document.querySelector('.article-content');
     const otherArticlesContainerElement = document.querySelector('.recommended-articles-container');
-    const articleData = datas.articles.find(data => data.id === url.id);
+    
+    const data = await DataSource.specificBlogsArticlesById(url.id);
+    const datas = await DataSource.allBlogsArticles(false);
+    const articleData = data.article;
 
     const currentBlogUrlUri = encodeURIComponent(window.location.href);
     const currentBlogTitleUri = encodeURIComponent(`${articleData.title} | Baca artikelnya di:`);

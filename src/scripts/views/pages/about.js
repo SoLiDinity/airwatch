@@ -1,5 +1,6 @@
 import { createProfileCardTemplate } from '../templates/template-creator';
 import datas from '../../data/team-data.json';
+import Loader from '../../utils/loader-performer';
 
 const About = {
   async render() {
@@ -24,6 +25,12 @@ const About = {
   },
 
   async afterRender() {
+    Loader.performLoader();
+
+    setTimeout(() => {
+      Loader.finishLoader();
+    }, 500);
+    
     const teamData = datas.team;
     const boxContainerElement = document.querySelector('.box-container');
 

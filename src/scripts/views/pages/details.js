@@ -118,9 +118,13 @@ const Detail = {
         aqisChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
+      
+      const articles = (await DataSource.allBlogsArticles(false)).articles;
 
-      const { articles } = datas;
-      articles.slice(0, 3).forEach(article => {
+      const shuffledArticles = articles.sort(() => Math.random() - 0.5);
+      const randomArticles = shuffledArticles.slice(0, 3);
+
+      randomArticles.forEach(article => {
         detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
       });
     } catch (error) {

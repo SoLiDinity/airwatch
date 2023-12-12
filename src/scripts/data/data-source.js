@@ -1,8 +1,10 @@
 import API_ENDPOPINTS from '../globals/api-endpoints';
 import OPTIONS from '../globals/fetch-options';
+import Loader from '../utils/loader-performer';
 
 class DataSource {
   static async allIndonesiaStationsData() {
+    Loader.performLoader();
     try {
       const response = await fetch(API_ENDPOPINTS.ALL_INDONESIA_STATIONS, OPTIONS.method('GET'));
       const responseJson = await response.json();
@@ -22,19 +24,41 @@ class DataSource {
         return !isExcluded;
       });
 
+      setTimeout(() => {
+        Loader.finishLoader();
+      }, 500);
+
       return indonesiaStations;
     } catch (error) {
+      setTimeout(() => {
+        Loader.finishLoader();
+      }, 500);
+      
       return `Gagal: ${error.message}`;
     }
   }
 
-  static async stationDetail(id) {
+  static async stationDetail(id, loader = true) {
+    if (loader) {
+      Loader.performLoader();
+    }
+
     try {
       const response = await fetch(API_ENDPOPINTS.STATION_DETAIL(id));
       const responseJson = await response.json();
 
+      if (loader) {
+        setTimeout(() => {
+          Loader.finishLoader();
+        }, 500);
+      }
+
       return responseJson.data;
     } catch (error) {
+      setTimeout(() => {
+        Loader.finishLoader();
+      }, 500);
+
       return `Gagal: ${error.message}`;
     }
   }
@@ -44,7 +68,7 @@ class DataSource {
     let latestUpdate;
     const filteredAqiData = await Promise.all(
       allIndonesiaAqi.map(async (station) => {
-        const stationDetailData = await this.stationDetail(station.uid);
+        const stationDetailData = await this.stationDetail(station.uid, false);
         latestUpdate = stationDetailData.time.s;
         if ( stationDetailData.attributions[0].url === 'http://www.bmkg.go.id/' 
         && stationDetailData.aqi !== null
@@ -92,6 +116,48 @@ class DataSource {
       hoursDifference,
       minutesDifference,
     };
+  }
+
+  static async allBlogsArticles(loader = true) {
+    if (loader) {
+      Loader.performLoader();
+    }
+
+    try {
+      const response = await fetch(API_ENDPOPINTS.AIRWATCH_ALL_ARTICLES, OPTIONS.method('GET'));
+      const responseJson = await response.json();
+
+      if (loader) {
+        setTimeout(() => {
+          Loader.finishLoader();
+        }, 500);
+      }
+
+      return responseJson.data;
+    } catch (error) {
+      return `Gagal: ${error.message}`;
+    }
+  }
+
+  static async specificBlogsArticlesById(id) {
+    Loader.performLoader();
+    try {
+      const response = await fetch(API_ENDPOPINTS.AIRWATCH_ARTICLE_DETAIL(id), OPTIONS.method('GET'));
+
+      setTimeout(() => {
+        Loader.finishLoader();
+      }, 800);
+
+      const responseJson = await response.json();
+
+      return responseJson.data;
+    } catch (error) {
+      setTimeout(() => {
+        Loader.finishLoader();
+      }, 500);
+
+      return `Gagal: ${error.message}`;
+    }
   }
 }
 

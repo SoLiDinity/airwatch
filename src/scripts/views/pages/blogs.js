@@ -1,5 +1,4 @@
-// TODO 7
-import data from '../../data/data.json';
+import DataSource from '../../data/data-source';
 import { createBlogsListCardTemplate } from '../templates/template-creator';
 
 const Blogs = {
@@ -12,10 +11,14 @@ const Blogs = {
   },
 
   async afterRender() {
-    const blogData = data.articles;
-    const blogContainerElement = await document.querySelector('.blog-container');
+    const data = await DataSource.allBlogsArticles();
+    const blogArticlesData = data.articles;
 
-    blogData.forEach(blog => {
+    console.log(blogArticlesData);
+
+    const blogContainerElement = document.querySelector('.blog-container');
+
+    blogArticlesData.forEach(blog => {
       blogContainerElement.innerHTML += createBlogsListCardTemplate(blog, 30);
     });
   },

@@ -1,5 +1,6 @@
 const CONFIG = {
-  BASE_URL: 'https://api.waqi.info/',
+  WAQI_BASE_URL: 'https://api.waqi.info/',
+  AIRWATCH_ARTICLES_BASE_URL: 'https://airwatch-back-end.vercel.app',
   TOKEN: process.env.WAQI_API_KEY,
 };
 

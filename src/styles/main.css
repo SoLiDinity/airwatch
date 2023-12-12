@@ -23,8 +23,6 @@
   --good-50: #38d0207b;
   --unhealthy-50: #e9474a82;
 
-  --default-nav: #6566c0;
-
   --good-bg-img: url(https://static.vecteezy.com/system/resources/thumbnails/005/732/474/small/forest-morning-landscape-with-lake-vector.jpg);
   --moderate-bg-img: url(https://img.freepik.com/premium-vector/autumn-meadow-landscape-with-mountains-background_2963-404.jpg);
   --unhealthy-groups-bg-img: url(https://static.vecteezy.com/system/resources/previews/027/531/153/original/mountain-landscape-illustration-orange-mountains-ridge-with-pine-forest-mountain-range-landscape-for-background-wallpaper-display-or-landing-page-flat-style-panorama-illustration-vector.jpg);
@@ -734,7 +732,7 @@ main {
 
 .to-detail-page {
   width: 100%;
-  background-color: var(--default-nav);
+  background-color: var(--secondary);
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 5px;
@@ -875,7 +873,7 @@ main {
 }
 
 .data-source {
-  background-color: var(--default-nav);
+  background-color: var(--secondary);
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 5px;
@@ -980,7 +978,7 @@ main {
 
 .blog-card a {
   width: 100%;
-  background-color: var(--default-nav);
+  background-color: var(--secondary);
   color: white;
   font-weight: bold;
   min-height: 0;
@@ -1178,4 +1176,24 @@ footer {
   transition: 0.3s;
   z-index: 999;
   font-size: clamp(12px, 1vw, 800px);
+}
+
+#loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  opacity: 100%;
+  pointer-events: all;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1999;
+}
+
+#loader.hidden {
+  opacity: 0%;
+  pointer-events: none;
+  transition: 0.3s;
 }
