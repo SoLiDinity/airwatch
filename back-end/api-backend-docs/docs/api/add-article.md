@@ -59,7 +59,7 @@ Status Code: `400 (Bad Request)`
 
 ```json
 {
-  "error": "Invalid request body. Ensure all fields are provided, and content should contain an array of sections."
+  "error": "Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections"
 }
 ```
 
@@ -69,7 +69,7 @@ Status Code: `400 (Bad Request)`
 
 ```json
 {
-  "error": "Invalid field(s) in one or more sections."
+  "error": "Terdapat satu atau lebih bagian yang tidak valid pada sections"
 }
 ```
 
