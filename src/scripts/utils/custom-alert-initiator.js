@@ -11,7 +11,7 @@ const CustomAlert = {
     const customALertContainer = document.querySelector('#customAlert');
     customALertContainer.style.backgroundColor = backgroundColor;
     customALertContainer.style.color = textColor;
-    customALertContainer.innerHTML = `<h4>${message}<h4>`;
+    customALertContainer.innerHTML = `<p>${message}<p>`;
 
     this._performALert(customALertContainer);
   },

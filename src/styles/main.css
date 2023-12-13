@@ -1171,9 +1171,9 @@ footer {
 
 /* Lainnya */
 #customAlert {
-  width: fit-content;
-  min-height: fit-content;
+  width: max-content;
   position: fixed;
+  padding: .5rem 2rem;
   top: -100px;
   right: 50%;
   opacity: 0%;
@@ -1181,14 +1181,17 @@ footer {
   background-color: gray;
   color: white;
   text-align: center;
-  padding: 1rem;
   border-radius: 50px;
   transition: 0.3s;
   z-index: 999;
-  font-size: clamp(12px, 1vw, 800px);
+  font-size: clamp(14px, 1vw, 800px);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#customAlert i {
+  margin-right: .35rem;
 }
 
 #loader {

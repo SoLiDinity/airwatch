@@ -55,7 +55,7 @@ const BlogsArticle = {
 
         CustomAlert.init({
           message:
-            '<i class="fa-solid fa-circle-info" style="margin-right: .35rem;"></i>Tautan telah disalin',
+            '<i class="fa-solid fa-clipboard"></i>Tautan telah disalin',
           backgroundColor: '#0094FF',
         });
       };

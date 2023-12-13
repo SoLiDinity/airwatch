@@ -37,7 +37,7 @@ class DataSource {
 
       CustomAlert.init({
         backgroundColor: 'red',
-        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+        message: `<i class="fa-solid fa-triangle-exclamation"></i> Gagal: ${error.message}`,
       });
       
       return `Gagal: ${error.message}`;
@@ -69,7 +69,7 @@ class DataSource {
 
       CustomAlert.init({
         backgroundColor: 'red',
-        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+        message: `<i class="fa-solid fa-triangle-exclamation"></i> Gagal: ${error.message}`,
       });
 
       return `Gagal: ${error.message}`;
@@ -156,7 +156,7 @@ class DataSource {
 
       CustomAlert.init({
         backgroundColor: 'red',
-        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+        message: `<i class="fa-solid fa-triangle-exclamation"></i> Gagal: ${error.message}`,
       });
 
       return `Gagal: ${error.message}`;
@@ -182,7 +182,7 @@ class DataSource {
 
       CustomAlert.init({
         backgroundColor: 'red',
-        message: `<i class="fa-solid fa-triangle-exclamation" style="margin-right: .25rem;"></i> Gagal: ${error.message}`,
+        message: `<i class="fa-solid fa-triangle-exclamation"></i> Gagal: ${error.message}`,
       });
 
       return `Gagal: ${error.message}`;
