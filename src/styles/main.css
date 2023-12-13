@@ -99,14 +99,14 @@ main {
 
 .hero p {
   color: #412e8a;
-  padding-bottom: 2vh;
   padding-right: 7vw;
   font-size: larger;
 }
 
 .hero h2 {
-  font-size: clamp(52px, 5vw, 900px);
+  font-size: clamp(52px, 5vw, 100px);
   color: white;
+  margin-bottom: -.5rem;
 }
 
 .hero .image-hero img {
@@ -119,15 +119,33 @@ main {
   width: 100%;
 }
 
+.next-btn {
+  width: fit-content;
+  background: linear-gradient(45deg, rgba(101, 102, 192, 1), rgba(56, 57, 149, 1));
+  color: white;
+  font-size: clamp(24px, 1.5vw, 800px);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1.75rem;
+  border-radius: 100px;
+  margin-top: 2rem;
+}
+
+.next-btn:hover {
+  scale: 105%;
+}
+
 .main .section-title {
   font-size: 32px;
-  margin: 1em;
+  margin: 1em 1em 0;
   text-align: center;
 }
 
 .main .hero p:nth-child(3) {
   font-style: normal;
-  color: black;
+  color: white;
   font-size: smaller;
 }
 
@@ -188,6 +206,7 @@ main {
 .map-section__image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .inner {
@@ -198,7 +217,8 @@ main {
 
 .inner p {
   font-weight: 600;
-  color: var(--primary);
+  color: white;
+  margin-bottom: .5rem;
 }
 
 .inner a {
@@ -208,9 +228,9 @@ main {
   padding: 0.7em;
 }
 
-.rank-section h1 {
+.rank-section h2 {
   text-align: center;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .topAqi-section, .bottomAqi-section {
@@ -218,17 +238,18 @@ main {
   border-radius: 20px;
 }
 
-.topAqi-section h1, .bottomAqi-section h1{
+.topAqi-section h2, .bottomAqi-section h2{
   color: white;
   padding: 1rem;
   border-radius: 10px;
+  width: 100%;
 }
 
-.topAqi-section h1 {
+.topAqi-section h2 {
   background-color: var(--unhealthy);
 }
 
-.bottomAqi-section h1 {
+.bottomAqi-section h2 {
   background-color: var(--good);
 }
 
@@ -329,83 +350,71 @@ main {
 }
 
 .main .main-recommended-articles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: auto 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 3em;
+  place-items: center;
+  gap: 1rem;
+}
+
+.main-recommended-articles .blog-card {
+  width: 100%;
 }
 
 .main .fitur {
-  padding: 15vh 3vw;
+  padding: 5rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.main .fitur h1 {
+  text-align: center;
 }
 
 .main .fitur .card-contain {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
+
 .main .fitur .card {
   width: 390px;
-  height: 485px;
-  padding: 25px 16px;
+  border-radius: 20px;
+  padding: 1.5rem;
   background-color: #ffffff;
-  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-rows: 5fr 1.5fr;
 }
+
 .main .fitur .card .card-header {
   text-align: center;
+  display: grid;
+  grid-template-rows: 2fr 7fr;
+  place-items: center;
 }
+
 .main .fitur .card .card-header h1 {
-  font-size: 40px;
+  font-size: clamp(24px, 1.5vw, 800px);
   color: #6566c0;
   font-weight: 700;
-  margin-bottom: 65px;
 }
+
 .main .fitur .card img {
   width: 225px;
   height: 192px;
   object-fit: cover;
   margin-bottom: 10px;
 }
-.main .fitur .card .card-body {
-  text-align: justify;
-}
 
-.main .use {
-  margin: 10vh 0;
-  padding: 0 5vw;
-}
-.main .use h1 {
-  font-size: 64px;
-  text-align: center;
-  margin-bottom: 20vh;
-}
-.main .use h1 span {
-  color: #6566c0;
-}
-.main .use .btn-container {
-  display: flex;
-  height: 50vh;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.main .use .btn-container .btn {
-  display: flex;
-  align-items: center;
-  padding-left: 2vw;
-  width: 560px;
-  height: 58px;
-  border-radius: 13px;
-  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
-}
-.main .use .btn-container .btn button {
-  margin-left: auto;
-  border: none;
-  padding: 0;
-  background-color: #fff;
-  color: #6566c0;
+.main .fitur .card .card-body p{
+  font-size: 16px;
 }
 
 /* About Page */
-
 .reviews {
   padding-bottom: 5rem;
 }
@@ -1163,6 +1172,7 @@ footer {
 /* Lainnya */
 #customAlert {
   width: fit-content;
+  min-height: fit-content;
   position: fixed;
   top: -100px;
   right: 50%;

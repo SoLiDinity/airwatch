@@ -7,7 +7,6 @@ import {
 } from '../templates/template-creator';
 import { createBarChart, createLineChart } from '../../utils/chart-creator';
 import aqi from '../../globals/aqi-arrays';
-import datas from '../../data/data.json';
 
 const Detail = {
   async render() {

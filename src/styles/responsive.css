@@ -45,9 +45,6 @@
 }
 
 @media (min-width: 1135px) {
-  .main-recommended-articles .blog-card {
-    width: 30%;
-  }
 }
 
 @media (max-width: 1020px) {
@@ -105,6 +102,7 @@
     font-size: 16px;
     padding-right: 0vw;
   }
+
   .main .hero .content-hero h2 {
     font-size: clamp(32px, 6vw, 800px);
     padding-bottom: 1vh;
@@ -115,12 +113,23 @@
     font-size: large;
     order: 3;
     padding-right: 0vw;
+    line-height: 100%;
+    margin-top: 1rem;
+  }
+
+  .next-btn {
+    order: 4;
+    width: 100%;
   }
 
   .main .hero img {
     width: 33vw;
     min-width: 175px;
     max-width: 300px;
+  }
+
+  .main .main-recommended-articles {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -193,6 +202,10 @@
 
   .blog-card .text {
     grid-template-rows: 4fr 1fr;
+  } 
+
+  .main .main-recommended-articles {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -211,33 +224,16 @@
 }
 
 @media (max-width: 500px) {
+  .main .fitur .card {
+    width: 100%;
+  }
+
+  .main .fitur .card .card-body p {
+    text-align: center;
+  }
+
   .main .main-recommended-articles {
     margin: 0;
-  }
-
-  .main .fitur {
-    padding: 10vh 3vw 0vh;
-  }
-  .main .fitur h1 {
-    font-size: 3em;
-    margin-bottom: 5vh;
-  }
-  .main .fitur .card-contain {
-    height: 220vh;
-  }
-  .main .fitur .card {
-    height: auto;
-    margin-bottom: 5vh;
-  }
-
-  .main .use h1 {
-    font-size: 36px;
-    margin-bottom: 5vh;
-    margin-top: auto;
-  }
-
-  .main .use .btn-container {
-    height: 80vh;
   }
 
   .error-page {
