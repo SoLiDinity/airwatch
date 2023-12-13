@@ -97,6 +97,11 @@
     justify-content: center;
     margin: auto;
   }
+
+  .main .hero .content-hero p {
+    line-height: 100%;
+  }
+
   .main .hero .content-hero p:nth-child(1) {
     order: 2;
     font-size: 16px;
@@ -110,10 +115,8 @@
   }
 
   .main .hero p:nth-child(3) {
-    font-size: large;
     order: 3;
     padding-right: 0vw;
-    line-height: 100%;
     margin-top: 1rem;
   }
 
@@ -224,6 +227,10 @@
 }
 
 @media (max-width: 500px) {
+  .next-btn {
+    padding: .5rem 0;
+  }
+
   .main .fitur .card {
     width: 100%;
   }
