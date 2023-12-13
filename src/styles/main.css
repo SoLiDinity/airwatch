@@ -23,12 +23,12 @@
   --good-50: #38d0207b;
   --unhealthy-50: #e9474a82;
 
-  --good-bg-img: url(https://static.vecteezy.com/system/resources/thumbnails/005/732/474/small/forest-morning-landscape-with-lake-vector.jpg);
-  --moderate-bg-img: url(https://img.freepik.com/premium-vector/autumn-meadow-landscape-with-mountains-background_2963-404.jpg);
-  --unhealthy-groups-bg-img: url(https://static.vecteezy.com/system/resources/previews/027/531/153/original/mountain-landscape-illustration-orange-mountains-ridge-with-pine-forest-mountain-range-landscape-for-background-wallpaper-display-or-landing-page-flat-style-panorama-illustration-vector.jpg);
-  --unhealthy-bg-img: url(https://static.vecteezy.com/system/resources/thumbnails/000/217/363/small/vector-colourful-landscape-illustration.jpg);
-  --very-unhealthy-bg-img: url(https://w0.peakpx.com/wallpaper/395/635/HD-wallpaper-birds-vector-landscape-minimal-vector-minimalism-minimalist-artist-artwork-digital-art-thumbnail.jpg);
-  --hazardous-bg-img: url(https://static.vecteezy.com/system/resources/thumbnails/000/676/221/small/desert_landscape_silhouette_at_night-01.jpg);
+  --good-bg-img: url(../public/images/landscapes/good.jpg);
+  --moderate-bg-img: url(../public/images/landscapes/moderate.png);
+  --unhealthy-groups-bg-img: url(../public/images/landscapes/unhealthy-groups.jpg);
+  --unhealthy-bg-img: url(../public/images/landscapes/unhealthy.jpg);
+  --very-unhealthy-bg-img: url(../public/images/landscapes/very-unhealthy.jpg);
+  --hazardous-bg-img: url(../public/images/landscapes/hazardous.jpg);
 }
 
 /*     */
