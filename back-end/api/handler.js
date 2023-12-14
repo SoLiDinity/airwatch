@@ -12,6 +12,15 @@ const addArticleHandler = async (req, res) => {
 
   const id = nanoid(16);
 
+  const apiKey = process.env.API_KEY;
+  const { key } = req.query;
+
+  if (key !== `${apiKey}`) {
+    return res.status(401).json({
+      error: 'Unauthorized. Key tidak valid.',
+    });
+  }
+
   const validSectionFields = ['title', 'image_url', 'paragraph', 'list'];
 
   if (!title || !image_url || !overview || !content || !Array.isArray(content.sections)) {
