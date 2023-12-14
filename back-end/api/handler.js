@@ -17,6 +17,7 @@ const addArticleHandler = async (req, res) => {
 
   if (key !== `${apiKey}`) {
     return res.status(401).json({
+      status: 'fail',
       error: {
         message: 'Unauthorized. Key tidak valid.',
       },
@@ -27,6 +28,7 @@ const addArticleHandler = async (req, res) => {
 
   if (!title || !image_url || !overview || !content || !Array.isArray(content.sections)) {
     return res.status(400).json({
+      status: 'fail',
       error: {
         message: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
       },
@@ -51,6 +53,7 @@ const addArticleHandler = async (req, res) => {
   if (hasInvalidFields) {
     return res.status(400).json({
       error: {
+        status: 'fail',
         message: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
       },
     });
