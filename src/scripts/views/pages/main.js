@@ -64,7 +64,7 @@ const Main = {
           </div>
           <div class="map-section shadow">
             <div class="map-section__image">
-              <img src="https://tdjamaluddin.files.wordpress.com/2016/12/google-earth-3.jpg?w=848" alt="Ilustrasi peta">
+              <img src="https://cdn.pixabay.com/photo/2023/06/17/01/27/space-8069027_640.png" alt="Ilustrasi peta">
             </div>
             <div class="inner">
               <p>Peta Kualitas Udara</p>
