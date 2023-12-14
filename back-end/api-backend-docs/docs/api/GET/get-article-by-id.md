@@ -1,6 +1,7 @@
 ---
 id: get-article-by-id
 title: Get Article By ID
+sidebar_position: 3
 ---
 
 # Get Article By ID

@@ -1,6 +1,7 @@
 ---
 id: get-all-articles
 title: Get All Articles
+sidebar_position: 2
 ---
 
 # Get All Articles

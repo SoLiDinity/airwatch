@@ -11,7 +11,7 @@ API AirWatchID Blog berfungsi sebagai backend untuk Blog AirWatchID, menyediakan
 
 Anda dapat mengakses endpoint melalui URL berikut:  
 ```
-https://blogs-api.airwatchid.site//
+https://blogs-api.airwatchid.site/
 ```
 
 ## Features

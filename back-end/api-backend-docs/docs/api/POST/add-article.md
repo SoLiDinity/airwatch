@@ -1,6 +1,7 @@
 ---
 id: add-article
 title: Add Article
+sidebar_position: 1
 ---
 
 # Add Article
