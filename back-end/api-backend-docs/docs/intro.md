@@ -11,7 +11,7 @@ API AirWatchID Blog berfungsi sebagai backend untuk Blog AirWatchID, menyediakan
 
 Anda dapat mengakses endpoint melalui URL berikut:  
 ```
-https://airwatch-back-end.vercel.app/
+https://blogs-api.airwatchid.site//
 ```
 
 ## Features
@@ -22,4 +22,4 @@ https://airwatch-back-end.vercel.app/
 
 3. Daftar Artikel: Dapatkan daftar semua artikel blog, memungkinkan navigasi yang mudah tentang konten blog.
 
-API AirWatchID Blog memberikan akses yang kuat untuk mengotomatiskan proses manajemen konten blog, memberikan pengalaman yang lebih baik untuk pengembang dan pengguna platform AirWatchID.
+API AirWatchID Blog memberikan akses untuk memudahkan proses manajemen konten blog, memberikan pengalaman yang lebih baik untuk pengembang dan pengguna platform AirWatchID.
