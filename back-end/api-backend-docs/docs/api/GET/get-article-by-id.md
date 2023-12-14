@@ -53,6 +53,8 @@ Status Code: `400 (Not Found)`
 ```json
 {
   "status": "fail",
-  "message": "Artikel tidak ditemukan"
+  "error": {
+    "message": "Artikel tidak ditemukan"
+  }
 }
 ```
