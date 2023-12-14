@@ -153,46 +153,68 @@ const createTableRankAqi = (dataList, aqiColors) => `
       <th>AQI</th>
     </thead>
     <tbody>
-      ${dataList.map((data, index) => {
-        const cityName = data.city.name.replace(/, Indonesia$/, '');
-    
-        return `
+      ${dataList
+        .map((data, index) => {
+          const cityName = data.city.name.replace(/, Indonesia$/, '');
+
+          return `
             <tr>
               <td>${index + 1}</td>
-              <td><a class="city-detail-link" href="/#/detail/${
-                data.idx
-              }">${cityName}</a></td>
+              <td><a class="city-detail-link" href="/#/detail/${data.idx}">${cityName}</a></td>
               <td>
-                <span style="color: ${getAqiInfo((data.aqi === '-' ? 0 : data.aqi), aqiColors)}; font-weight: bold;">
+                <span style="color: ${getAqiInfo(
+                  data.aqi === '-' ? 0 : data.aqi,
+                  aqiColors,
+                )}; font-weight: bold;">
                   ${data.aqi}
                 </span>
               </td>
             </tr>
           `;
-      }).join('')}
+        })
+        .join('')}
     </tbody>
   </table>
 `;
 
-const creatAverageAqiIdn = (data, latestUpdate, hoursDifference, minutesDifference, aqiStatus, aqiClassUrl, aqiColors, aqiInfo) => `
-    <div class="summary-content shadow ${getAqiInfo((data === '-' ? 0 : data), aqiClassUrl)}">
+const creatAverageAqiIdn = (
+  data,
+  latestUpdate,
+  hoursDifference,
+  minutesDifference,
+  aqiStatus,
+  aqiClassUrl,
+  aqiColors,
+  aqiInfo,
+) => `
+    <div class="summary-content shadow ${getAqiInfo(data === '-' ? 0 : data, aqiClassUrl)}">
         <p class="aqi-label" style="color: white; font-weight: bold;">Indeks Kualitas Udara Rata-Rata Indonesia</p>
-        <div class="aqi-index-detail" style="background-color: ${getAqiInfo((data === '-' ? 0 : data), aqiColors)};">
+        <div class="aqi-index-detail" style="background-color: ${getAqiInfo(
+          data === '-' ? 0 : data,
+          aqiColors,
+        )};">
             <h1>${data === '-' ? 0 : data}</h1>
         </div>
         <div class="aqi-detail-container">
             <h1>Rata-Rata di Indonesia</h1>
-            <p>Status: <span style="color: ${getAqiInfo((data === '-' ? 0 : data), aqiColors)}; font-weight: bold;">${getAqiInfo(data, aqiStatus)}</span></p>
+            <p>Status: <span style="color: ${getAqiInfo(
+              data === '-' ? 0 : data,
+              aqiColors,
+            )}; font-weight: bold;">${getAqiInfo(data, aqiStatus)}</span></p>
             <div class="current-aqi-info">
               <h3>💡 Info Kualitas Udara</h3>
-              <p>${getAqiInfo((data === '-' ? 0 : data), aqiInfo)}</p>
+              <p>${getAqiInfo(data === '-' ? 0 : data, aqiInfo)}</p>
             </div>
             <div class="attributions">
                 <p class="data-source">Data by: <a href="https://www.bmkg.go.id/" target="_blank">BMKG | Badan Meteorologi, Klimatologi dan Geofisika</a></p>
                 <p class="data-source">Provided by: <a href="https://waqi.info/" target="_blank">World Air Quality Index Project</a></p>
                 <p class="latest-update">
                   Latest Update:
-                  ${hoursDifference !== 0 ? `${hoursDifference} jam ${minutesDifference} menit yang lalu` : `${minutesDifference} menit yang lalu`}
+                  ${
+                    hoursDifference !== 0
+                      ? `${hoursDifference} jam ${minutesDifference} menit yang lalu`
+                      : `${minutesDifference} menit yang lalu`
+                  }
                   (${latestUpdate.toString()} WIB)
               </p>
             </div>

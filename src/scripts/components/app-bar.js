@@ -153,7 +153,7 @@ class AppBar extends HTMLElement {
     let currentPath = window.location.hash || '#/';
     const navItems = this.querySelectorAll('.nav_list_item');
 
-    navItems.forEach((item) => {
+    navItems.forEach(item => {
       const link = item.querySelector('a');
       const href = link.getAttribute('href');
 

@@ -117,8 +117,8 @@ const Detail = {
         aqisChartCanvas.remove();
         aqiChartForecastCanvas.remove();
       }
-      
-      const articles = (await DataSource.allBlogsArticles(false)).articles;
+
+      const { articles } = await DataSource.allBlogsArticles(false);
 
       const shuffledArticles = articles.sort(() => Math.random() - 0.5);
       const randomArticles = shuffledArticles.slice(0, 3);

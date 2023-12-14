@@ -54,8 +54,7 @@ const BlogsArticle = {
         document.body.removeChild(textarea);
 
         CustomAlert.init({
-          message:
-            '<i class="fa-solid fa-clipboard"></i>Tautan telah disalin',
+          message: '<i class="fa-solid fa-clipboard"></i>Tautan telah disalin',
           backgroundColor: '#0094FF',
         });
       };
@@ -72,7 +71,9 @@ const BlogsArticle = {
         copyToClipboard();
       });
 
-      const otherArticles = datas.articles.filter(data => data.id !== url.id);
+      const otherArticles = datas.articles.filter(
+        otherArticleData => otherArticleData.id !== url.id,
+      );
       otherArticles.slice(0, 4).forEach(article => {
         otherArticlesContainerElement.innerHTML += createBlogsListCardTemplate(article, 10);
       });

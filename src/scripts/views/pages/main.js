@@ -139,7 +139,7 @@ const Main = {
   async afterRender() {
     try {
       const nextButtonElement = document.querySelector('.next-btn');
-      nextButtonElement.addEventListener('click', (e) => {
+      nextButtonElement.addEventListener('click', e => {
         e.preventDefault();
 
         const nextContentSection = document.querySelector('#fitur');
@@ -169,7 +169,7 @@ const Main = {
 
       const recomendedArticles = document.querySelector('.main-recommended-articles');
 
-      const articles = (await DataSource.allBlogsArticles(false)).articles;
+      const { articles } = await DataSource.allBlogsArticles(false);
 
       const shuffledArticles = articles.sort(() => Math.random() - 0.5);
       const randomArticles = shuffledArticles.slice(0, 3);

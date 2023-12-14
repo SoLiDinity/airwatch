@@ -30,7 +30,7 @@ const About = {
     setTimeout(() => {
       Loader.finishLoader();
     }, 500);
-    
+
     const teamData = datas.team;
     const boxContainerElement = document.querySelector('.box-container');
 

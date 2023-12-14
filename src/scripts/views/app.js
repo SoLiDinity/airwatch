@@ -19,8 +19,6 @@ class App {
       content: this._content,
     });
 
-    
-
     const skipLink = document.querySelector('.skip-link');
     skipLink.addEventListener('click', event => {
       event.preventDefault();

@@ -26,7 +26,6 @@ const Blogs = {
       const blogContainerElement = document.querySelector('.blog-container');
 
       blogContainerElement.innerHTML = createErrorPage();
-
     }
   },
 };

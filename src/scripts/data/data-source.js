@@ -11,11 +11,19 @@ class DataSource {
       const responseJson = await response.json();
 
       const excludedCountries = ['malaysia', 'thailand', 'singapore', 'brunei'];
-      const excludedCities = ['miri', 'kuala lumpur', 'bukit bintang', 'klcc', 'ipoh', 'perai', 'M702 AQMS-MDP IT Store Station'];
+      const excludedCities = [
+        'miri',
+        'kuala lumpur',
+        'bukit bintang',
+        'klcc',
+        'ipoh',
+        'perai',
+        'M702 AQMS-MDP IT Store Station',
+      ];
       const isAlphanumeric = str => /^[a-zA-Z0-9\s$%,-]+$/i.test(str);
       const indonesiaStations = responseJson.data.filter(data => {
         const stationNameLower = data.station.name.toLowerCase();
-        const aqi = data.aqi;
+        const { aqi } = data;
         const isExcluded =
           excludedCountries.some(country => stationNameLower.includes(country)) ||
           excludedCities.some(city => stationNameLower.includes(city)) ||
@@ -39,7 +47,7 @@ class DataSource {
         backgroundColor: 'red',
         message: `<i class="fa-solid fa-triangle-exclamation"></i> Gagal: ${error.message}`,
       });
-      
+
       return `Gagal: ${error.message}`;
     }
   }
@@ -80,11 +88,12 @@ class DataSource {
     const allIndonesiaAqi = await this.allIndonesiaStationsData();
     let latestUpdate;
     const filteredAqiData = await Promise.all(
-      allIndonesiaAqi.map(async (station) => {
+      allIndonesiaAqi.map(async station => {
         const stationDetailData = await this.stationDetail(station.uid, false);
         latestUpdate = stationDetailData.time.s;
-        if ( stationDetailData.attributions[0].url === 'http://www.bmkg.go.id/' 
-        && stationDetailData.aqi !== null
+        if (
+          stationDetailData.attributions[0].url === 'http://www.bmkg.go.id/' &&
+          stationDetailData.aqi !== null
         ) {
           if (stationDetailData.time.s > latestUpdate) {
             latestUpdate = stationDetailData.time.s;
@@ -95,13 +104,9 @@ class DataSource {
       }),
     );
 
-    const validFilteredAqiData = filteredAqiData.filter(
-      (data) => data !== null,
-    );
+    const validFilteredAqiData = filteredAqiData.filter(data => data !== null);
 
-    const sortedDataAqi = [...validFilteredAqiData].sort(
-      (a, b) => b.aqi - a.aqi,
-    );
+    const sortedDataAqi = [...validFilteredAqiData].sort((a, b) => b.aqi - a.aqi);
 
     const topAqi = sortedDataAqi.slice(0, 10);
     const bottomAqi = sortedDataAqi.slice(-10).reverse();
@@ -115,12 +120,8 @@ class DataSource {
     const currentDate = new Date();
 
     const timeDifference = currentDate - updateDate;
-    const hoursDifference = Math.floor(
-      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-    );
-    const minutesDifference = Math.floor(
-      (timeDifference % (1000 * 60 * 60)) / (1000 * 60),
-    );
+    const hoursDifference = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     return {
       topAqi,
       bottomAqi,
@@ -166,7 +167,10 @@ class DataSource {
   static async specificBlogsArticlesById(id) {
     Loader.performLoader();
     try {
-      const response = await fetch(API_ENDPOPINTS.AIRWATCH_ARTICLE_DETAIL(id), OPTIONS.method('GET'));
+      const response = await fetch(
+        API_ENDPOPINTS.AIRWATCH_ARTICLE_DETAIL(id),
+        OPTIONS.method('GET'),
+      );
 
       setTimeout(() => {
         Loader.finishLoader();
