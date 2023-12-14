@@ -124,11 +124,6 @@ const createErrorPage = () => `
         <h2>Something went wrong.</h2>
         <p>We're sorry, but an error occurred while fetching data.</p>
     </section>
-    <section class="error-page__hero">
-        <picture>
-            <img src='./images/heros/error-hero.png' alt="Error Logo" style="width: 200px">
-        </picture>
-    </section>
   </article>
 `;
 
