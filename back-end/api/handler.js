@@ -17,7 +17,9 @@ const addArticleHandler = async (req, res) => {
 
   if (key !== `${apiKey}`) {
     return res.status(401).json({
-      error: 'Unauthorized. Key tidak valid.',
+      error: {
+        message: 'Unauthorized. Key tidak valid.',
+      },
     });
   }
 
@@ -25,7 +27,9 @@ const addArticleHandler = async (req, res) => {
 
   if (!title || !image_url || !overview || !content || !Array.isArray(content.sections)) {
     return res.status(400).json({
-      error: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
+      error: {
+        message: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
+      },
     });
   }
 
@@ -46,7 +50,9 @@ const addArticleHandler = async (req, res) => {
 
   if (hasInvalidFields) {
     return res.status(400).json({
-      error: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
+      error: {
+        message: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
+      },
     });
   }
 
@@ -74,7 +80,9 @@ const addArticleHandler = async (req, res) => {
     console.error('Error adding article to the database:', error);
     return res.status(500).json({
       status: 'fail',
-      message: 'Internal server error',
+      error: {
+        message: 'Internal server error',
+      },
       data: null,
     });
   }
@@ -119,7 +127,9 @@ const getArticleByIdHandler = async (req, res, articleId) => {
   } else {
     res.status(404).json({
       status: 'fail',
-      message: 'Artikel tidak ditemukan',
+      error: {
+        message: 'Artikel tidak ditemukan',
+      },
     });
   }
 };
