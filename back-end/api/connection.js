@@ -22,13 +22,3 @@ const connectToDatabase = async () => {
 };
 
 module.exports = { connectToDatabase };
-
-// .then((result) => {
-//     const articles_db = result;
-//     console.log('Articles data loaded successfully.');
-//     return articles_db;
-//   })
-//   .catch((error) => {
-//     console.error('Error loading articles data:', error);
-//     throw error;
-//   });

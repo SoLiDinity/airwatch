@@ -16,7 +16,7 @@ const addArticleHandler = async (req, res) => {
 
   if (!title || !image_url || !overview || !content || !Array.isArray(content.sections)) {
     return res.status(400).json({
-      error: 'Invalid request body. Ensure all fields are provided, and content should contain an array of sections.',
+      error: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
     });
   }
 
@@ -37,7 +37,7 @@ const addArticleHandler = async (req, res) => {
 
   if (hasInvalidFields) {
     return res.status(400).json({
-      error: 'Invalid field(s) in one or more sections.',
+      error: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
     });
   }
 
@@ -81,6 +81,7 @@ const getAllArticlesHandler = async (req, res) => {
       articles: articles.map((article) => ({
         id: article.id,
         title: article.title,
+        image_url: article.image_url,
         overview: article.overview,
       })),
     },
@@ -109,7 +110,7 @@ const getArticleByIdHandler = async (req, res, articleId) => {
   } else {
     res.status(404).json({
       status: 'fail',
-      message: 'Article not found',
+      message: 'Artikel tidak ditemukan',
     });
   }
 };
