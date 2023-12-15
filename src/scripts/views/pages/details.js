@@ -11,14 +11,14 @@ import aqi from '../../globals/aqi-arrays';
 const Detail = {
   async render() {
     return `
-        <div class="detail-container" id="detailContainer">
-          <div class="detail-content-container"></div>
-          <div class="detail-recommended-articles-container">
-            <h2>Artikel Rekomendasi</h2>
-            <div class="detail-recommended-articles"></div>
-          </div>
+      <div class="detail-container" id="detailContainer">
+        <div class="detail-content-container"></div>
+        <div class="detail-recommended-articles-container">
+          <h2>Artikel Rekomendasi</h2>
+          <div class="detail-recommended-articles"></div>
         </div>
-      `;
+      </div>
+    `;
   },
 
   async afterRender() {
@@ -127,7 +127,6 @@ const Detail = {
         detailRecommendedArticles.innerHTML += createBlogsListCardTemplate(article, 30);
       });
     } catch (error) {
-      console.error('Terjadi kesalahan:', error);
       detailContainerElement.innerHTML = createErrorPage();
 
       const recommendedArticlesContainerElement = document.querySelector(

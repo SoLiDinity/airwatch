@@ -133,7 +133,8 @@ main {
   margin-top: 2rem;
 }
 
-.next-btn:hover {
+.next-btn:hover,
+.maps-btn:hover {
   scale: 105%;
 }
 
@@ -152,7 +153,7 @@ main {
 .main .summary,
 .main .summary-section,
 .main .rank-section,
-.main .fun-fact .card-contain {
+.main .summary-side {
   margin: auto;
   display: grid;
   gap: 2em;
@@ -167,6 +168,11 @@ main {
 
 .summary-section {
   grid-template-columns: 2fr 1fr;
+}
+
+.summary-side {
+  grid-template-rows: 1fr 2fr;
+  gap: 1em;
 }
 
 .map-section {
@@ -278,29 +284,33 @@ main {
   font-weight: bold;
 }
 
-.main .fun-fact {
-  padding: 10vh 10vw;
+.summary-side .fun-fact {
+  padding: 1.5em;
   background-color: var(--primary);
-  margin-bottom: 3em;
+  border-radius: 10px;
 }
 
-.main .fun-fact .section-title {
+.summary-side .fun-fact .section-title {
   color: white;
+  margin: 0.5em auto;
 }
 
-.main .fun-fact .card-contain {
-  display: grid;
-  gap: 3em;
-  grid-template-columns: repeat(3, 1fr);
+.summary-side .fun-fact .card-contain {
+  display: inline;
 }
-.main .fun-fact .card {
+
+.mySwiper {
+  max-width: 25vw;
+}
+
+.summary-side .fun-fact .card {
   padding: 16px;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
 }
 
-.fun-fact .card .card-header p {
+.summary-side .fun-fact .card .card-header p {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -308,25 +318,25 @@ main {
   text-align: center;
 }
 
-.main .fun-fact .card .card-body {
+.summary-side .fun-fact .card .card-body {
   text-align: justify;
   display: flex;
   flex: 1 1 auto;
 }
 
-.main .fun-fact .card .card-body .line {
+.summary-side .fun-fact .card .card-body .line {
   border-left: 4px solid var(--secondary);
   padding-right: 16px;
   margin-bottom: 41px;
   margin-top: 6px;
 }
 
-.main .fun-fact .card .card-body p {
+.summary-side .fun-fact .card .card-body p {
   font-size: 14px;
   margin-bottom: 36px;
   line-height: 1.43;
 }
-.main .fun-fact .card .card-body span {
+.summary-side .fun-fact .card .card-body span {
   font-size: 28px;
   font-weight: 500;
   color: var(--secondary);

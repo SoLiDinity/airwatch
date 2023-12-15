@@ -10,14 +10,14 @@ import DataSource from '../../data/data-source';
 const BlogsArticle = {
   async render() {
     return `
-        <div class="blog-article">
-          <div class="article-content" id="articleContent"></div>
-          <aside class="recommended-articles">
-            <h3>Artikel Rekomendasi</h3>
-            <div class="recommended-articles-container"></div>
-          </aside>
-        </div>
-        <div class="article-page-error"></div>
+      <div class="blog-article">
+        <div class="article-content" id="articleContent"></div>
+        <aside class="recommended-articles">
+          <h3>Artikel Rekomendasi</h3>
+          <div class="recommended-articles-container"></div>
+        </aside>
+      </div>
+      <div class="article-page-error"></div>
     `;
   },
 
@@ -67,7 +67,6 @@ const BlogsArticle = {
       const copyToClipBoardButtonElement = document.querySelector('#copyToClipboard');
       copyToClipBoardButtonElement.addEventListener('click', e => {
         e.preventDefault();
-
         copyToClipboard();
       });
 

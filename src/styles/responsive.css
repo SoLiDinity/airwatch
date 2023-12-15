@@ -149,8 +149,30 @@
     padding: 1rem;
   }
 
+  .summary-section {
+    grid-template-columns: none;
+  }
+
+  .summary-side {
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .main .fun-fact .card-contain {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main .fun-fact .card {
+    height: 50vh;
+  }
+
+  .map-section {
+    height: 65vh;
+  }
+
+  .mySwiper {
+    max-width: 35vw;
+    height: 47vh;
   }
 }
 
@@ -210,6 +232,18 @@
   .main .main-recommended-articles {
     grid-template-columns: 1fr;
   }
+
+  .summary-side {
+    grid-template-columns: none; 
+  }
+
+  .summary-side .fun-fact .card {
+    height: 60vh;
+  }
+
+  .mySwiper {
+    max-width: 70vw;
+  }
 }
 
 @media (max-width: 550px) {
@@ -223,6 +257,14 @@
 
   .main .articles {
     margin: 20px;
+  }
+
+  .mySwiper {
+    height: 60vh;
+  }
+  
+  .map-section {
+    height: 25vh;
   }
 }
 
