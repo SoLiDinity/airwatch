@@ -61,10 +61,10 @@ const createProfileCardTemplate = teamData => `
         <h3>${teamData.name}</h3>
         <p class="role">${teamData.role ? teamData.role : ''}</p>
         <div class="logo-ref-team">
-          <a href='${teamData.linkedin}' target='_blank' rel='noreferrer'>
+          <a href='${teamData.linkedin_url}' target='_blank' rel='noreferrer'>
             <i class='fa-brands fa-linkedin fs-1'></i>
           </a>
-          <a href='${teamData.github}' target='_blank' rel='noreferrer'>
+          <a href='${teamData.github_url}' target='_blank' rel='noreferrer'>
             <i class='fa-brands fa-github fs-1' style={{ color: 'black' }}></i>
           </a>
         </div>
