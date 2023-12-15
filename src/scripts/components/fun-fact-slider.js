@@ -47,6 +47,7 @@ class FunFactSlider extends HTMLElement {
     requestAnimationFrame(() => {
       const swiper = new Swiper('.mySwiper', {
         effect: 'card',
+        spaceBetween: 20,
         grabCursor: true,
         loop: true,
         autoplay: {

@@ -168,9 +168,11 @@ main {
 
 .summary-section {
   grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .summary-side {
+  height: 100%;
   grid-template-rows: 1fr 2fr;
   gap: 1em;
 }
@@ -196,7 +198,7 @@ main {
 .map-section {
   overflow: hidden;
   position: relative;
-  height: 200px;
+  height: 100%;
   background-color: #000;
   display: flex;
 }
@@ -288,6 +290,7 @@ main {
   padding: 1.5em;
   background-color: var(--primary);
   border-radius: 10px;
+  height: 100%;
 }
 
 .summary-side .fun-fact .section-title {
@@ -296,11 +299,17 @@ main {
 }
 
 .summary-side .fun-fact .card-contain {
-  display: inline;
+  display: flex;
+  height: 300px;
 }
 
 .mySwiper {
-  max-width: 25vw;
+  max-width: 300px;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  height: 100%;
 }
 
 .summary-side .fun-fact .card {
@@ -308,6 +317,7 @@ main {
   background-color: white;
   box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
+  height: 100%;
 }
 
 .summary-side .fun-fact .card .card-header p {
@@ -389,6 +399,7 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  height: 100%;
 }
 
 .main .fitur .card {
@@ -806,6 +817,10 @@ main {
   align-items: center;
   border-radius: 20px;
   padding: 1rem;
+}
+
+.summary-content {
+  height: 100%;
 }
 
 .shadow {

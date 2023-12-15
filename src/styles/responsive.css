@@ -162,17 +162,13 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .main .fun-fact .card {
-    height: 50vh;
-  }
-
   .map-section {
-    height: 65vh;
+    height: 100%;
   }
 
   .mySwiper {
     max-width: 35vw;
-    height: 47vh;
+    height: fit-content;
   }
 }
 
@@ -237,9 +233,9 @@
     grid-template-columns: none; 
   }
 
-  .summary-side .fun-fact .card {
-    height: 60vh;
-  }
+  /* .summary-side .fun-fact .card {
+    height: fit-content;
+  } */
 
   .mySwiper {
     max-width: 70vw;
@@ -260,7 +256,7 @@
   }
 
   .mySwiper {
-    height: 60vh;
+    height: 300px;
   }
   
   .map-section {
