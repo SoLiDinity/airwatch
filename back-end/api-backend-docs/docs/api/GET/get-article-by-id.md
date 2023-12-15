@@ -1,6 +1,7 @@
 ---
 id: get-article-by-id
 title: Get Article By ID
+sidebar_position: 3
 ---
 
 # Get Article By ID
@@ -52,6 +53,8 @@ Status Code: `400 (Not Found)`
 ```json
 {
   "status": "fail",
-  "message": "Artikel tidak ditemukan"
+  "error": {
+    "message": "Artikel tidak ditemukan"
+  }
 }
 ```

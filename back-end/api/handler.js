@@ -12,11 +12,26 @@ const addArticleHandler = async (req, res) => {
 
   const id = nanoid(16);
 
+  const apiKey = process.env.API_KEY;
+  const { key } = req.query;
+
+  if (key !== `${apiKey}`) {
+    return res.status(401).json({
+      status: 'fail',
+      error: {
+        message: 'Unauthorized. Key tidak valid.',
+      },
+    });
+  }
+
   const validSectionFields = ['title', 'image_url', 'paragraph', 'list'];
 
   if (!title || !image_url || !overview || !content || !Array.isArray(content.sections)) {
     return res.status(400).json({
-      error: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
+      status: 'fail',
+      error: {
+        message: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
+      },
     });
   }
 
@@ -37,7 +52,10 @@ const addArticleHandler = async (req, res) => {
 
   if (hasInvalidFields) {
     return res.status(400).json({
-      error: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
+      error: {
+        status: 'fail',
+        message: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
+      },
     });
   }
 
@@ -65,7 +83,9 @@ const addArticleHandler = async (req, res) => {
     console.error('Error adding article to the database:', error);
     return res.status(500).json({
       status: 'fail',
-      message: 'Internal server error',
+      error: {
+        message: 'Internal server error',
+      },
       data: null,
     });
   }
@@ -110,7 +130,9 @@ const getArticleByIdHandler = async (req, res, articleId) => {
   } else {
     res.status(404).json({
       status: 'fail',
-      message: 'Artikel tidak ditemukan',
+      error: {
+        message: 'Artikel tidak ditemukan',
+      },
     });
   }
 };

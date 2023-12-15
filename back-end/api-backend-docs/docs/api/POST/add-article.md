@@ -1,16 +1,17 @@
 ---
 id: add-article
 title: Add Article
+sidebar_position: 1
 ---
 
 # Add Article
 
-Endpoint ini berguna untuk menambahkan artikel ke database. 
+Endpoint ini berguna untuk menambahkan artikel ke database.
 
 ## Endpoint
 
 - Method: `POST`
-- URL: `/articles`
+- URL: `/articles?key={Authorization Key}`
 
 ## Request
 
@@ -59,7 +60,10 @@ Status Code: `400 (Bad Request)`
 
 ```json
 {
-  "error": "Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections"
+  "status": "fail",
+  "error": {
+    "message": "Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections"
+  }
 }
 ```
 
@@ -69,7 +73,10 @@ Status Code: `400 (Bad Request)`
 
 ```json
 {
-  "error": "Terdapat satu atau lebih bagian yang tidak valid pada sections"
+  "status": "fail",
+  "error": {
+    "message": "Terdapat satu atau lebih bagian yang tidak valid pada sections"
+  }
 }
 ```
 
@@ -80,7 +87,9 @@ Status Code: `500 (Server Error)`
 ```json
 {
   "status": "fail",
-  "message": "Internal server error",
+  "error": {
+    "message": "message": "Internal server error"
+  }
   "data": null
 }
 ```
