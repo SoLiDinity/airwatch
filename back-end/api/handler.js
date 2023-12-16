@@ -52,8 +52,8 @@ const addArticleHandler = async (req, res) => {
 
   if (hasInvalidFields) {
     return res.status(400).json({
+      status: 'fail',
       error: {
-        status: 'fail',
         message: 'Terdapat satu atau lebih bagian yang tidak valid pada sections',
       },
     });
