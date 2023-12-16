@@ -168,7 +168,6 @@
 
   .mySwiper {
     max-width: 35vw;
-    height: fit-content;
   }
 }
 
@@ -233,12 +232,9 @@
     grid-template-columns: none; 
   }
 
-  /* .summary-side .fun-fact .card {
-    height: fit-content;
-  } */
-
   .mySwiper {
     max-width: 70vw;
+    height: fit-content;
   }
 }
 

@@ -10,7 +10,7 @@ const createAQIDetailTemplate = (
   screenWidth = 0,
 ) => `
   <div class="detail-content shadow ${getAqiInfo(data.aqi === '-' ? 0 : data.aqi, aqiClassUrl)}">
-    <p class="aqi-label" style="color: white; font-weight: bold;">Index Kualitas Udara</p>
+    <p class="aqi-label" style="color: white; font-weight: bold;">Indeks Kualitas Udara</p>
     <div class="aqi-index-detail" style="background-color: ${getAqiInfo(
       data.aqi === '-' ? 0 : data.aqi,
       aqiColors,
@@ -160,8 +160,6 @@ const createTableRankAqi = (dataList, aqiColors) => `
 const creatAverageAqiIdn = (
   data,
   latestUpdate,
-  hoursDifference,
-  minutesDifference,
   aqiStatus,
   aqiClassUrl,
   aqiColors,
@@ -189,13 +187,7 @@ const creatAverageAqiIdn = (
         <p class="data-source">Data by: <a href="https://www.bmkg.go.id/" target="_blank">BMKG | Badan Meteorologi, Klimatologi dan Geofisika</a></p>
         <p class="data-source">Provided by: <a href="https://waqi.info/" target="_blank">World Air Quality Index Project</a></p>
         <p class="latest-update">
-          Latest Update:
-          ${
-            hoursDifference !== 0
-              ? `${hoursDifference} jam ${minutesDifference} menit yang lalu`
-              : `${minutesDifference} menit yang lalu`
-          }
-          (${latestUpdate.toString()} WIB)
+          Latest Update: ${latestUpdate}
         </p>
       </div>
     </div>
