@@ -11,7 +11,7 @@
 - ✓ Menampilkan komponen pada index.html
 - ✓ Melengkapi index.js sesuai komponen yang dibuat
 
-### TODO 2 [98%]
+### TODO 2 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat tampilan Main page (main.js)
 
 ### TODO 3 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
@@ -47,11 +47,10 @@
 ### TODO 8 [100%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - ✓ Membuat App Manifest
 
-### TODO 9 [80%]:
+### TODO 9 [90%] ![Static Badge](https://img.shields.io/badge/Finished-a)
 - Membuat Back-End untuk blog
 - Membuat Dokumentasi API Back-End Blog
 
 ### TODO 10:
-- Front-End Integrated testing (/w jest)
 - Front-End End to End testing (/w codecept)
 - ✓ Back-End testing (/w postman)
