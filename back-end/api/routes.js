@@ -20,7 +20,8 @@ router.get('/articles/:articleId', (req, res) => {
   const { articleId } = req.params;
   getArticleByIdHandler(req, res, articleId);
 });
-router.delete('/article/:articleId', (req, res) => {
+
+router.delete('/articles/:articleId', (req, res) => {
   const { articleId } = req.params;
   deleteArticleByIdHandler(req, res, articleId);
 });

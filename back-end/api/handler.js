@@ -4,10 +4,7 @@ const { connectToDatabase } = require('./connection');
 
 const addArticleHandler = async (req, res) => {
   const {
-    title,
-    image_url,
-    overview,
-    content,
+    title, image_url, overview, content,
   } = req.body;
 
   const id = nanoid(16);
@@ -30,7 +27,8 @@ const addArticleHandler = async (req, res) => {
     return res.status(400).json({
       status: 'fail',
       error: {
-        message: 'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
+        message:
+          'Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections',
       },
     });
   }
@@ -38,8 +36,7 @@ const addArticleHandler = async (req, res) => {
   let hasInvalidFields = false;
 
   content.sections.forEach((section) => {
-    const invalidFields = Object.keys(section)
-      .filter((field) => !validSectionFields.includes(field));
+    const invalidFields = Object.keys(section).filter((field) => !validSectionFields.includes(field));
 
     if (invalidFields.length > 0) {
       hasInvalidFields = true;
@@ -139,28 +136,30 @@ const getArticleByIdHandler = async (req, res, articleId) => {
 
 const deleteArticleByIdHandler = async (req, res, articleId) => {
   const articlesCollection = await connectToDatabase();
-  try {
-    const result = await articlesCollection.deleteOne({id : articleId});
+  const articles = await articlesCollection.find({}).toArray();
+
+  const foundArticle = articles.find((article) => article.id === articleId);
+
+  if (foundArticle) {
+    const result = await articlesCollection.deleteOne({ id: articleId });
+
+    console.log(articleId);
 
     if (result.deletedCount === 1) {
       return res.status(200).json({
         status: 'success',
         message: 'Artikel berhasil dihapus',
       });
-    } else {
-      return res.status(404).json({
-        status: 'fail',
-        message: 'Artikel tidak ditemukan',
-      });
     }
-  } catch (error) {
-    console.error('Error deleting article from the database:', error);
-    return res.status(500).json({
-      status: 'fail',
-      message: 'Internal server error',
-    });
   }
-}
+
+  return res.status(404).json({
+    status: 'fail',
+    error: {
+      message: 'Artikel tidak ditemukan',
+    },
+  });
+};
 
 module.exports = {
   addArticleHandler,
