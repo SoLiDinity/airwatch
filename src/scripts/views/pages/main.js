@@ -13,20 +13,20 @@ const Main = {
     return `
       <div class="main">
         <div class="hero" style="flex-grow: 1">
-          <div class="content-hero" data-aos="fade-right" data-aos-duration="1000">
+          <div class="content-hero" data-aos="fade-right" data-aos-duration="2000">
             <p>Aplikasi Pemantau Kualitas Udara Indonesia</p>
             <h2>AirWatchID</h2>
             <p>Memantau kualitas udara secara cepat dan tepat</p>
             <a class="next-btn" href="#summary">Selanjutnya</a>
           </div>
 
-          <div class="image-hero" data-aos="fade-left" data-aos-duration="1000">
+          <div class="image-hero" data-aos="fade-left" data-aos-duration="2000">
             <img src="./images/heros/main-hero.png" alt="Main Page Hero" />
           </div>
         </div>
 
         <div class="fitur" id="fitur">
-          <h1>Fitur AirWatchID</h1>
+          <h1 class="section-title" data-aos="fade-up">Fitur AirWatchID</h1>
           <div class="card-contain">
             <div class="card shadow" data-aos="flip-right">
               <div class="card-header">
@@ -98,7 +98,7 @@ const Main = {
         </section>
 
         <div class="articles">
-          <h1 class="section-title">Baca Juga</h1>
+          <h1 class="section-title" data-aos="fade-up">Baca Juga</h1>
           <div class="main-recommended-articles"></div>
         </div>
       </div>
@@ -124,8 +124,6 @@ const Main = {
       const averageAqiCard = creatAverageAqiIdn(
         averageAqi,
         latestUpdate,
-        hoursDifference,
-        minutesDifference,
         aqi.status,
         aqi.classUrl,
         aqi.colors,
