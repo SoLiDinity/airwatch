@@ -137,8 +137,34 @@ const getArticleByIdHandler = async (req, res, articleId) => {
   }
 };
 
+const deleteArticleByIdHandler = async (req, res, articleId) => {
+  const articlesCollection = await connectToDatabase();
+  try {
+    const result = await articlesCollection.deleteOne({id : articleId});
+
+    if (result.deletedCount === 1) {
+      return res.status(200).json({
+        status: 'success',
+        message: 'Artikel berhasil dihapus',
+      });
+    } else {
+      return res.status(404).json({
+        status: 'fail',
+        message: 'Artikel tidak ditemukan',
+      });
+    }
+  } catch (error) {
+    console.error('Error deleting article from the database:', error);
+    return res.status(500).json({
+      status: 'fail',
+      message: 'Internal server error',
+    });
+  }
+}
+
 module.exports = {
   addArticleHandler,
   getAllArticlesHandler,
   getArticleByIdHandler,
+  deleteArticleByIdHandler,
 };
