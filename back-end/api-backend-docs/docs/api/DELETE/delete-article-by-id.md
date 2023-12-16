@@ -11,7 +11,7 @@ Endpoint ini berguna untuk menghapus data artikel tertentu dari database berdasa
 ## Endpoint
 
 - Method: `DELETE`
-- URL: `/articles/{article ID}`
+- URL: `/articles/{article ID}?key={Authorization Key}`
 
 ## Response
 
@@ -27,6 +27,21 @@ Status Code: `200 (OK)`
 ```
 
 ### Error
+
+#### Unauthorized request
+
+Status Code: `401 (Unauthorized)`
+
+```json
+{
+  "status": "fail",
+  "error": {
+    "message": "Unauthorized. Key tidak valid."
+  }
+}
+```
+
+#### Article not found
 
 Status Code: `400 (Not Found)`
 

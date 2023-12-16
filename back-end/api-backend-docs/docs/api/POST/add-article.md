@@ -54,6 +54,19 @@ Status Code: `201 (Created)`
 
 ### Error
 
+#### Unauthorized request
+
+Status Code: `401 (Unauthorized)`
+
+```json
+{
+  "status": "fail",
+  "error": {
+    "message": "Unauthorized. Key tidak valid."
+  }
+}
+```
+
 #### Incomplete Data
 
 Status Code: `400 (Bad Request)`

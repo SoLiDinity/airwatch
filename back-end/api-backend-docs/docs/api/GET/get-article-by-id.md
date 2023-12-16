@@ -48,6 +48,8 @@ Status Code: `200 (OK)`
 
 ### Error
 
+#### Article not found
+
 Status Code: `400 (Not Found)`
 
 ```json
