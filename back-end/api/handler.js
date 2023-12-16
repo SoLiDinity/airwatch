@@ -138,6 +138,18 @@ const deleteArticleByIdHandler = async (req, res, articleId) => {
   const articlesCollection = await connectToDatabase();
   const articles = await articlesCollection.find({}).toArray();
 
+  const apiKey = process.env.API_KEY;
+  const { key } = req.query;
+
+  if (key !== `${apiKey}`) {
+    return res.status(401).json({
+      status: 'fail',
+      error: {
+        message: 'Unauthorized. Key tidak valid.',
+      },
+    });
+  }
+
   const foundArticle = articles.find((article) => article.id === articleId);
 
   if (foundArticle) {
