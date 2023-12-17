@@ -18,10 +18,10 @@ Proyek aplikasi ini merupakan sebuah inisiatif yang bertujuan untuk memberikan s
 Integrasi sistem informasi kualitas udara guna mendapatkan data kualitas udara secara langsung. 
 - <strong>Informasi Tingkat Polusi</strong>  
 Dapatkan informasi lebih lanjut mengenai bahaya pencemaran terhadap kualitas udara
-- <strong>Rekomendasi Tindakan</strong>
-- Rekomendasi tindakan yang bisa diambil oleh pengguna dalam menghadapi kondisi udara.
-- <strong>Artikel Informatif</strong>
-- Baca artikel terbaru dan mendalam untuk mendapatkan pemahaman yang lebih baik tentang isu-isu kualitas udara.
+- <strong>Rekomendasi Tindakan</strong>  
+  Rekomendasi tindakan yang bisa diambil oleh pengguna dalam menghadapi kondisi udara.
+- <strong>Artikel Informatif</strong>  
+  Baca artikel terbaru dan mendalam untuk mendapatkan pemahaman yang lebih baik tentang isu-isu kualitas udara.
 
 <br>
 
@@ -46,7 +46,8 @@ Read the latest and in-depth articles to gain a better understanding of air qual
 
 ## Credits
 
-### 👥 Capstone Team C523-PS066 Contributors
+### 👥 Capstone Team C523-PS066 
+#### Contributors
 <a href="https://github.com/SoLiDinity" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" alt="arduino" width="15" height="15"/></a> Leonardo Denavito Jounanda .P  
 
 <a href="https://github.com/KrsNovita2717" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" alt="arduino" width="15" height="15"/></a> Novita Kristiana  
