@@ -53,8 +53,10 @@ Read the latest and in-depth articles to gain a better understanding of air qual
 
 ## Preview
 
-![Home](<Screenshot (1824).png>)
-![Maps](<Screenshot (1825).png>)
+![Home](https://github.com/SoLiDinity/airwatch/assets/127974449/0f892c38-7329-4b10-9880-236d7d4d8646)
+
+![Maps)](https://github.com/SoLiDinity/airwatch/assets/127974449/1f5a6dba-89ec-4dab-b39d-bb4f0461f565)
+
 
 <br>
 
