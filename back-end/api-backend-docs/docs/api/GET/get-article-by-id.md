@@ -48,7 +48,7 @@ Status Code: `200 (OK)`
 
 ### Error
 
-#### Article not found
+#### Article Not Found
 
 Status Code: `400 (Not Found)`
 
