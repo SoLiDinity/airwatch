@@ -101,7 +101,7 @@ Status Code: `500 (Server Error)`
 {
   "status": "fail",
   "error": {
-    "message": "message": "Internal server error"
+    "message": "Internal server error"
   }
   "data": null
 }
