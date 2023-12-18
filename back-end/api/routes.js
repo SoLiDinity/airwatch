@@ -4,6 +4,7 @@ const {
   getAllArticlesHandler,
   getArticleByIdHandler,
   deleteArticleByIdHandler,
+  updateArticleByIdHandler,
 } = require('./handler');
 
 const router = express.Router();
@@ -24,6 +25,11 @@ router.get('/articles/:articleId', (req, res) => {
 router.delete('/articles/:articleId', (req, res) => {
   const { articleId } = req.params;
   deleteArticleByIdHandler(req, res, articleId);
+});
+
+router.put('/articles/:articleId', (req, res) => {
+  const { articleId } = req.params;
+  updateArticleByIdHandler(req, res, articleId);
 });
 
 module.exports = router;
