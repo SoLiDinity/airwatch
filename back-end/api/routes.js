@@ -26,4 +26,9 @@ router.delete('/articles/:articleId', (req, res) => {
   deleteArticleByIdHandler(req, res, articleId);
 });
 
+router.put('/articles/:articleId', (req, res) => {
+  const { articleId } = req.params;
+  updateArticleByIdHandler(req, res, articleId);
+});
+
 module.exports = router;
