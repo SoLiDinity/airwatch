@@ -4,6 +4,7 @@ const {
   getAllArticlesHandler,
   getArticleByIdHandler,
   deleteArticleByIdHandler,
+  updateArticleByIdHandler,
 } = require('./handler');
 
 const router = express.Router();

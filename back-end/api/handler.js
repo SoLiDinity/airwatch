@@ -242,14 +242,14 @@ const updateArticleByIdHandler = async (req, res, articleId) => {
         status: 'success',
         message: 'Artikel berhasil diperbarui',
       });
-    } else {
-      return res.status(404).json({
-        status: 'fail',
-        error: {
-          message: 'Artikel tidak ditemukan',
-        },
-      });
     }
+
+    return res.status(404).json({
+      status: 'fail',
+      error: {
+        message: 'Artikel tidak ditemukan',
+      },
+    });
   } catch (error) {
     console.error('Error updating article in the database:', error);
     return res.status(500).json({
