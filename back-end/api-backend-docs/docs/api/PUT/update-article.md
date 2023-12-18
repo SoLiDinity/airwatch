@@ -10,7 +10,7 @@ Endpoint ini berguna untuk memperbarui artikel berdasarkan ID ke database.
 
 ## Endpoint
 
-- Method: `POST`
+- Method: `PUT`
 - URL: `/articles/{Article ID}?key={Authorization Key}`
 
 ## Request
