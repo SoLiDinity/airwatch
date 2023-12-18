@@ -1,0 +1,1271 @@
+{
+	"info": {
+		"_postman_id": "80f8318c-b97a-43c4-a70f-c75f435c1576",
+		"name": "Articles API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29970404"
+	},
+	"item": [
+		{
+			"name": "Add Article With Complete Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 201', () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('message');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('data');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('success');\r",
+							"    pm.expect(responseJson.message).to.equals('Artikel berhasil ditambahkan');\r",
+							"    pm.expect(responseJson.data).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body data should contain articleId', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const { data } = responseJson;\r",
+							"\r",
+							"    pm.expect(data).to.haveOwnProperty('articleId');\r",
+							"    pm.expect(data.articleId).to.not.equals('');\r",
+							"\r",
+							"    pm.environment.set('articleId', data.articleId);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{oldSectionTitle}},\r\n                \"image_url\": {{oldSectionImageURL}},\r\n                \"paragraph\": {{oldSectionParagraph}},\r\n                \"list\": {{oldSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article With Incomplete Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article With Content containing Non-Array Sections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": {\r\n            \"title\": {{oldSectionTitle}},\r\n            \"image_url\": {{oldSectionImageURL}},\r\n            \"paragraph\": {{oldSectionParagraph}},\r\n            \"list\": {{oldSectionList}}\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article With Invalid Sections Field(s) Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Terdapat satu atau lebih bagian yang tidak valid pada sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{oldSectionTitle}},\r\n                \"image_url\": {{oldSectionImageURL}},\r\n                \"paragraf\": {{oldSectionParagraph}},\r\n                \"list\": {{oldSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Article With Complete Data Without Key Query Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 201', () => {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Unauthorized. Key tidak valid.');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{oldSectionTitle}},\r\n                \"image_url\": {{oldSectionImageURL}},\r\n                \"paragraph\": {{oldSectionParagraph}},\r\n                \"list\": {{oldSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Articles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body object should have correct property and value', () => {\r",
+							"    const responsJson = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responsJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responsJson).to.haveOwnProperty('data');\r",
+							"\r",
+							"    pm.expect(responsJson.status).to.equals('success');\r",
+							"    pm.expect(responsJson.data).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body data object should have an array articles', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const { data } = responseJson;\r",
+							"\r",
+							"    pm.expect(data).to.haveOwnProperty('articles');\r",
+							"    pm.expect(data.articles).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"pm.test('the books should have contains only id, name, and publisher property', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const { data: { articles } } = responseJson;\r",
+							"\r",
+							"    articles.forEach((articles) => {\r",
+							"        pm.expect(Object.keys(articles)).to.lengthOf(4);\r",
+							"        pm.expect(articles).to.haveOwnProperty('id');\r",
+							"        pm.expect(articles).to.haveOwnProperty('title');\r",
+							"        pm.expect(articles).to.haveOwnProperty('image_url');\r",
+							"        pm.expect(articles).to.haveOwnProperty('overview');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail Articles With Correct Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('response code should be 200', () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"})\r",
+							"\r",
+							"pm.test('response body should an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"})\r",
+							"\r",
+							"pm.test('response body object should contain correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('data');\r",
+							"    pm.expect(responseJson.status).to.equals('success');\r",
+							"    pm.expect(responseJson.data).to.be.an('object');\r",
+							"})\r",
+							"\r",
+							"pm.test('response body data object should contain article object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const {data} = responseJson;\r",
+							"    pm.expect(data).to.haveOwnProperty('article');\r",
+							"    pm.expect(data.article).to.be.an('object');\r",
+							"})\r",
+							"\r",
+							"pm.test('article object should contain correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    const { data: { article } } = responseJson;\r",
+							"\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson.status).to.equals('success');\r",
+							"\r",
+							"    pm.expect(article).to.haveOwnProperty('id');\r",
+							"    pm.expect(article).to.haveOwnProperty('title');\r",
+							"    pm.expect(article).to.haveOwnProperty('image_url');\r",
+							"    pm.expect(article).to.haveOwnProperty('overview');\r",
+							"    pm.expect(article).to.haveOwnProperty('content');\r",
+							"\r",
+							"    pm.expect(article.content).to.haveOwnProperty('sections');\r",
+							"    pm.expect(article.content.sections).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail Articles With Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('response code should be 404', () => {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should an object', () =>  {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body object should contain correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Artikel tidak ditemukan');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/xxxxx",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"xxxxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Complete Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('success');\r",
+							"    pm.expect(responseJson.message).to.equals('Artikel berhasil diperbarui');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{newTitle}},\r\n    \"image_url\": {{newImageURL}},\r\n    \"overview\": {{newOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{newSectionTitle}},\r\n                \"image_url\": {{newSectionImageURL}},\r\n                \"paragraph\": {{newSectionParagraph}},\r\n                \"list\": {{newSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Incomplete Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Content containing Non-Array Sections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Request body tidak valid. pastikan semua bagian sudah benar, dan bagian content menyimpan array sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": {\r\n            \"title\": {{oldSectionTitle}},\r\n            \"image_url\": {{oldSectionImageURL}},\r\n            \"paragraph\": {{oldSectionParagraph}},\r\n            \"list\": {{oldSectionList}}\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Invalid Sections Field(s) Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Terdapat satu atau lebih bagian yang tidak valid pada sections');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{oldTitle}},\r\n    \"image_url\": {{oldImageURL}},\r\n    \"overview\": {{oldOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{oldSectionTitle}},\r\n                \"image_url\": {{oldSectionImageURL}},\r\n                \"paragraf\": {{oldSectionParagraph}},\r\n                \"list\": {{oldSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Complete Data Without Key Query Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 201', () => {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Unauthorized. Key tidak valid.');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Standar Dunia untuk Kualitas Udara: Menggali Panduan WHO dan Dampaknya\",\r\n    \"image_url\": \"https://www.populair.sk/img-actualities/who-geneva-headquarters_20210923-104950.jpg\",\r\n    \"overview\": \"Kualitas udara yang baik adalah hak dasar setiap manusia, namun sayangnya, polusi udara telah menjadi tantangan global yang mengancam kesehatan manusia. Untuk mengatasi masalah ini, Organisasi Kesehatan Dunia (WHO) telah merumuskan panduan kualitas udara global yang bersifat acuan bagi seluruh negara. Mari kita menjelajahi standar dunia untuk kualitas udara, khususnya fokus pada partikel PM2.5, yang menjadi sorotan utama dalam panduan WHO.\",\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": \"\",\r\n                \"paragraph\": \"Panduan Kualitas Udara WHO menjadi satu-satunya panduan kualitas udara yang bersifat global. Pertama kali diterbitkan pada tahun 1987, panduan ini telah mengalami beberapa kali revisi, yang terakhir adalah pada tahun 2021. Setiap revisi mencerminkan penelitian ilmiah terbaru tentang dampak kesehatan dari polusi udara. Panduan ini bukan hanya sebagai standar tetapi juga sebagai rujukan bagi negara-negara untuk menyusun standar kualitas udara masing-masing.\"\r\n            },\r\n            {\r\n                \"title\": \"Pentingnya Pengukuran PM2.5\",\r\n                \"paragraph\": \"Pengukuran kualitas udara berfokus pada konsentrasi PM, terutama PM2.5. Konsentrasi ini diukur dalam mikrogram per meter kubik (μg/m3). Panduan WHO mengukur lima polutan utama, di antaranya PM2.5 dan PM10. PM10 memiliki diameter 10 mikron atau kurang, sedangkan PM2.5 memiliki diameter 2.5 mikron atau kurang.\"\r\n            },\r\n            {\r\n                \"title\": \"Panduan WHO untuk Polutan Utama\",\r\n                \"image_url\": \"https://cms.iqair.com/sites/default/files/inline-images/2114_GreenPeace_Infographic_2021_Desktop_v2.jpg\"\r\n            },\r\n            {\r\n                \"title\": \"Dampak Global dan Tindakan Bersama\",\r\n                \"paragraph\": \"Polusi udara tidak hanya merugikan kesehatan manusia tetapi juga terkait erat dengan perubahan iklim. Kemitraan antara WHO, WMO (Organisasi Meteorologi Dunia), dan CCAC (Climate and Clean Air Coalition) bertujuan untuk mengurangi polutan iklim pendek. Dengan menggabungkan data atmosfer, penginderaan jauh satelit, dan pemantauan tingkat tanah, mereka menciptakan Platform Global untuk Kualitas Udara dan Kesehatan.\"\r\n            },\r\n            {\r\n                \"title\": \"\",\r\n                \"paragraph\": \"Kesadaran masyarakat terhadap dampak polusi udara terhadap kesehatan sangat penting. Informasi dari panduan WHO dapat membantu individu, komunitas, dan pembuat kebijakan untuk mengambil tindakan preventif. Pemahaman bersama akan urgensi perlindungan kualitas udara dan perubahan gaya hidup yang berkelanjutan dapat membantu menciptakan lingkungan yang lebih bersih dan sehat.\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/a{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"a{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article With Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 404', () => {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Artikel tidak ditemukan');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": {{newTitle}},\r\n    \"image_url\": {{newImageURL}},\r\n    \"overview\": {{newOverview}},\r\n    \"content\": {\r\n        \"sections\": [\r\n            {\r\n                \"title\": {{newSectionTitle}},\r\n                \"image_url\": {{newSectionImageURL}},\r\n                \"paragraph\": {{newSectionParagraph}},\r\n                \"list\": {{newSectionList}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/xxxxx",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"xxxxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article with Correct Id Without Key Query Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 401', () => {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Unauthorized. Key tidak valid.');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article with Invalid Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 404', () => {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('error');\r",
+							"    pm.expect(responseJson.error).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('fail');\r",
+							"    pm.expect(responseJson.error.message).to.equals('Artikel tidak ditemukan');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/xxxxx",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"xxxxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article with Correct Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('response header Content-Type should be application/json', () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should be an object', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"pm.test('response body should have correct property and value', () => {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseJson).to.haveOwnProperty('status');\r",
+							"    pm.expect(responseJson).to.haveOwnProperty('message');\r",
+							"\r",
+							"    pm.expect(responseJson.status).to.equals('success');\r",
+							"    pm.expect(responseJson.message).to.equals('Artikel berhasil dihapus');\r",
+							"});\r",
+							"\r",
+							"pm.test('when get detail books', () => {\r",
+							"    pm.sendRequest(`${pm.environment.get('api_url')}${pm.environment.get('port')}/articles/${pm.environment.get('articleId')}`, (error, response) => {\r",
+							"       pm.test('The book should be not found', () => {\r",
+							"          pm.expect(response.code).to.equals(404);\r",
+							"       }); \r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}{{port}}/articles/{{articleId}}",
+					"host": [
+						"{{api_url}}{{port}}"
+					],
+					"path": [
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"",
+					""
+				]
+			}
+		}
+	]
+}
