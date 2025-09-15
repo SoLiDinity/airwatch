@@ -49,9 +49,9 @@ Read the latest and in-depth articles to gain a better understanding of air qual
 <br>
 
 ## Deployed Links
-- ### [💻 Front-End]([https://airwatchid.site](https://airwatchid-front-end.vercel.app/))
-- ### [💽 Back-End]([https://blogs-api.airwatchid.site](https://airwatchid-back-end.vercel.app/))
-- ### [📃 Back-End Documentation]([https://blogs-api-docs.airwatchid.site](https://airwatchid-back-end-docs.vercel.app/))
+- ### [💻 Front-End](https://airwatchid-front-end.vercel.app/)
+- ### [💽 Back-End](https://airwatchid-back-end.vercel.app/)
+- ### [📃 Back-End Documentation](https://airwatchid-back-end-docs.vercel.app/)
 
 <br>
 
