@@ -86,6 +86,7 @@ class DataSource {
 
   static async summaryIdnAqi() {
     const allIndonesiaAqi = await this.allIndonesiaStationsData();
+
     const promises = allIndonesiaAqi.map(station => this.stationDetail(station.uid, false));
 
     const allAqiData = await Promise.all(promises);
@@ -93,7 +94,7 @@ class DataSource {
     const validFilteredAqiData = allAqiData.filter(
       stationDetailData =>
         stationDetailData &&
-        stationDetailData.attributions[0]?.url === 'http://www.bmkg.go.id/' &&
+        stationDetailData.attributions[0]?.url === 'https://www.menlhk.go.id/' &&
         stationDetailData.aqi !== null,
     );
 
@@ -107,11 +108,11 @@ class DataSource {
       0,
     );
 
-    const latestUpdate = Math.max(
+    const latestUpdate = Math.min(
       ...validFilteredAqiData.map(station => new Date(station.time.s).getTime()),
     );
     const latestUpdateDate = new Date(latestUpdate);
-
+    
     const currentDate = new Date();
     const timeDifference = currentDate - latestUpdateDate;
     const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
